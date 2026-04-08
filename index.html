@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayPrep — Plan it. Prep it. Play.</title>
+  <meta name="description" content="The activity planner for parents, teachers, and homeschoolers. Organize crafts, field trips, and learning activities in one beautiful app." />
+  <meta property="og:title" content="PlayPrep — Plan it. Prep it. Play." />
+  <meta property="og:description" content="The activity planner for parents, teachers, and homeschoolers." />
+  <meta property="og:image" content="logo.png" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1A2744;
+      --navy2:  #0F1A32;
+      --amber:  #D97706;
+      --amber2: #F59E0B;
+      --cream:  #FAF8F3;
+      --white:  #FFFFFF;
+      --muted:  #64748B;
+      --border: #E2E8F0;
+      --sage:   #2D8A5E;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(26, 39, 68, 0.96);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 8px; }
+    .nav-logo span {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--white);
+    }
+    .nav-logo span em { color: var(--amber); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 14px; font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+    .nav-cta {
+      background: var(--amber); color: var(--navy) !important;
+      padding: 9px 20px; border-radius: 999px;
+      font-weight: 600 !important; transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--amber2) !important; color: var(--navy) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(217,119,6,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-star {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(217,119,6,0.08);
+      animation: pulse 6s ease-in-out infinite;
+    }
+    .hero-star:nth-child(1) { width: 600px; height: 600px; top: -200px; right: -100px; animation-delay: 0s; }
+    .hero-star:nth-child(2) { width: 400px; height: 400px; bottom: -100px; left: -100px; animation-delay: 2s; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.7; }
+    }
+
+    .hero-logo {
+      width: 100px; height: 100px; border-radius: 22px;
+      margin-bottom: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: floatIn 0.8s ease-out both;
+    }
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(217,119,6,0.15);
+      border: 1px solid rgba(217,119,6,0.3);
+      color: var(--amber2); font-size: 12px; font-weight: 600;
+      padding: 5px 14px; border-radius: 999px;
+      margin-bottom: 20px; letter-spacing: 0.5px;
+      animation: floatIn 0.8s ease-out 0.1s both;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 900; line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 20px;
+      animation: floatIn 0.8s ease-out 0.2s both;
+    }
+    .hero h1 em { color: var(--amber); font-style: normal; }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      color: rgba(255,255,255,0.7);
+      max-width: 560px; line-height: 1.6;
+      margin-bottom: 40px;
+      animation: floatIn 0.8s ease-out 0.3s both;
+    }
+
+    .hero-actions {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      animation: floatIn 0.8s ease-out 0.4s both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--amber); color: var(--navy);
+      padding: 15px 28px; border-radius: 999px;
+      font-weight: 700; font-size: 16px; text-decoration: none;
+      transition: all 0.2s; box-shadow: 0 8px 24px rgba(217,119,6,0.35);
+    }
+    .btn-primary:hover { background: var(--amber2); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(217,119,6,0.45); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.1); color: var(--white);
+      padding: 15px 28px; border-radius: 999px;
+      font-weight: 600; font-size: 16px; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+
+    .hero-tagline {
+      margin-top: 48px;
+      color: rgba(255,255,255,0.35);
+      font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+      animation: floatIn 0.8s ease-out 0.5s both;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px); font-weight: 900;
+      line-height: 1.1; color: var(--navy); margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--muted); line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* ── WHO IT'S FOR ── */
+    .for-section { background: var(--white); }
+    .for-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px; margin-top: 56px;
+    }
+    .for-card {
+      background: var(--cream);
+      border-radius: 20px; padding: 32px 24px;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .for-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,39,68,0.1); }
+    .for-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: var(--navy); display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 18px;
+    }
+    .for-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .for-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── FEATURES ── */
+    .features-section { background: var(--cream); }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px; margin-top: 56px;
+    }
+    .feature-card {
+      background: var(--white); border-radius: 20px;
+      padding: 32px; border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,39,68,0.08); }
+    .feature-card.highlight {
+      background: var(--navy); border-color: var(--navy);
+    }
+    .feature-card.highlight h3,
+    .feature-card.highlight p { color: var(--white); }
+    .feature-card.highlight p { color: rgba(255,255,255,0.7); }
+    .feature-emoji { font-size: 32px; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+    .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* ── PRICING ── */
+    .pricing-section { background: var(--white); }
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; margin-top: 56px; max-width: 720px;
+    }
+    .plan-card {
+      border-radius: 24px; padding: 36px; border: 1px solid var(--border);
+      background: var(--cream);
+    }
+    .plan-card.pro {
+      background: var(--navy); border-color: var(--navy);
+      position: relative; overflow: hidden;
+    }
+    .plan-card.pro::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(217,119,6,0.2), transparent 70%);
+    }
+    .plan-badge {
+      display: inline-block;
+      background: var(--amber); color: var(--navy);
+      font-size: 10px; font-weight: 800; letter-spacing: 1px;
+      padding: 3px 10px; border-radius: 999px;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .plan-name { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .plan-card.pro .plan-name { color: rgba(255,255,255,0.6); }
+    .plan-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px; font-weight: 900; color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .plan-card.pro .plan-price { color: var(--white); }
+    .plan-period { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+    .plan-card.pro .plan-period { color: rgba(255,255,255,0.5); }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .plan-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--navy); line-height: 1.5;
+    }
+    .plan-card.pro .plan-features li { color: rgba(255,255,255,0.85); }
+    .plan-features li::before {
+      content: '✓'; color: var(--sage); font-weight: 700;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .plan-card.pro .plan-features li::before { color: var(--amber2); }
+
+    /* ── SCREENSHOTS placeholder ── */
+    .screenshots-section { background: var(--navy); padding: 100px 24px; }
+    .screenshots-section .section-title { color: var(--white); }
+    .screenshots-section .section-sub { color: rgba(255,255,255,0.6); }
+    .screenshots-placeholder {
+      margin-top: 56px;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .screenshot-frame {
+      width: 200px; height: 360px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.2); font-size: 13px; font-weight: 500;
+      text-align: center; padding: 20px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy2);
+      padding: 60px 24px 40px;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; gap: 40px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 12px; }
+    .footer-brand p { color: rgba(255,255,255,0.45); font-size: 13px; line-height: 1.6; max-width: 260px; }
+    .footer-links h4 { color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+    .footer-links a { display: block; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--amber); }
+    .footer-bottom {
+      max-width: 1100px; margin: 40px auto 0;
+      padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+    }
+    .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 12px; }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--amber); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      section { padding: 72px 20px; }
+      .hero { padding: 100px 20px 72px; }
+      .pricing-grid { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="logo.png" alt="PlayPrep logo" />
+    <span>Play<em>Prep</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="mailto:PlayPrepApp@gmail.com">Contact</a>
+    <a href="#download" class="nav-cta">Download</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-star"></div>
+  <div class="hero-star"></div>
+
+  <img src="logo.png" alt="PlayPrep" class="hero-logo" />
+
+  <div class="hero-badge">✦ Now available on iOS</div>
+
+  <h1>The <em>activity planner</em><br/>for hands-on families</h1>
+
+  <p class="hero-sub">
+    Organize crafts, field trips, and learning activities in one place.
+    Built for parents, teachers, and homeschoolers who love doing things together.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#download" class="btn-primary" id="download">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
+    <a href="#features" class="btn-secondary">See what's inside →</a>
+  </div>
+
+  <p class="hero-tagline">Plan it · Prep it · Play</p>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="for-section">
+  <div class="container">
+    <p class="section-label">Who it's for</p>
+    <h2 class="section-title">Made for the people<br/>who make learning happen</h2>
+    <p class="section-sub">Whether you're planning a rainy-day craft, a nature walk, or a month of homeschool curriculum — PlayPrep keeps it all in one place.</p>
+
+    <div class="for-grid">
+      <div class="for-card">
+        <div class="for-icon">👨‍👩‍👧</div>
+        <h3>Parents</h3>
+        <p>Stop scrolling Pinterest at 10pm. Save activities, check your supplies, and actually do more of what you pin.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">🏫</div>
+        <h3>Teachers</h3>
+        <p>Build a personal activity library, plan your week, and track what supplies you need — all without another spreadsheet.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">📚</div>
+        <h3>Homeschoolers</h3>
+        <p>Plan multi-week curriculum, organize field trips, and keep a record of every project your kids complete.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">✨</div>
+        <h3>Activity Lovers</h3>
+        <p>If you collect activity ideas the way others collect recipes — PlayPrep is your recipe manager for play.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="container">
+    <p class="section-label">Features</p>
+    <h2 class="section-title">Everything you need,<br/>nothing you don't</h2>
+    <p class="section-sub">PlayPrep is focused. It does one thing well: helps you find, save, and actually do great activities with kids.</p>
+
+    <div class="features-grid">
+      <div class="feature-card highlight">
+        <div class="feature-emoji">📚</div>
+        <h3>Activity Library</h3>
+        <p>Save activities from anywhere — paste a URL, enter manually, or browse the built-in PlayPrep Library of 50+ curated activities for every age group.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-emoji">🧺</div>
+        <h3>Supply Closet</h3>
+        <p>Track what craft supplies you have on hand. PlayPrep automatically shows you which activities you can do right now with what you've got.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-emoji">📅</div>
+        <h3>Activity Planner</h3>
+        <p>Schedule activities for specific days, set up recurring events, and see your week at a glance. Your plan shows up right on the home screen.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-emoji">🗺️</div>
+        <h3>Places & Field Trips</h3>
+        <p>Save museums, parks, nature centers, and anywhere else you love to take kids. Track which places you've visited and which are on your wish list.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-emoji">🗂️</div>
+        <h3>Collections</h3>
+        <p>Group activities into themed collections — "Summer bucket list," "Fine motor skills," "Holiday crafts." Smart collections build themselves automatically.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-emoji">🛒</div>
+        <h3>Shopping List</h3>
+        <p>Missing supplies for an activity? Add them to your shopping list in one tap. Track quantities, check off items in the store, and add directly to your closet.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-emoji">✦</div>
+        <h3>Spark AI</h3>
+        <p>Describe what you're looking for and Spark suggests activities tailored to your kids' ages, your supplies, and your interests. No more blank-page moments.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-emoji">▶️</div>
+        <h3>Play Mode</h3>
+        <p>Step-by-step guidance as you do the activity. See supply lists, instructions, tips, and step photos — all hands-free while you're in the middle of crafting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS (placeholder) -->
+<section class="screenshots-section">
+  <div class="container">
+    <p class="section-label" style="color: var(--amber);">See it in action</p>
+    <h2 class="section-title">Screenshots coming soon</h2>
+    <p class="section-sub">We're putting the finishing touches on our app store screenshots. Check back soon!</p>
+    <div class="screenshots-placeholder">
+      <div class="screenshot-frame">Home Screen</div>
+      <div class="screenshot-frame">Activity Library</div>
+      <div class="screenshot-frame">Play Mode</div>
+      <div class="screenshot-frame">Supply Closet</div>
+      <div class="screenshot-frame">Collections</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title">Simple, honest pricing</h2>
+    <p class="section-sub">Start free. Upgrade when you're ready for more.</p>
+
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">$0</div>
+        <p class="plan-period">Always free, no credit card</p>
+        <ul class="plan-features">
+          <li>Up to 50 activities</li>
+          <li>Up to 5 collections</li>
+          <li>Supply closet & shopping list</li>
+          <li>Activity planner</li>
+          <li>Places & field trips</li>
+          <li>PlayPrep Library (50+ activities)</li>
+          <li>Play mode</li>
+        </ul>
+      </div>
+      <div class="plan-card pro">
+        <div class="plan-badge">Pro</div>
+        <div class="plan-name">PlayPrep Pro</div>
+        <div class="plan-price">Coming<br/><span style="font-size:28px">Soon</span></div>
+        <p class="plan-period">Unlimited everything</p>
+        <ul class="plan-features">
+          <li>Unlimited activities & collections</li>
+          <li>Cloud backup & sync</li>
+          <li>Spark AI — unlimited suggestions</li>
+          <li>URL import from any website</li>
+          <li>Map view for places</li>
+          <li>Sub-folders & advanced collections</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="nav-logo" href="/">
+        <img src="logo.png" alt="PlayPrep logo" />
+        <span style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:white;">Play<em style="color:var(--amber); font-style:normal;">Prep</em></span>
+      </a>
+      <p>The activity planner for parents, teachers, and homeschoolers. Plan it. Prep it. Play.</p>
+    </div>
+    <div class="footer-links">
+      <h4>App</h4>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#download">Download</a>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 PlayPrep. All rights reserved.</p>
+    <div style="display:flex; gap:16px;">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
