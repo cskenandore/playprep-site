@@ -132,25 +132,23 @@
       font-size: 28px; font-weight: 900; color: white; margin-bottom: 12px;
     }
     .feedback-card p { color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
-    .feedback-card a {
+    .feedback-btn {
       display: inline-block;
       background: var(--amber); color: var(--navy);
       padding: 13px 28px; border-radius: 999px;
       font-weight: 700; font-size: 15px; text-decoration: none;
       transition: background 0.2s;
     }
-    .feedback-card a:hover { background: var(--amber2); }
-  .feedback-methods {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-top: 24px;
-  text-align: left;
-}
-.feedback-method {
-  background: rgba(255,255,255,0.08); border-radius: 12px;
-  padding: 16px 20px;
-}
+    .feedback-btn:hover { background: var(--amber2); }
+    .feedback-method a { color: var(--amber2); font-weight: 600; text-decoration: underline; background: none; padding: 0; border-radius: 0; display: inline; box-shadow: none; }
+    .feedback-methods {
+      display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
+      margin-top: 24px;
+    }
+    .feedback-method {
+      background: rgba(255,255,255,0.08); border-radius: 12px;
+      padding: 16px 20px; text-align: left; min-width: 200px;
+    }
     .feedback-method h4 { color: var(--amber2); font-size: 13px; font-weight: 700; margin-bottom: 4px; }
     .feedback-method p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.5; margin: 0; }
 
@@ -345,7 +343,7 @@
   <div class="feedback-card">
     <h2>Ready to download?</h2>
     <p>Tap the button below to install PlayPrep via TestFlight. You'll need the free TestFlight app installed on your iPhone first — the link will walk you through it.</p>
-    <a href="https://testflight.apple.com/join/ZUR1AtbG">Download on TestFlight →</a>
+    <a href="https://testflight.apple.com/join/ZUR1AtbG" class="feedback-btn">Download on TestFlight →</a>
     <div style="margin-top: 20px; background: rgba(255,255,255,0.06); border-radius: 12px; padding: 16px 20px; display: inline-block;">
       <p style="color: rgba(255,255,255,0.5); font-size: 12px; margin: 0; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 700; margin-bottom: 6px;">Public invite link</p>
       <p style="color: var(--amber2); font-size: 14px; font-weight: 600; margin: 0; font-family: monospace;">testflight.apple.com/join/ZUR1AtbG</p>
