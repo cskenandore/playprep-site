@@ -140,14 +140,17 @@
       transition: background 0.2s;
     }
     .feedback-card a:hover { background: var(--amber2); }
-    .feedback-methods {
-      display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
-      margin-top: 24px;
-    }
-    .feedback-method {
-      background: rgba(255,255,255,0.08); border-radius: 12px;
-      padding: 16px 20px; text-align: left; min-width: 200px;
-    }
+  .feedback-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  text-align: left;
+}
+.feedback-method {
+  background: rgba(255,255,255,0.08); border-radius: 12px;
+  padding: 16px 20px;
+}
     .feedback-method h4 { color: var(--amber2); font-size: 13px; font-weight: 700; margin-bottom: 4px; }
     .feedback-method p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.5; margin: 0; }
 
