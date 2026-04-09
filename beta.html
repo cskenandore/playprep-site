@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beta Testing — PlayPrep</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1A2744; --navy2: #0F1A32; --amber: #D97706; --amber2: #F59E0B;
+      --cream: #FAF8F3; --white: #FFFFFF; --muted: #64748B; --border: #E2E8F0;
+      --sage: #2D8A5E; --sageLt: #DCFCE7; --red: #DC2626;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px; background: var(--navy);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 7px; }
+    .nav-logo span { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: white; }
+    .nav-logo span em { color: var(--amber); font-style: normal; }
+    .nav-back { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-back:hover { color: var(--amber); }
+
+    .hero {
+      background: var(--navy);
+      padding: 72px 24px 64px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(217,119,6,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .beta-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(217,119,6,0.15); border: 1px solid rgba(217,119,6,0.3);
+      color: var(--amber2); font-size: 12px; font-weight: 700;
+      padding: 5px 14px; border-radius: 999px;
+      margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 56px); font-weight: 900;
+      color: white; margin-bottom: 16px; line-height: 1.1;
+    }
+    .hero h1 em { color: var(--amber); font-style: normal; }
+    .hero p { color: rgba(255,255,255,0.65); font-size: 17px; line-height: 1.6; max-width: 580px; margin: 0 auto 32px; }
+
+    .testflight-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--amber); color: var(--navy);
+      padding: 14px 28px; border-radius: 999px;
+      font-weight: 700; font-size: 16px; text-decoration: none;
+      transition: all 0.2s; box-shadow: 0 8px 24px rgba(217,119,6,0.3);
+    }
+    .testflight-btn:hover { background: var(--amber2); transform: translateY(-2px); }
+
+    .content { max-width: 860px; margin: 0 auto; padding: 72px 24px 100px; }
+
+    .intro-card {
+      background: var(--white); border-radius: 20px;
+      padding: 36px; border: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .intro-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 12px;
+    }
+    .intro-card p { font-size: 15px; color: #334155; line-height: 1.75; margin-bottom: 12px; }
+    .intro-card p:last-child { margin-bottom: 0; }
+
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--amber); margin-bottom: 16px;
+    }
+    h2.section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 900; color: var(--navy);
+      margin-bottom: 24px; padding-bottom: 12px;
+      border-bottom: 2px solid var(--amber);
+    }
+
+    .feature-block { margin-bottom: 40px; }
+    .feature-block h3 {
+      font-size: 18px; font-weight: 700; color: var(--navy);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+    }
+    .feature-block h3 span { font-size: 22px; }
+    .feature-block p { font-size: 15px; color: #334155; line-height: 1.7; margin-bottom: 10px; }
+    .test-list { list-style: none; margin: 0; padding: 0; }
+    .test-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: #334155; line-height: 1.6;
+      padding: 8px 0; border-bottom: 1px solid var(--border);
+    }
+    .test-list li:last-child { border-bottom: none; }
+    .test-list li::before {
+      content: '→'; color: var(--amber); font-weight: 700;
+      flex-shrink: 0; margin-top: 1px;
+    }
+
+    .known-issues {
+      background: #FEF3C7; border: 1px solid #FDE68A;
+      border-radius: 16px; padding: 28px; margin: 40px 0;
+    }
+    .known-issues h3 {
+      font-size: 16px; font-weight: 700; color: #92400E; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .known-issues ul { list-style: none; padding: 0; }
+    .known-issues ul li {
+      font-size: 14px; color: #78350F; line-height: 1.6;
+      padding: 5px 0 5px 20px; position: relative;
+    }
+    .known-issues ul li::before { content: '⚠'; position: absolute; left: 0; }
+
+    .feedback-card {
+      background: var(--navy); border-radius: 20px; padding: 40px;
+      margin-top: 48px; text-align: center;
+    }
+    .feedback-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 900; color: white; margin-bottom: 12px;
+    }
+    .feedback-card p { color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+    .feedback-card a {
+      display: inline-block;
+      background: var(--amber); color: var(--navy);
+      padding: 13px 28px; border-radius: 999px;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .feedback-card a:hover { background: var(--amber2); }
+    .feedback-methods {
+      display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
+      margin-top: 24px;
+    }
+    .feedback-method {
+      background: rgba(255,255,255,0.08); border-radius: 12px;
+      padding: 16px 20px; text-align: left; min-width: 200px;
+    }
+    .feedback-method h4 { color: var(--amber2); font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .feedback-method p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.5; margin: 0; }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+    footer { background: var(--navy2); padding: 32px 24px; text-align: center; }
+    footer p { color: rgba(255,255,255,0.3); font-size: 13px; }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; margin: 0 10px; }
+    footer a:hover { color: var(--amber); }
+
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .intro-card { padding: 24px; }
+      .feedback-card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="logo.png" alt="PlayPrep" />
+    <span>Play<em>Prep</em></span>
+  </a>
+  <a class="nav-back" href="/">← Back to home</a>
+</nav>
+
+<div class="hero">
+  <div class="beta-badge">✦ Beta Program</div>
+  <h1>Help us shape<br/><em>PlayPrep</em></h1>
+  <p>You're one of the first people to use PlayPrep. Your feedback will directly shape the app before it launches publicly. Thank you for being here.</p>
+  <a href="https://testflight.apple.com/join/ZUR1AtbG" class="testflight-btn">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    Download on TestFlight
+  </a>
+</div>
+
+<div class="content">
+
+  <div class="intro-card">
+    <h2>Welcome to the PlayPrep Beta 👋</h2>
+    <p>PlayPrep is an activity planner built for parents, teachers, and homeschoolers. Think of it as a recipe manager for kids' activities — save crafts, field trips, and learning activities, track your supplies, and plan your week all in one place.</p>
+    <p>This is an early beta. Most core features are working, and we want to know what feels great, what's confusing, and what's missing. There are no wrong answers — your honest reaction is exactly what we need.</p>
+    <p><strong>How long will testing take?</strong> As little as 15 minutes to try the basics, or as long as a week if you want to really put it through its paces. Both are helpful.</p>
+  </div>
+
+  <p class="section-label">Getting started</p>
+  <h2 class="section-title">First steps</h2>
+
+  <div class="feature-block">
+    <h3><span>🚀</span> Onboarding</h3>
+    <p>When you first open the app, you'll go through a short onboarding flow that asks about the ages of your kids and your interests. This helps PlayPrep suggest relevant activities to get you started.</p>
+    <ul class="test-list">
+      <li>Does onboarding feel smooth and quick?</li>
+      <li>Are the age group and interest options relevant to you?</li>
+      <li>After onboarding, does the home screen feel personalized and useful?</li>
+    </ul>
+  </div>
+
+  <hr class="divider" />
+
+  <p class="section-label">Core features to test</p>
+  <h2 class="section-title">What to try</h2>
+
+  <div class="feature-block">
+    <h3><span>📚</span> PlayPrep Library & My Library</h3>
+    <p>Browse 50+ curated activities in the PlayPrep Library (tap Discover → PlayPrep Library). Add activities you like to your personal library to save, edit, and customize them.</p>
+    <ul class="test-list">
+      <li>Browse the library — do the activities feel age-appropriate and useful?</li>
+      <li>Try filtering by age group, category, environment, and prep time</li>
+      <li>Add 2–3 activities to your library using the + button</li>
+      <li>Open an activity you saved — tap "Edit" and change the title, age group, or add a supply</li>
+      <li>Add a cover photo to one of your activities</li>
+      <li>Does the activity card in your library update to show your changes?</li>
+    </ul>
+  </div>
+
+  <div class="feature-block">
+    <h3><span>➕</span> Add Your Own Activity</h3>
+    <p>Tap the center + button → Add Activity to create your own activity from scratch. You can enter it manually or (on Pro) import from a URL.</p>
+    <ul class="test-list">
+      <li>Create a simple activity manually — add a title, category, age group, and 2–3 steps</li>
+      <li>Add supplies to the activity</li>
+      <li>Add a cover photo</li>
+      <li>Save it — does it appear correctly in your library?</li>
+      <li>Go back and edit it — do your changes save?</li>
+    </ul>
+  </div>
+
+  <div class="feature-block">
+    <h3><span>🧺</span> Supply Closet & Shopping List</h3>
+    <p>The Supply Closet tracks craft supplies you have at home. PlayPrep uses it to tell you which activities you can do right now.</p>
+    <ul class="test-list">
+      <li>Add 5–10 supplies to your closet (tap the Supplies tab → + Add Supply)</li>
+      <li>Go back to the Library tab — does it show "Ready now" activities that match your supplies?</li>
+      <li>From an activity, tap the supply toggle to see which supplies you have or need</li>
+      <li>Add missing supplies to your shopping list</li>
+      <li>Open the shopping list (Plan tab → Shopping List) — are items listed correctly?</li>
+      <li>Check off items in the shopping list — does the "Add to Closet" option work?</li>
+    </ul>
+  </div>
+
+  <div class="feature-block">
+    <h3><span>▶️</span> Play Mode</h3>
+    <p>When you're ready to do an activity, tap "Play Mode" on the activity detail screen for step-by-step guidance.</p>
+    <ul class="test-list">
+      <li>Open any activity and tap Play Mode</li>
+      <li>Step through all the instructions — are they easy to follow?</li>
+      <li>Does the supply list appear at the right step?</li>
+      <li>Try logging the activity at the end — does it ask about supply usage?</li>
+    </ul>
+  </div>
+
+  <div class="feature-block">
+    <h3><span>📅</span> Planning</h3>
+    <p>The Plan tab lets you schedule activities for specific days and see your upcoming week.</p>
+    <ul class="test-list">
+      <li>Add an activity to today's date in the Plan tab</li>
+      <li>Go to the Home screen — does it appear in the "On Your Plan" section?</li>
+      <li>Add something for tomorrow too</li>
+      <li>Try the shopping list view in the Plan tab</li>
+    </ul>
+  </div>
+
+  <div class="feature-block">
+    <h3><span>🗂️</span> Collections</h3>
+    <p>Collections let you group activities by theme, season, skill, or any other way that makes sense to you.</p>
+    <ul class="test-list">
+      <li>Create a new collection (tap + → Add Collection)</li>
+      <li>Add 3–4 activities to it</li>
+      <li>Check the smart collections in the Collections tab — do they populate with relevant activities?</li>
+      <li>Try saving a smart collection to your library</li>
+    </ul>
+  </div>
+
+  <div class="feature-block">
+    <h3><span>🗺️</span> Places</h3>
+    <p>Save museums, parks, nature centers, and anywhere else you love to take kids.</p>
+    <ul class="test-list">
+      <li>Add a place (tap + → Add Place)</li>
+      <li>Mark its status: want to visit, visited, or favorite</li>
+      <li>Add some details: hours, website, age range</li>
+      <li>Does the place card look right in your library?</li>
+    </ul>
+  </div>
+
+  <div class="feature-block">
+    <h3><span>✦</span> Spark AI</h3>
+    <p>Spark is our AI assistant that suggests activities based on what you're looking for. Tap Discover → Ask Spark.</p>
+    <ul class="test-list">
+      <li>Ask Spark for activity ideas — try something specific like "outdoor activities for a 4-year-old with no supplies needed"</li>
+      <li>Do the suggestions feel relevant and useful?</li>
+      <li>Try saving a Spark suggestion to your library</li>
+      <li>Is the response speed acceptable?</li>
+    </ul>
+  </div>
+
+  <hr class="divider" />
+
+  <p class="section-label">Things we especially want to know</p>
+  <h2 class="section-title">Focus areas</h2>
+
+  <div class="feature-block">
+    <h3><span>🤔</span> Overall clarity</h3>
+    <ul class="test-list">
+      <li>Did you understand what the app does within the first 2 minutes?</li>
+      <li>Was there anything you couldn't figure out without help?</li>
+      <li>Did any labels, buttons, or flows feel confusing or misnamed?</li>
+      <li>Is there anything you expected to find that wasn't there?</li>
+    </ul>
+  </div>
+
+  <div class="feature-block">
+    <h3><span>💾</span> Data persistence</h3>
+    <ul class="test-list">
+      <li>Close the app completely and reopen it — is all your data still there?</li>
+      <li>Edit an activity, leave the app, come back — are your edits saved?</li>
+      <li>Add a cover photo — does it still show after closing and reopening?</li>
+    </ul>
+  </div>
+
+  <div class="feature-block">
+    <h3><span>📱</span> Performance & feel</h3>
+    <ul class="test-list">
+      <li>Does the app feel fast and responsive?</li>
+      <li>Any screens that are slow to load?</li>
+      <li>Any crashes or unexpected behavior?</li>
+      <li>Does it feel polished enough to recommend to a friend?</li>
+    </ul>
+  </div>
+
+  <div class="known-issues">
+    <h3>⚠️ Known limitations in this beta</h3>
+    <ul>
+      <li>URL import (paste a link to auto-fill an activity) is a Pro feature — not available in the free tier yet</li>
+      <li>Cloud backup and sync is not yet available — all data is stored locally on your device</li>
+      <li>Spark AI has a usage limit on the free tier</li>
+      <li>Map view for Places is a Pro feature coming soon</li>
+      <li>Some settings screens show "coming soon" features that are in development</li>
+      <li>Pro subscription purchasing is not yet active — everything is free during the beta</li>
+    </ul>
+  </div>
+
+  <div class="feedback-card">
+    <h2>Send us your feedback</h2>
+    <p>Every piece of feedback — big or small — goes directly to the developer and gets read. You can send feedback any time during your testing.</p>
+    <a href="mailto:PlayPrepApp@gmail.com?subject=PlayPrep Beta Feedback">Email your feedback →</a>
+    <div class="feedback-methods">
+      <div class="feedback-method">
+        <h4>📧 Email</h4>
+        <p>PlayPrepApp@gmail.com<br/>Include "Beta Feedback" in the subject</p>
+      </div>
+      <div class="feedback-method">
+        <h4>📱 In TestFlight</h4>
+        <p>Screenshot anything in the app and tap "Share feedback" — it sends directly to us</p>
+      </div>
+      <div class="feedback-method">
+        <h4>🐛 Found a bug?</h4>
+        <p>Tell us what you were doing, what happened, and what you expected to happen</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>
+    © 2026 PlayPrep.
+    <a href="/">Home</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Service</a>
+  </p>
+</footer>
+
+</body>
+</html>
