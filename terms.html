@@ -4,84 +4,165 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Service — PlayPrep</title>
-  <link rel="icon" type="image/png" href="logo.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy: #1A2744; --navy2: #0F1A32; --amber: #D97706; --amber2: #F59E0B;
-      --cream: #FAF8F3; --white: #FFFFFF; --muted: #64748B; --border: #E2E8F0;
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1A2744;
+      background: #F7F4EE;
     }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); }
+
     nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 40px; background: var(--navy);
+      background: #1A2744;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo img { width: 32px; height: 32px; border-radius: 7px; }
-    .nav-logo span { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: white; }
-    .nav-logo span em { color: var(--amber); font-style: normal; }
-    .nav-back { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
-    .nav-back:hover { color: var(--amber); }
 
-    .legal-hero { background: var(--navy); padding: 64px 24px 56px; text-align: center; }
-    .legal-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: white; margin-bottom: 12px; }
-    .legal-hero p { color: rgba(255,255,255,0.5); font-size: 15px; }
-
-    .legal-body { max-width: 760px; margin: 0 auto; padding: 72px 24px 100px; }
-    .legal-body h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px; font-weight: 700; color: var(--navy);
-      margin: 48px 0 14px; padding-bottom: 10px;
-      border-bottom: 2px solid var(--amber);
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .legal-body h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin: 28px 0 10px; }
-    .legal-body p { font-size: 15px; color: #334155; line-height: 1.75; margin-bottom: 14px; }
-    .legal-body ul { margin: 10px 0 18px 0; padding-left: 0; list-style: none; }
-    .legal-body ul li {
-      font-size: 15px; color: #334155; line-height: 1.7;
-      padding: 6px 0 6px 24px; position: relative;
+
+    .nav-logo img { width: 28px; height: 28px; }
+    .nav-logo span { color: #F5A623; }
+
+    .nav-back {
+      color: #F5A623;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
     }
-    .legal-body ul li::before { content: '→'; position: absolute; left: 0; color: var(--amber); font-weight: 700; }
-    .contact-box { background: var(--navy); border-radius: 16px; padding: 32px; margin-top: 48px; }
-    .contact-box p { color: rgba(255,255,255,0.8); margin-bottom: 8px; }
-    .contact-box a { color: var(--amber2); text-decoration: none; font-weight: 600; }
-    .contact-box a:hover { text-decoration: underline; }
 
-    footer { background: var(--navy2); padding: 32px 24px; text-align: center; }
-    footer p { color: rgba(255,255,255,0.3); font-size: 13px; }
-    footer a { color: rgba(255,255,255,0.4); text-decoration: none; margin: 0 10px; }
-    footer a:hover { color: var(--amber); }
+    .nav-back:hover { text-decoration: underline; }
 
-    @media (max-width: 640px) { nav { padding: 14px 20px; } }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #1A2744;
+      margin-bottom: 6px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #7B8497;
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(26,39,68,0.12);
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #1A2744;
+      margin: 36px 0 12px;
+    }
+
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1A2744;
+      margin: 20px 0 8px;
+    }
+
+    p { margin-bottom: 14px; color: #2D3748; }
+
+    ul, ol {
+      margin: 10px 0 14px 24px;
+      color: #2D3748;
+    }
+
+    li { margin-bottom: 6px; }
+
+    .callout {
+      background: #fff;
+      border-left: 4px solid #F5A623;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 14px;
+      color: #1A2744;
+    }
+
+    .callout strong { display: block; margin-bottom: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    th {
+      background: #1A2744;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(26,39,68,0.1);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td { background: rgba(26,39,68,0.03); }
+
+    a { color: #1E40AF; }
+    a:hover { text-decoration: underline; }
+
+    footer {
+      background: #1A2744;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+    }
+
+    footer a { color: #F5A623; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer .footer-links { margin-top: 8px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="/">
-   <img src="star-icon.png" alt="PlayPrep" />
-    <span>Play<em>Prep</em></span>
+  <a class="nav-logo" href="https://playprep.app/">
+    <img src="https://playprep.app/star-icon.png" alt="PlayPrep" />
+    Play<span>Prep</span>
   </a>
-  <a class="nav-back" href="/">← Back to home</a>
+  <a class="nav-back" href="https://playprep.app/">← Back to home</a>
 </nav>
 
-<div class="legal-hero">
+<main>
   <h1>Terms of Service</h1>
-  <p>Effective Date: April 8, 2026 &nbsp;·&nbsp; Contact: PlayPrepApp@gmail.com</p>
-</div>
-
-<div class="legal-body">
+  <p class="meta">Effective Date: May 12, 2026 &nbsp;·&nbsp; Contact: <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a></p>
 
   <p>Please read these Terms of Service carefully before using PlayPrep. By downloading, installing, or using the app, you agree to be bound by these terms.</p>
 
   <h2>1. Acceptance of Terms</h2>
-  <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and Cassandra Skenandore ("PlayPrep," "we," "us," or "our"), governing your use of the PlayPrep mobile application ("App"). If you do not agree to these Terms, do not use the App.</p>
+  <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and <strong>PlayPrep Labs LLC</strong>, an Indiana limited liability company ("PlayPrep," "we," "us," or "our"), governing your use of the PlayPrep mobile application and related services ("App"). If you do not agree to these Terms, do not use the App.</p>
 
   <h2>2. Eligibility</h2>
-  <p>You must be at least 13 years old to use PlayPrep. If you are under 18, you represent that a parent or legal guardian has reviewed and agreed to these Terms on your behalf. PlayPrep is designed for use by parents, educators, homeschoolers, and caregivers — not for use directly by young children.</p>
+  <p>You must be at least 13 years old to use PlayPrep. If you are under 18, you represent that a parent or legal guardian has reviewed and agreed to these Terms on your behalf. PlayPrep is designed for anyone who plans, organizes, or participates in activities — including parents, educators, homeschoolers, camp counselors, group leaders, and adult learners planning activities for groups of any age.</p>
 
   <h2>3. License to Use the App</h2>
   <p>Subject to your compliance with these Terms, PlayPrep grants you a limited, non-exclusive, non-transferable, revocable license to download and use the App for your personal, non-commercial purposes.</p>
@@ -91,94 +172,150 @@
     <li>Reverse engineer or attempt to extract the source code of the App</li>
     <li>Use the App for any unlawful purpose or in violation of any applicable laws</li>
     <li>Attempt to gain unauthorized access to any part of the App or its systems</li>
+    <li>Use automated tools, bots, or scrapers to access the App or its content</li>
   </ul>
 
-  <h2>4. Your Content</h2>
-  <h3>4.1 Content You Create</h3>
-  <p>You retain ownership of all content you create within PlayPrep, including activity descriptions, notes, photos, and plans ("Your Content"). By using the App, you grant PlayPrep a limited license to store and display Your Content solely for the purpose of providing the App's features to you.</p>
+  <h2>4. Your Account</h2>
+  <p>To access certain features, you must create an account. You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. Notify us immediately at <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a> if you suspect unauthorized access to your account.</p>
+  <p>You may sign in using your email and password, Apple Sign In, or Google OAuth. By using a third-party sign-in method, you authorize PlayPrep to receive basic profile information from that provider as described in our Privacy Policy.</p>
 
-  <h3>4.2 Imported Content & Third-Party Attribution</h3>
+  <h2>5. Your Content</h2>
+
+  <h3>5.1 Content You Create</h3>
+  <p>You retain ownership of all content you create within PlayPrep, including activity descriptions, notes, photos, plans, and participant profile data ("Your Content"). By using the App, you grant PlayPrep Labs LLC a limited, worldwide, royalty-free license to store, process, and display Your Content solely for the purpose of providing the App's features to you.</p>
+
+  <h3>5.2 Imported Content & Third-Party Attribution</h3>
   <p>PlayPrep allows you to import activity content from third-party URLs. When you use this feature:</p>
   <ul>
-    <li>The source URL is permanently attached to the imported content and cannot be removed. This preserves attribution to the original creator.</li>
+    <li>The source URL is permanently attached to the imported content to preserve attribution to the original creator.</li>
     <li>You are solely responsible for ensuring your use of third-party content complies with applicable copyright law and the original creator's terms of use.</li>
     <li>PlayPrep is a productivity tool. We do not host, endorse, or take responsibility for third-party content you choose to import.</li>
     <li>Do not import content if you do not have the right to use it.</li>
   </ul>
 
-  <h3>4.3 Photos & Media</h3>
-  <p>Photos you add to the App are stored locally on your device. You represent that you have the right to use any photos you add to the App. Do not add photos that contain nudity, violence, or content that violates any laws or the rights of others.</p>
+  <h3>5.3 Photos & Media</h3>
+  <p>Photos you add to the App may be stored on our servers. You represent that you have the right to use any photos you add. Do not add photos that contain nudity, violence, or content that violates any laws or the rights of others.</p>
 
-  <h2>5. Subscriptions & Payments</h2>
-  <h3>5.1 Free Tier</h3>
-  <p>PlayPrep offers a free version with a limited feature set, including up to 50 activities, 5 collections, and access to core planning features.</p>
+  <h3>5.4 Participant Profile Data</h3>
+  <p>You may enter participant profile information (including nicknames, birthdates, age groups, interests, and accessibility preferences) into PlayPrep for yourself or others in your group. You represent that you have the authority to enter such data — whether for your own profile, as a parent or guardian entering data for a minor in your care, or as an educator or group leader entering data for participants in a professional capacity. You are responsible for the accuracy of participant profile data you provide.</p>
 
-  <h3>5.2 Premium Subscription</h3>
-  <p>PlayPrep may offer a premium subscription ("PlayPrep Pro") that unlocks additional features. Premium subscriptions are billed through Apple's App Store. All billing, refunds, and subscription management are handled by Apple and subject to Apple's terms and policies.</p>
-  <p>By subscribing, you agree to pay the applicable subscription fee as displayed at the time of purchase, including auto-renewal terms as disclosed in the App Store listing.</p>
+  <h2>6. Subscriptions & Payments</h2>
 
-  <h3>5.3 Refunds</h3>
-  <p>Refund requests are handled by Apple. Please contact Apple Support or visit reportaproblem.apple.com to request a refund.</p>
+  <h3>6.1 Free Tier</h3>
+  <p>PlayPrep offers a free version with a limited feature set, including access to Personal mode, up to 50 saved activities, 5 collections, and core planning features.</p>
 
-  <h2>6. Acceptable Use</h2>
+  <h3>6.2 Pro Subscription</h3>
+  <p>PlayPrep Pro unlocks Family mode, up to 6 family profiles, calendar sync, and additional features. Subscription pricing is displayed at the time of purchase in the App Store or Google Play.</p>
+
+  <h3>6.3 Pro Plus Subscription</h3>
+  <p>PlayPrep Pro Plus unlocks all three modes (Personal, Family, and Group), up to 6 Family profiles and up to 8 Group profiles, collaboration features, and all Pro features. Subscription pricing is displayed at the time of purchase in the App Store or Google Play.</p>
+
+  <h3>6.4 Free Trial</h3>
+  <p>PlayPrep may offer a free trial period for Pro and Pro Plus. If you do not cancel before the trial ends, you will be charged the applicable subscription fee. Trial availability and length are as displayed at the time of offer.</p>
+
+  <h3>6.5 Billing & Renewal</h3>
+  <p>Subscriptions are billed through Apple's App Store or Google Play. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period. You can manage or cancel your subscription in your App Store or Google Play account settings.</p>
+
+  <h3>6.6 Price Changes</h3>
+  <p>We may change subscription prices at any time. Price changes will take effect at your next renewal period and we will notify you in advance.</p>
+
+  <h3>6.7 Refunds</h3>
+  <p>Refund requests are handled by Apple or Google, depending on where you purchased your subscription. Please contact Apple Support at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> or Google Play Support to request a refund.</p>
+
+  <h2>7. Affiliate Links</h2>
+
+  <div class="callout">
+    <strong>Affiliate Disclosure</strong>
+    PlayPrep participates in affiliate advertising programs. When you tap certain links in the app (such as supply shopping links), PlayPrep Labs LLC may earn a commission on qualifying purchases at no additional cost to you.
+  </div>
+
+  <h3>7.1 Amazon Associates</h3>
+  <p>PlayPrep is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for us to earn fees by linking to Amazon.com and affiliated sites. Supply and product links may include our affiliate tag (playprep07-20). Purchases made through these links may result in a commission to PlayPrep Labs LLC.</p>
+
+  <h3>7.2 Other Affiliate Programs</h3>
+  <p>PlayPrep may participate in additional affiliate programs from time to time. Affiliate links will be clearly distinguished where required by applicable law or platform guidelines. Our editorial content and activity recommendations are not influenced by affiliate relationships.</p>
+
+  <h3>7.3 Sponsored Content</h3>
+  <p>PlayPrep may display sponsored content from brand partners, clearly labeled as "Sponsored." Sponsored content represents paid placement and does not constitute an endorsement of the sponsor's products or services. We do not share your personal data with sponsors.</p>
+
+  <h2>8. Advertising</h2>
+  <p>PlayPrep may display advertisements through <strong>Google AdMob</strong>. By using PlayPrep, you consent to the potential display of advertisements. Advertisements are served based on your device's advertising settings and may be personalized based on your interests as determined by Google. You can opt out of personalized advertising in your device settings. Google's advertising policies are available at <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">policies.google.com/technologies/ads</a>.</p>
+
+  <h2>9. Acceptable Use</h2>
   <p>You agree not to use PlayPrep to:</p>
   <ul>
     <li>Violate any applicable laws or regulations</li>
     <li>Infringe the intellectual property rights of others</li>
-    <li>Store or share content that is abusive, threatening, defamatory, or inappropriate</li>
-    <li>Attempt to interfere with the operation of the App</li>
+    <li>Store or share content that is abusive, threatening, defamatory, or inappropriate for a family-focused app</li>
+    <li>Impersonate any person or entity or misrepresent your affiliation with any person or entity</li>
+    <li>Attempt to interfere with the operation of the App or its servers</li>
+    <li>Circumvent any access controls, subscription gates, or security measures</li>
   </ul>
 
-  <h2>7. Intellectual Property</h2>
-  <p>PlayPrep and its original content, features, and functionality — including the seed activity library, design, graphics, and code — are owned by Cassandra Skenandore and are protected by applicable intellectual property laws.</p>
-  <p>The PlayPrep seed activity library is provided for personal use within the App. You may not reproduce, distribute, or publish the seed library content outside of the App without written permission.</p>
-
-  <h2>8. Disclaimer of Warranties</h2>
-  <p>PlayPrep is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
-  <p>We do not warrant that the App will be uninterrupted, error-free, or free of bugs; that any defects will be corrected; or that the App is free of viruses or other harmful components. Your use of the App is at your sole risk.</p>
-
-  <h2>9. Limitation of Liability</h2>
-  <p>To the fullest extent permitted by applicable law, PlayPrep and its developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of profits, or loss of goodwill, arising out of or in connection with your use of the App.</p>
-  <p>Our total liability to you for any claims arising from your use of the App shall not exceed the amount you paid to us in the twelve months preceding the claim (or $10 if you have not made any payments).</p>
-
-  <h2>10. Indemnification</h2>
-  <p>You agree to indemnify, defend, and hold harmless PlayPrep and its developer from any claims, damages, losses, liabilities, and expenses (including reasonable attorney's fees) arising out of: (a) your use of the App; (b) Your Content; (c) your violation of these Terms; or (d) your violation of any third party's rights.</p>
+  <h2>10. Intellectual Property</h2>
+  <p>PlayPrep and its original content, features, and functionality — including the seed activity library, design, graphics, and code — are owned by PlayPrep Labs LLC and are protected by applicable intellectual property laws.</p>
+  <p>The PlayPrep seed activity library is provided for personal use within the App. You may not reproduce, distribute, or publish the seed library content outside of the App without written permission from PlayPrep Labs LLC.</p>
+  <p>The PlayPrep name, logo, and "Plan it. Prep it. Play." tagline are trademarks of PlayPrep Labs LLC. You may not use these marks without our prior written consent.</p>
 
   <h2>11. Third-Party Services</h2>
-  <p>PlayPrep integrates with third-party services including Apple's App Store for distribution and payments. Your use of those services is governed by their respective terms of service and privacy policies. We are not responsible for third-party services.</p>
+  <p>PlayPrep integrates with third-party services to provide its features. Your use of those services is governed by their respective terms and privacy policies:</p>
+  <table>
+    <tr><th>Service</th><th>Purpose</th><th>Terms</th></tr>
+    <tr><td>Apple App Store / Google Play</td><td>Distribution and payments</td><td>Apple: <a href="https://www.apple.com/legal/internet-services/itunes/us/terms.html" target="_blank" rel="noopener">apple.com</a> / Google: <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">play.google.com</a></td></tr>
+    <tr><td>Supabase</td><td>Cloud storage and authentication</td><td><a href="https://supabase.com/terms" target="_blank" rel="noopener">supabase.com/terms</a></td></tr>
+    <tr><td>RevenueCat</td><td>Subscription management</td><td><a href="https://www.revenuecat.com/terms" target="_blank" rel="noopener">revenuecat.com/terms</a></td></tr>
+    <tr><td>Google AdMob</td><td>Advertising</td><td><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">policies.google.com</a></td></tr>
+    <tr><td>Amazon Associates</td><td>Affiliate program</td><td><a href="https://affiliate-program.amazon.com/help/operating/agreement" target="_blank" rel="noopener">amazon.com</a></td></tr>
+    <tr><td>Sentry</td><td>Crash reporting</td><td><a href="https://sentry.io/terms/" target="_blank" rel="noopener">sentry.io/terms</a></td></tr>
+  </table>
+  <p>We are not responsible for the content, terms, or practices of third-party services.</p>
 
-  <h2>12. Termination</h2>
-  <p>We reserve the right to suspend or terminate your access to PlayPrep at any time, with or without notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties, or for any other reason at our discretion.</p>
-  <p>Upon termination, your license to use the App ends. Locally stored data remains on your device until you delete it.</p>
+  <h2>12. Disclaimer of Warranties</h2>
+  <p>PlayPrep is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+  <p>We do not warrant that the App will be uninterrupted, error-free, or free of bugs; that any defects will be corrected; or that the App or its servers are free of viruses or other harmful components. Your use of the App is at your sole risk.</p>
+  <p>Activity and craft ideas in PlayPrep are provided for informational and planning purposes. PlayPrep Labs LLC is not responsible for any injuries, accidents, or damages that may occur during activities. Always assess the suitability of activities for your specific participants and situation.</p>
 
-  <h2>13. Changes to Terms</h2>
-  <p>We reserve the right to modify these Terms at any time. When we make material changes, we will notify you through an app update and update the "Effective Date" at the top of this document. Continued use of the App after changes constitutes your acceptance of the updated Terms.</p>
+  <h2>13. Limitation of Liability</h2>
+  <p>To the fullest extent permitted by applicable law, PlayPrep Labs LLC and its members, officers, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of profits, or loss of goodwill, arising out of or in connection with your use of the App.</p>
+  <p>Our total liability to you for any claims arising from your use of the App shall not exceed the greater of: (a) the amount you paid to us in the twelve months preceding the claim, or (b) $10 USD.</p>
 
-  <h2>14. Governing Law</h2>
-  <p>These Terms shall be governed by and construed in accordance with the laws of the State of Indiana, United States, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of the App shall be resolved in the state or federal courts located in Indiana.</p>
+  <h2>14. Indemnification</h2>
+  <p>You agree to indemnify, defend, and hold harmless PlayPrep Labs LLC and its members, officers, employees, and agents from any claims, damages, losses, liabilities, and expenses (including reasonable attorney's fees) arising out of: (a) your use of the App; (b) Your Content; (c) your violation of these Terms; or (d) your violation of any third party's rights.</p>
 
-  <h2>15. Severability</h2>
-  <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.</p>
+  <h2>15. Termination</h2>
+  <p>We reserve the right to suspend or terminate your access to PlayPrep at any time, with or without notice, for conduct that we believe violates these Terms, is harmful to other users, or for any other reason at our discretion.</p>
+  <p>Upon termination, your license to use the App ends. You may request export of your data before termination by contacting <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a>. Data deletion timelines are described in our Privacy Policy.</p>
 
-  <h2>16. Entire Agreement</h2>
-  <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and PlayPrep regarding your use of the App and supersede any prior agreements.</p>
+  <h2>16. Changes to Terms</h2>
+  <p>We reserve the right to modify these Terms at any time. When we make material changes, we will notify you through an in-app notice and update the "Effective Date" at the top of this document. Continued use of the App after changes constitutes your acceptance of the updated Terms.</p>
 
-  <h2>17. Contact Us</h2>
-  <div class="contact-box">
-    <p><strong style="color:white;">PlayPrep</strong></p>
-    <p>Email: <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a></p>
-    <p>Location: Indiana, USA</p>
-  </div>
+  <h2>17. Governing Law & Dispute Resolution</h2>
+  <p>These Terms shall be governed by and construed in accordance with the laws of the State of Indiana, United States, without regard to its conflict of law provisions.</p>
+  <p>Any disputes arising from these Terms or your use of the App shall first be attempted to be resolved informally by contacting us at <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a>. If informal resolution fails, disputes shall be resolved in the state or federal courts located in Indiana, and you consent to the personal jurisdiction of such courts.</p>
 
-</div>
+  <h2>18. Severability</h2>
+  <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will continue in full force and effect.</p>
+
+  <h2>19. Entire Agreement</h2>
+  <p>These Terms, together with our <a href="https://playprep.app/privacy.html">Privacy Policy</a>, constitute the entire agreement between you and PlayPrep Labs LLC regarding your use of the App and supersede any prior agreements.</p>
+
+  <h2>20. Contact Us</h2>
+  <p>If you have questions about these Terms, please contact us:</p>
+  <ul>
+    <li><strong>Company:</strong> PlayPrep Labs LLC</li>
+    <li><strong>Email:</strong> <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a></li>
+    <li><strong>Location:</strong> Indiana, USA</li>
+  </ul>
+
+</main>
 
 <footer>
-  <p>
-    © 2026 PlayPrep.
-    <a href="/">Home</a>
-    <a href="/privacy.html">Privacy Policy</a>
-    <a href="/terms.html">Terms of Service</a>
-  </p>
+  <p>© 2026 PlayPrep Labs LLC</p>
+  <div class="footer-links">
+    <a href="https://playprep.app/">Home</a>
+    <a href="https://playprep.app/privacy.html">Privacy Policy</a>
+    <a href="https://playprep.app/terms.html">Terms of Service</a>
+  </div>
 </footer>
 
 </body>

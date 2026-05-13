@@ -4,193 +4,345 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — PlayPrep</title>
-  <link rel="icon" type="image/png" href="logo.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy: #1A2744; --navy2: #0F1A32; --amber: #D97706; --amber2: #F59E0B;
-      --cream: #FAF8F3; --white: #FFFFFF; --muted: #64748B; --border: #E2E8F0;
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1A2744;
+      background: #F7F4EE;
     }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); }
+
     nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 40px; background: var(--navy);
+      background: #1A2744;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo img { width: 32px; height: 32px; border-radius: 7px; }
-    .nav-logo span { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: white; }
-    .nav-logo span em { color: var(--amber); font-style: normal; }
-    .nav-back { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
-    .nav-back:hover { color: var(--amber); }
 
-    .legal-hero {
-      background: var(--navy); padding: 64px 24px 56px;
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-logo img { width: 28px; height: 28px; }
+    .nav-logo span { color: #F5A623; }
+
+    .nav-back {
+      color: #F5A623;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-back:hover { text-decoration: underline; }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #1A2744;
+      margin-bottom: 6px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #7B8497;
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(26,39,68,0.12);
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #1A2744;
+      margin: 36px 0 12px;
+    }
+
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1A2744;
+      margin: 20px 0 8px;
+    }
+
+    p { margin-bottom: 14px; color: #2D3748; }
+
+    ul, ol {
+      margin: 10px 0 14px 24px;
+      color: #2D3748;
+    }
+
+    li { margin-bottom: 6px; }
+
+    .callout {
+      background: #fff;
+      border-left: 4px solid #F5A623;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 14px;
+      color: #1A2744;
+    }
+
+    .callout strong { display: block; margin-bottom: 4px; color: #1A2744; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    th {
+      background: #1A2744;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(26,39,68,0.1);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td { background: rgba(26,39,68,0.03); }
+
+    a { color: #1E40AF; }
+    a:hover { text-decoration: underline; }
+
+    footer {
+      background: #1A2744;
+      color: rgba(255,255,255,0.6);
       text-align: center;
+      padding: 24px;
+      font-size: 13px;
     }
-    .legal-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: white; margin-bottom: 12px; }
-    .legal-hero p { color: rgba(255,255,255,0.5); font-size: 15px; }
 
-    .legal-body { max-width: 760px; margin: 0 auto; padding: 72px 24px 100px; }
-    .legal-body h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px; font-weight: 700; color: var(--navy);
-      margin: 48px 0 14px; padding-bottom: 10px;
-      border-bottom: 2px solid var(--amber);
-    }
-    .legal-body h3 {
-      font-size: 16px; font-weight: 700; color: var(--navy);
-      margin: 28px 0 10px;
-    }
-    .legal-body p { font-size: 15px; color: #334155; line-height: 1.75; margin-bottom: 14px; }
-    .legal-body ul { margin: 10px 0 18px 0; padding-left: 0; list-style: none; }
-    .legal-body ul li {
-      font-size: 15px; color: #334155; line-height: 1.7;
-      padding: 6px 0 6px 24px; position: relative;
-    }
-    .legal-body ul li::before {
-      content: '→'; position: absolute; left: 0;
-      color: var(--amber); font-weight: 700;
-    }
-    .contact-box {
-      background: var(--navy); border-radius: 16px;
-      padding: 32px; margin-top: 48px;
-    }
-    .contact-box p { color: rgba(255,255,255,0.8); margin-bottom: 8px; }
-    .contact-box a { color: var(--amber2); text-decoration: none; font-weight: 600; }
-    .contact-box a:hover { text-decoration: underline; }
-
-    footer { background: var(--navy2); padding: 32px 24px; text-align: center; }
-    footer p { color: rgba(255,255,255,0.3); font-size: 13px; }
-    footer a { color: rgba(255,255,255,0.4); text-decoration: none; margin: 0 10px; }
-    footer a:hover { color: var(--amber); }
-
-    @media (max-width: 640px) { nav { padding: 14px 20px; } }
+    footer a { color: #F5A623; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer .footer-links { margin-top: 8px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="/">
-  <img src="star-icon.png" alt="PlayPrep" />
-    <span>Play<em>Prep</em></span>
+  <a class="nav-logo" href="https://playprep.app/">
+    <img src="https://playprep.app/star-icon.png" alt="PlayPrep" />
+    Play<span>Prep</span>
   </a>
-  <a class="nav-back" href="/">← Back to home</a>
+  <a class="nav-back" href="https://playprep.app/">← Back to home</a>
 </nav>
 
-<div class="legal-hero">
+<main>
   <h1>Privacy Policy</h1>
-  <p>Effective Date: April 8, 2026 &nbsp;·&nbsp; Contact: PlayPrepApp@gmail.com</p>
-</div>
+  <p class="meta">Effective Date: May 12, 2026 &nbsp;·&nbsp; Contact: <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a></p>
 
-<div class="legal-body">
-
-  <p>Thank you for using PlayPrep. This Privacy Policy explains how we collect, use, and protect information when you use our mobile application. We are committed to being transparent and keeping your information safe.</p>
+  <p>Thank you for using PlayPrep. This Privacy Policy explains how PlayPrep Labs LLC collects, uses, shares, and protects your information when you use our mobile application and related services. We are committed to transparency and to keeping your information safe.</p>
 
   <h2>1. Who We Are</h2>
-  <p>PlayPrep is an independent mobile application designed to help parents, teachers, and homeschoolers manage activities, crafts, field trips, and learning plans for children. PlayPrep is operated by Cassandra Skenandore, an individual developer based in Indiana, USA.</p>
+  <p>PlayPrep is a mobile application designed to help anyone plan, organize, and manage activities, crafts, field trips, and learning experiences — including parents, teachers, homeschoolers, camp counselors, group leaders, and individuals planning activities for themselves or others of any age. PlayPrep is operated by <strong>PlayPrep Labs LLC</strong>, an Indiana limited liability company.</p>
+  <ul>
+    <li><strong>Company:</strong> PlayPrep Labs LLC</li>
+    <li><strong>State of formation:</strong> Indiana, USA</li>
+    <li><strong>Contact:</strong> <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a></li>
+  </ul>
 
   <h2>2. Who This App Is For</h2>
-  <p>PlayPrep is intended for use by adults (age 13 and older), including parents, educators, and caregivers. The app is not directed at children. Any information about children — such as age ranges or interests — is entered by a parent or guardian on behalf of the child and is stored locally on your device.</p>
+  <p>PlayPrep is intended for use by anyone age 13 and older who plans or participates in activities — including parents, educators, homeschoolers, camp counselors, group leaders, and adult learners. The app supports activity planning for participants of all ages, from young children to adults.</p>
+  <p>Any information about participants — such as names, birthdates, age ranges, interests, or accessibility preferences — is entered by the account holder (who must be at least 13 years old) on behalf of themselves or others in their group.</p>
   <p>By using PlayPrep, you confirm that you are at least 13 years old. If you are under 18, you confirm that a parent or guardian has reviewed and agreed to this policy on your behalf.</p>
 
   <h2>3. Information We Collect</h2>
-  <h3>3.1 Information You Provide</h3>
-  <p>All data you enter into PlayPrep — including activity details, supply lists, notes, photos, child profile names, age groups, and interests — is stored locally on your device. We do not currently collect or transmit this information to external servers.</p>
-  <p>Specifically, the app may store:</p>
+
+  <h3>3.1 Account Information</h3>
+  <p>When you create a PlayPrep account, we collect:</p>
+  <ul>
+    <li>Your email address and password (if you register with email)</li>
+    <li>Your name (if provided during sign-up)</li>
+    <li>Authentication tokens when you sign in with Apple or Google</li>
+  </ul>
+  <p>Account authentication is powered by <strong>Supabase</strong> (see Section 6). We do not store your Apple or Google passwords.</p>
+
+  <h3>3.2 Content You Create</h3>
+  <p>Data you enter into PlayPrep is stored on our servers (Supabase) and locally on your device. This includes:</p>
   <ul>
     <li>Activity titles, descriptions, steps, tips, and supply lists</li>
-    <li>Photos you add to activities or places (stored locally on your device)</li>
-    <li>Child profile information such as nicknames, age groups, and interest preferences</li>
-    <li>Places and field trip details you add</li>
-    <li>Planning and scheduling data</li>
+    <li>Photos you add to activities or places</li>
+    <li>Participant profile information: nicknames, birthdates, age groups, interest preferences, and accessibility preferences (such as sensory preferences or mobility notes)</li>
+    <li>Places and field trip details</li>
+    <li>Planning, scheduling, and calendar data</li>
     <li>Shopping list and supply closet data</li>
+    <li>Collections and organizational data</li>
   </ul>
 
-  <h3>3.2 Imported Content</h3>
-  <p>PlayPrep offers a URL import feature that allows you to pre-fill activity details from a web page. When you use this feature:</p>
-  <ul>
-    <li>The source URL is permanently associated with the imported activity and cannot be removed, ensuring attribution to the original creator is always preserved.</li>
-    <li>You are responsible for ensuring your use of imported content complies with the original creator's terms of use and copyright.</li>
-    <li>PlayPrep does not claim ownership of any imported content. We are a tool that helps you organize content you choose to reference.</li>
-  </ul>
-
-  <h3>3.3 Information Collected Automatically</h3>
-  <p>In the current version of PlayPrep, we do not collect analytics, usage data, or crash reports automatically. Future versions of the app may include anonymous crash reporting and analytics to help us improve the app. We will update this policy before enabling such features.</p>
-
-  <h3>3.4 Information NOT Collected</h3>
-  <p>We do not collect:</p>
-  <ul>
-    <li>Your name, email address, or contact information (no account system is currently required)</li>
-    <li>Payment information (handled entirely by Apple's App Store)</li>
-    <li>Location data</li>
-    <li>Device identifiers or advertising IDs</li>
-    <li>Any data from children directly</li>
-  </ul>
-
-  <h2>4. How We Use Your Information</h2>
-  <p>Since all data is stored locally on your device in the current version, we do not process your personal information on our servers. Your data is used solely to provide the features of the app — organizing activities, managing supplies, and planning.</p>
-
-  <h2>5. Future Premium Features & Cloud Storage</h2>
-  <p>Future versions of PlayPrep may offer a premium subscription that includes cloud backup and sync. If and when cloud storage is introduced:</p>
-  <ul>
-    <li>We will update this Privacy Policy before enabling cloud features.</li>
-    <li>You will be given clear notice and the opportunity to opt in.</li>
-    <li>Your data will be encrypted in transit and at rest.</li>
-    <li>You will be able to export or delete your cloud data at any time.</li>
-    <li>We will disclose which cloud service provider is used to store your data.</li>
-  </ul>
-  <p>Until cloud features are available, all your data remains on your device and is subject to your device's own backup settings (e.g., iCloud backup).</p>
-
-  <h2>6. Sharing Your Information</h2>
-  <p>We do not sell, rent, or share your personal information with third parties. Since all data is currently local to your device, no data transfer occurs outside of your device.</p>
-  <p>In future versions, we may use third-party services for cloud storage, crash reporting, and subscription management. When such services are introduced, we will name them specifically in an updated policy.</p>
-
-  <h2>7. Data Retention & Deletion</h2>
-  <p>Your data lives on your device. You can delete all app data at any time by:</p>
-  <ul>
-    <li>Using the "Clear All Data" option in the app's settings menu</li>
-    <li>Deleting the PlayPrep app from your device, which removes all locally stored data</li>
-  </ul>
-
-  <h2>8. Children's Privacy</h2>
-  <p>PlayPrep is not directed at children under the age of 13 and we do not knowingly collect personal information from children. The app is designed to be used by adults managing activities for children in their care.</p>
-  <p>If you believe a child under 13 has provided personal information through the app, please contact us at PlayPrepApp@gmail.com and we will take appropriate steps.</p>
-
-  <h2>9. Security</h2>
-  <p>We take reasonable precautions to protect your data. Since PlayPrep currently stores all data locally on your device, security depends in part on your device's security settings. When cloud features are introduced, we will implement industry-standard security measures including encryption in transit (TLS) and at rest.</p>
-
-  <h2>10. Third-Party Links & Content</h2>
-  <p>PlayPrep may display links to third-party websites (e.g., source URLs for imported activities). We are not responsible for the privacy practices of those websites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
-
-  <h2>11. Your Rights (US Users)</h2>
-  <p>As a US-based user, you have the right to access the data you've entered into the app, delete your data at any time, and request information about any future data practices by contacting us.</p>
-  <p><strong>California residents:</strong> PlayPrep does not sell personal information. We do not engage in cross-context behavioral advertising. For questions about your California privacy rights, contact PlayPrepApp@gmail.com.</p>
-
-  <h2>12. International Users</h2>
-  <p>PlayPrep is operated from the United States. If you are accessing the app from outside the US, please be aware that your information may be subject to US laws. If we begin offering services to EU/EEA users, we will update this policy to include GDPR-specific provisions.</p>
-
-  <h2>13. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. When we make material changes, we will notify you through an app update and update the "Effective Date" at the top of this document. Continued use of PlayPrep after changes constitutes acceptance of the updated policy.</p>
-
-  <h2>14. Contact Us</h2>
-  <div class="contact-box">
-    <p><strong style="color:white;">PlayPrep</strong></p>
-    <p>Email: <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a></p>
-    <p>Location: Indiana, USA</p>
+  <div class="callout">
+    <strong>A note on participant profile data</strong>
+    Birthdate and accessibility information you enter for participant profiles is used solely to personalize activity recommendations within the app (such as filtering by age-appropriateness or accessibility fit). This data is stored in your account and is never sold or shared with advertisers or third parties for marketing purposes.
   </div>
 
-</div>
+  <h3>3.3 Location Data</h3>
+  <p>PlayPrep may request access to your device's location for the following purposes:</p>
+  <ul>
+    <li><strong>Places feature:</strong> To geocode addresses you enter for field trips and local places, allowing them to appear on the in-app map. Geocoding is performed using Apple's on-device geocoding service (no data is sent to Google for this purpose).</li>
+    <li><strong>Spark AI recommendations:</strong> If you enable location for Spark, your approximate location may be used to provide location-relevant activity suggestions.</li>
+  </ul>
+  <p>Location access is optional. You can use PlayPrep without granting location permission. You can revoke location access at any time in your device settings.</p>
+
+  <h3>3.4 Imported Content</h3>
+  <p>PlayPrep allows you to import activity content from third-party URLs. When you use this feature, the source URL is permanently associated with the imported activity to preserve attribution. You are responsible for ensuring your use of imported content complies with the original creator's terms and copyright.</p>
+
+  <h3>3.5 Crash Reports & Diagnostics</h3>
+  <p>PlayPrep uses <strong>Sentry</strong> (sentry.io) for crash reporting and error diagnostics. When the app crashes or encounters an error, Sentry automatically collects:</p>
+  <ul>
+    <li>The type and location of the error in the code</li>
+    <li>Device type, operating system version, and app version</li>
+    <li>A stack trace (technical log of what the app was doing)</li>
+    <li>Your anonymous user ID (if logged in) — not your name or email</li>
+  </ul>
+  <p>Sentry data is used only to identify and fix bugs. It is not used for advertising. You can review Sentry's privacy practices at <a href="https://sentry.io/privacy/" target="_blank" rel="noopener">sentry.io/privacy</a>.</p>
+
+  <h3>3.6 Subscription & Payment Data</h3>
+  <p>PlayPrep subscriptions (Pro and Pro Plus) are managed by <strong>RevenueCat</strong>. RevenueCat processes subscription status, entitlements, and renewal data. We do not handle or store your payment card details — all payment processing is handled by Apple's App Store or Google Play. RevenueCat's privacy policy is available at <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>.</p>
+
+  <h3>3.7 Push Notifications</h3>
+  <p>If you enable push notifications, PlayPrep may store a device push token to deliver local and server-triggered notifications (such as plan reminders). You can disable notifications at any time in your device settings or in the app's Notifications settings screen.</p>
+
+  <h2>4. How We Use Your Information</h2>
+  <table>
+    <tr><th>Purpose</th><th>Information Used</th></tr>
+    <tr><td>Providing and personalizing the app</td><td>Account data, content, participant profiles, preferences</td></tr>
+    <tr><td>Activity and place recommendations</td><td>Participant ages, interests, location (if enabled)</td></tr>
+    <tr><td>Cloud sync and backup</td><td>All content you create</td></tr>
+    <tr><td>Subscription management</td><td>Account ID, subscription status via RevenueCat</td></tr>
+    <tr><td>Crash reporting and bug fixes</td><td>Anonymized diagnostics via Sentry</td></tr>
+    <tr><td>Push notifications</td><td>Device push token, notification preferences</td></tr>
+    <tr><td>Displaying advertising</td><td>Anonymous device ID via AdMob (see Section 5)</td></tr>
+    <tr><td>Affiliate link tracking</td><td>Click data via Amazon Associates and partner programs (see Section 5)</td></tr>
+  </table>
+
+  <h2>5. Advertising & Affiliate Links</h2>
+
+  <h3>5.1 Advertising (AdMob)</h3>
+  <p>PlayPrep may display advertisements served by <strong>Google AdMob</strong>. AdMob may use your device's advertising identifier (IDFA on iOS, GAID on Android) to serve relevant ads. You can limit ad tracking in your device settings:</p>
+  <ul>
+    <li><strong>iOS:</strong> Settings → Privacy & Security → Tracking → disable "Allow Apps to Request to Track"</li>
+    <li><strong>Android:</strong> Settings → Google → Ads → opt out of ads personalization</li>
+  </ul>
+  <p>Google's privacy policy is available at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+  <h3>5.2 Affiliate Links — Amazon Associates</h3>
+  <p>PlayPrep participates in the <strong>Amazon Services LLC Associates Program</strong>, an affiliate advertising program designed to provide a means for us to earn fees by linking to Amazon.com and affiliated sites. When you tap a "Shop" or supply link in the app, you may be directed to Amazon with our affiliate tag (<strong>playprep07-20</strong>) included in the URL. If you make a qualifying purchase, PlayPrep Labs LLC earns a small commission at no additional cost to you.</p>
+  <p>Amazon's privacy policy is available at <a href="https://www.amazon.com/privacy" target="_blank" rel="noopener">amazon.com/privacy</a>.</p>
+
+  <h3>5.3 Other Affiliate Programs</h3>
+  <p>PlayPrep may participate in additional affiliate programs from time to time (such as Kiwi Co, Melissa &amp; Doug, Viator, or other family-focused brands). When such partnerships are active, supply or product links may include affiliate tracking. We will clearly label sponsored or affiliate content within the app. Affiliate relationships do not influence our activity recommendations or editorial decisions.</p>
+
+  <h3>5.4 Sponsored Content</h3>
+  <p>PlayPrep may feature sponsored content (such as a "Sponsored" activity or product spotlight) from brand partners. Sponsored content will be clearly labeled. PlayPrep Labs LLC retains full editorial control and does not allow sponsors to access your personal data.</p>
+
+  <h2>6. Third-Party Services We Use</h2>
+  <table>
+    <tr><th>Service</th><th>Purpose</th><th>Privacy Policy</th></tr>
+    <tr><td>Supabase</td><td>Cloud database, authentication, file storage</td><td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></td></tr>
+    <tr><td>Sentry</td><td>Crash reporting and error diagnostics</td><td><a href="https://sentry.io/privacy/" target="_blank" rel="noopener">sentry.io/privacy</a></td></tr>
+    <tr><td>RevenueCat</td><td>Subscription management</td><td><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></td></tr>
+    <tr><td>Google AdMob</td><td>Advertising</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
+    <tr><td>Apple Sign In</td><td>Authentication option</td><td><a href="https://www.apple.com/privacy/" target="_blank" rel="noopener">apple.com/privacy</a></td></tr>
+    <tr><td>Google OAuth</td><td>Authentication option</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
+    <tr><td>Amazon Associates</td><td>Affiliate link program</td><td><a href="https://www.amazon.com/privacy" target="_blank" rel="noopener">amazon.com/privacy</a></td></tr>
+    <tr><td>Expo / React Native</td><td>App framework and push notifications</td><td><a href="https://expo.dev/privacy" target="_blank" rel="noopener">expo.dev/privacy</a></td></tr>
+  </table>
+
+  <h2>7. How We Share Your Information</h2>
+  <p>We do not sell your personal information. We share information only as described in this policy:</p>
+  <ul>
+    <li><strong>Service providers:</strong> Supabase, Sentry, RevenueCat, and AdMob receive data as described above to provide their services.</li>
+    <li><strong>Affiliate networks:</strong> Clicking affiliate links sends click data to Amazon or other affiliate partners. We do not share your name, email, or account data with affiliate partners.</li>
+    <li><strong>Legal requirements:</strong> We may disclose information if required by law, subpoena, or to protect the rights and safety of PlayPrep Labs LLC, our users, or the public.</li>
+    <li><strong>Business transfer:</strong> If PlayPrep Labs LLC is acquired, merged, or transfers assets, your data may be transferred as part of that transaction. We will notify you of any such change.</li>
+  </ul>
+
+  <h2>8. Data Retention & Deletion</h2>
+  <p>We retain your data for as long as your account is active or as needed to provide services. You can:</p>
+  <ul>
+    <li>Delete all app data using the "Clear All Data" option in the app's settings</li>
+    <li>Delete your account by contacting <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a> — we will delete your account and associated data within 30 days</li>
+    <li>Export your data by contacting us at the email above</li>
+  </ul>
+  <p>Some anonymized data (such as aggregated crash reports in Sentry) may be retained after account deletion.</p>
+
+  <h2>9. Minors & Participant Privacy</h2>
+  <p>PlayPrep accounts must be held by users age 13 or older. We do not knowingly collect personal information directly from children under 13. Participant profile data (nicknames, birthdates, interests, accessibility preferences) is entered by the account holder — an adult or older teen — on behalf of themselves or others in their group, and is stored within the account holder's account.</p>
+  <p>If you believe a child under 13 has independently created an account and provided personal information, please contact us at <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a> and we will delete that account and information promptly.</p>
+
+  <h2>10. Security</h2>
+  <p>We implement industry-standard security measures including:</p>
+  <ul>
+    <li>Encryption in transit (TLS/HTTPS) for all data sent between your device and our servers</li>
+    <li>Encryption at rest for data stored in Supabase</li>
+    <li>Row-level security policies to ensure users can only access their own data</li>
+    <li>Secure authentication via Supabase Auth with support for Apple Sign In and Google OAuth</li>
+  </ul>
+  <p>No system is perfectly secure. We encourage you to use a strong password and to keep your device software up to date.</p>
+
+  <h2>11. Your Rights</h2>
+
+  <h3>All Users</h3>
+  <ul>
+    <li><strong>Access:</strong> You may request a copy of the personal data we hold about you.</li>
+    <li><strong>Correction:</strong> You may update your account information directly in the app or by contacting us.</li>
+    <li><strong>Deletion:</strong> You may request deletion of your account and data at any time.</li>
+    <li><strong>Portability:</strong> You may request an export of your data.</li>
+  </ul>
+
+  <h3>California Residents (CCPA)</h3>
+  <p>PlayPrep does not sell personal information. We do not engage in cross-context behavioral advertising using personal identifiers. California residents have additional rights under the CCPA including the right to know what personal information is collected, to delete personal information, and to opt out of the sale of personal information (which we do not conduct). To exercise these rights, contact <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a>.</p>
+
+  <h3>EU/EEA Users (GDPR)</h3>
+  <p>If you are located in the European Union or European Economic Area, you have additional rights under the GDPR including the right to restrict processing, to object to processing, and to lodge a complaint with a supervisory authority. Our legal basis for processing your data is the performance of the contract (providing the app services) and legitimate interests (improving the app, security). Contact us at <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a> to exercise your rights.</p>
+
+  <h2>12. International Users</h2>
+  <p>PlayPrep Labs LLC is operated from the United States. If you access PlayPrep from outside the US, your information may be transferred to and processed in the United States. By using PlayPrep, you consent to this transfer.</p>
+
+  <h2>13. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. When we make material changes, we will notify you through an in-app notice and update the "Effective Date" at the top of this document. Continued use of PlayPrep after changes constitutes your acceptance of the updated policy.</p>
+
+  <h2>14. Contact Us</h2>
+  <p>If you have questions about this Privacy Policy or your data, please contact us:</p>
+  <ul>
+    <li><strong>Company:</strong> PlayPrep Labs LLC</li>
+    <li><strong>Email:</strong> <a href="mailto:PlayPrepApp@gmail.com">PlayPrepApp@gmail.com</a></li>
+    <li><strong>Location:</strong> Indiana, USA</li>
+  </ul>
+
+</main>
 
 <footer>
-  <p>
-    © 2026 PlayPrep.
-    <a href="/">Home</a>
-    <a href="/privacy.html">Privacy Policy</a>
-    <a href="/terms.html">Terms of Service</a>
-  </p>
+  <p>© 2026 PlayPrep Labs LLC</p>
+  <div class="footer-links">
+    <a href="https://playprep.app/">Home</a>
+    <a href="https://playprep.app/privacy.html">Privacy Policy</a>
+    <a href="https://playprep.app/terms.html">Terms of Service</a>
+  </div>
 </footer>
 
 </body>
