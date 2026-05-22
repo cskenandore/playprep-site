@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The PlayPrep Starter Kit: 10 Supplies That Unlock 50+ Activities</title>
+  <meta name="description" content="These 10 affordable art and craft supplies are the backbone of the PlayPrep activity library. Stock your kit once and unlock hundreds of hands-on activities for every age." />
+  <meta property="og:title" content="The PlayPrep Starter Kit: 10 Supplies That Unlock 50+ Activities" />
+  <meta property="og:description" content="10 affordable craft supplies that unlock 50+ hands-on activities. From the PlayPrep blog." />
+  <meta property="og:image" content="/logo.png" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1A2744;
+      --navy2:  #0F1A32;
+      --amber:  #D97706;
+      --amber2: #F59E0B;
+      --cream:  #FAF8F3;
+      --white:  #FFFFFF;
+      --muted:  #64748B;
+      --border: #E2E8F0;
+      --sage:   #2D8A5E;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(26,39,68,0.96);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 8px; }
+    .nav-logo span { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #fff; }
+    .nav-logo span em { color: var(--amber); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.nav-active { color: var(--amber); }
+    .nav-cta { background: var(--amber); color: var(--navy) !important; padding: 9px 20px; border-radius: 999px; font-weight: 600 !important; }
+    .nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.8); }
+    .nav-mobile-menu { display: none; }
+
+    /* ── POST HEADER ── */
+    .post-header {
+      background: var(--navy);
+      padding: 130px 24px 64px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .post-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(217,119,6,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .post-breadcrumb {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 12px; font-weight: 600; margin-bottom: 20px;
+      position: relative; z-index: 1;
+    }
+    .post-breadcrumb a { color: var(--amber); text-decoration: none; }
+    .post-breadcrumb span { color: rgba(255,255,255,0.3); }
+    .post-breadcrumb em { color: rgba(255,255,255,0.5); font-style: normal; }
+    .post-category-pill {
+      display: inline-block;
+      background: rgba(217,119,6,0.15); border: 1px solid rgba(217,119,6,0.3);
+      color: var(--amber2); font-size: 10px; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 999px; margin-bottom: 20px;
+      position: relative; z-index: 1;
+    }
+    .post-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 48px); font-weight: 900; line-height: 1.15;
+      color: var(--white); max-width: 720px; margin: 0 auto 20px;
+      position: relative; z-index: 1;
+    }
+    .post-header-meta {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      font-size: 13px; color: rgba(255,255,255,0.45);
+      position: relative; z-index: 1;
+    }
+    .post-header-meta span + span::before { content: '·'; margin-right: 6px; }
+
+    /* ── POST BODY ── */
+    .post-body {
+      max-width: 720px; margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── DISCLOSURE ── */
+    .disclosure {
+      background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--amber);
+      border-radius: 12px; padding: 16px 20px;
+      margin-bottom: 40px;
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+    }
+    .disclosure strong { color: var(--navy); }
+
+    /* ── INTRO ── */
+    .post-intro {
+      font-size: 17px; line-height: 1.8;
+      color: var(--navy); margin-bottom: 16px;
+    }
+    .post-intro + .post-intro { margin-bottom: 32px; }
+    .kit-total {
+      background: var(--navy); color: var(--white);
+      border-radius: 12px; padding: 16px 20px;
+      font-size: 15px; font-weight: 600; margin-bottom: 48px;
+    }
+    .kit-total em { color: var(--amber); font-style: normal; }
+
+    /* ── PRODUCT SECTIONS ── */
+    .product { margin-bottom: 52px; border-bottom: 1px solid var(--border); padding-bottom: 48px; }
+    .product:last-of-type { border-bottom: none; }
+    .product-number {
+      font-size: 10px; font-weight: 800; letter-spacing: 2px;
+      color: var(--amber); text-transform: uppercase; margin-bottom: 8px;
+    }
+    .product h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 2.5vw, 26px); font-weight: 900; line-height: 1.2;
+      color: var(--navy); margin-bottom: 14px;
+    }
+    .product-price {
+      font-size: 18px; font-weight: 700; color: var(--sage);
+    }
+    .product-shop {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--amber); color: var(--navy);
+      padding: 10px 20px; border-radius: 999px;
+      font-weight: 700; font-size: 13px; text-decoration: none;
+      margin-bottom: 20px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(217,119,6,0.25);
+    }
+    .product-shop:hover { background: var(--amber2); transform: translateY(-1px); }
+    .product p {
+      font-size: 15px; line-height: 1.8; color: #334155; margin-bottom: 14px;
+    }
+    .product-best {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(45,138,94,0.08); border: 1px solid rgba(45,138,94,0.2);
+      color: var(--sage); border-radius: 8px;
+      padding: 8px 14px; font-size: 13px; font-weight: 600;
+    }
+    .product-best strong { color: var(--sage); }
+
+    /* ── SUMMARY TABLE ── */
+    .summary-section { margin: 56px 0; }
+    .summary-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 900; margin-bottom: 24px; color: var(--navy);
+    }
+    .summary-table { width: 100%; border-collapse: collapse; }
+    .summary-table th {
+      text-align: left; padding: 12px 16px;
+      font-size: 11px; font-weight: 800; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--muted);
+      background: var(--cream); border-bottom: 2px solid var(--border);
+    }
+    .summary-table td {
+      padding: 14px 16px; font-size: 14px; color: var(--navy);
+      border-bottom: 1px solid var(--border); background: var(--white);
+    }
+    .summary-table tr:last-child td { border-bottom: none; font-weight: 700; background: rgba(217,119,6,0.05); }
+    .summary-table td a { color: var(--amber); text-decoration: none; font-size: 12px; font-weight: 600; }
+    .summary-table td a:hover { color: var(--navy); }
+    .summary-table td:last-child { font-weight: 600; color: var(--sage); }
+
+    /* ── CTA ── */
+    .post-cta {
+      background: var(--navy); border-radius: 20px;
+      padding: 48px 40px; text-align: center; margin: 56px 0;
+      position: relative; overflow: hidden;
+    }
+    .post-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(217,119,6,0.15), transparent 70%);
+      pointer-events: none;
+    }
+    .post-cta p.label {
+      font-size: 10px; font-weight: 800; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--amber); margin-bottom: 10px;
+      position: relative; z-index: 1;
+    }
+    .post-cta h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3vw, 30px); font-weight: 900;
+      color: var(--white); margin-bottom: 12px;
+      position: relative; z-index: 1;
+    }
+    .post-cta > p {
+      color: rgba(255,255,255,0.6); font-size: 15px;
+      max-width: 420px; margin: 0 auto 28px; line-height: 1.6;
+      position: relative; z-index: 1;
+    }
+    .post-cta a {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--amber); color: var(--navy);
+      padding: 15px 28px; border-radius: 999px;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 8px 24px rgba(217,119,6,0.35);
+      position: relative; z-index: 1;
+    }
+    .post-cta a:hover { background: var(--amber2); transform: translateY(-2px); }
+
+    /* ── BOTTOM DISCLOSURE ── */
+    .post-disclosure-footer {
+      font-size: 12px; color: var(--muted); line-height: 1.7;
+      border-top: 1px solid var(--border); padding-top: 24px; margin-top: 40px;
+    }
+
+    /* ── RELATED POSTS ── */
+    .related-section {
+      background: var(--white);
+      padding: 72px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .related-inner { max-width: 1100px; margin: 0 auto; }
+    .related-inner h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 900; margin-bottom: 32px; color: var(--navy);
+    }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .related-card {
+      background: var(--cream); border-radius: 16px;
+      border: 1px solid var(--border); padding: 24px;
+      border-top: 3px solid var(--border);
+      opacity: 0.6;
+    }
+    .related-cat { font-size: 9px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .related-card h4 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 900; color: var(--navy); line-height: 1.35; }
+    .coming-label { display: inline-block; background: var(--border); color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; margin-top: 10px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy2); padding: 60px 24px 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
+    .footer-brand p { color: rgba(255,255,255,0.45); font-size: 13px; line-height: 1.6; max-width: 260px; margin-top: 12px; }
+    .footer-links h4 { color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+    .footer-links a { display: block; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--amber); }
+    .footer-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+    .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 12px; }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--amber); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .nav-mobile-btn { display: flex; }
+      .nav-mobile-menu {
+        position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+        background: rgba(15,26,50,0.98); backdrop-filter: blur(12px);
+        padding: 20px; display: none; flex-direction: column; gap: 4px;
+      }
+      .nav-mobile-menu.open { display: flex; }
+      .nav-mobile-menu a {
+        display: block; padding: 12px 16px; color: rgba(255,255,255,0.8);
+        text-decoration: none; font-size: 16px; font-weight: 500;
+        border-radius: 10px; transition: background 0.2s;
+      }
+      .nav-mobile-menu a:hover { background: rgba(255,255,255,0.06); color: var(--amber); }
+      .post-cta { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="/star-icon.png" alt="PlayPrep logo" />
+    <span>Play<em>Prep</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="/#features">Features</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog/" class="nav-active">Blog</a>
+    <a href="/beta.html">Beta Guide</a>
+    <a href="/beta.html" class="nav-cta">Join Beta</a>
+  </div>
+  <button class="nav-mobile-btn" onclick="document.querySelector('.nav-mobile-menu').classList.toggle('open')" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="nav-mobile-menu">
+    <a href="/#features">Features</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a href="/beta.html">Beta Guide</a>
+    <a href="/beta.html" style="margin-top:8px;text-align:center;padding:12px;border-radius:999px;background:var(--amber);color:var(--navy);font-weight:700;display:block;">Join Beta</a>
+  </div>
+</nav>
+
+<!-- POST HEADER -->
+<header class="post-header">
+  <div class="post-breadcrumb">
+    <a href="/blog/">Blog</a>
+    <span>›</span>
+    <em>Craft Supplies</em>
+  </div>
+  <div class="post-category-pill">✦ Craft Supplies</div>
+  <h1>The PlayPrep Starter Kit: 10 Supplies That Unlock 50+ Activities</h1>
+  <div class="post-header-meta">
+    <span>May 22, 2026</span>
+    <span>8 min read</span>
+    <span>By PlayPrep</span>
+  </div>
+</header>
+
+<!-- POST BODY -->
+<article class="post-body">
+
+  <!-- AFFILIATE DISCLOSURE -->
+  <div class="disclosure">
+    <strong>Disclosure:</strong> As an Amazon Associate, I earn from qualifying purchases. This post contains affiliate links — if you shop through them, I receive a small commission at no extra cost to you. I only recommend products I genuinely love and use.
+  </div>
+
+  <!-- INTRO -->
+  <p class="post-intro">If you have ever opened a craft cabinet hoping to do something fun with your kids — only to realize you are missing one critical supply — this post is for you.</p>
+
+  <p class="post-intro">When I built PlayPrep, I noticed something: the same 10 or so supplies kept showing up in activity after activity. Construction paper. Washable paint. Glue sticks. Tape. Nothing exotic, nothing expensive. Just a small, well-stocked kit that quietly unlocks hundreds of possibilities.</p>
+
+  <p class="post-intro">I call it the PlayPrep Starter Kit. Stock it once and you will almost never be caught without something great to do. Here is exactly what is in it, why each item earns its spot, and what you can actually make with it.</p>
+
+  <div class="kit-total">
+    Total kit cost: approximately <em>$163</em> — and most of these will last you months.
+  </div>
+
+  <!-- PRODUCT 1 -->
+  <div class="product">
+    <div class="product-number">Supply 01</div>
+    <h2>Crayola Construction Paper Bulk Pack (480 Sheets) <span class="product-price">— $11.76</span></h2>
+    <a href="https://amzn.to/42Oa9Ws" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>This is the foundation of the entire kit. 480 sheets across 10 colors means you are not going to run out anytime soon — and with kids, you will go through paper faster than you think. The 9×12 size is perfect for most projects: big enough for full paintings, small enough to manage at a kitchen table.</p>
+    <p>Construction paper is the canvas for paper bag puppets, collage art, greeting cards, tissue paper flowers, and dozens of cutting and pasting activities. It holds up to markers, glue, and light paint without immediately falling apart.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Ages 3 and up. Every activity category in PlayPrep uses this.</div>
+  </div>
+
+  <!-- PRODUCT 2 -->
+  <div class="product">
+    <div class="product-number">Supply 02</div>
+    <h2>Amazon Basics Cardstock Paper (250 Sheets) <span class="product-price">— $12.55</span></h2>
+    <a href="https://amzn.to/4dFpxJR" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>Where construction paper is your everyday workhorse, cardstock is what you reach for when a project needs to hold its shape. At 65 lb, it is sturdy enough for handmade books, DIY flashcards, stencils kids cut and reuse, and anything that involves folding, standing upright, or being handled repeatedly.</p>
+    <p>White cardstock also takes paint beautifully — better than regular printer paper, without the bleed-through you would get on thinner stock. We use it for watercolor art, science project displays, and anything going on the fridge or into a frame.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Ages 5 and up. Especially useful for STEM and science activities that require structure.</div>
+  </div>
+
+  <!-- PRODUCT 3 -->
+  <div class="product">
+    <div class="product-number">Supply 03</div>
+    <h2>Crayola Washable Paint — 12 Colors, 16 oz Each <span class="product-price">— $48.97</span></h2>
+    <a href="https://amzn.to/4wDOYUB" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>This is the premium pick on the list and the one I would encourage you not to skip. Sixteen ounces per color means you are not rationing paint or running out mid-project. These are the bottles you set out for process art sessions, pour painting, sponge painting, roller painting — the big, joyful, messy stuff.</p>
+    <p>Crayola's washable formula genuinely washes out of clothes and off surfaces. That matters enormously when you are doing this regularly. The 12-color set covers primaries, secondaries, and extras — enough for color mixing lessons with older kids and simple stamp-and-paint fun with toddlers.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Ages 3 and up. Unlocks the most paint-based activities in PlayPrep.</div>
+  </div>
+
+  <!-- PRODUCT 4 -->
+  <div class="product">
+    <div class="product-number">Supply 04</div>
+    <h2>Watercolor Paint Set — 16 Colors with Palette, Pad &amp; Brushes <span class="product-price">— $12.50</span></h2>
+    <a href="https://amzn.to/4dTSx1D" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>Watercolor is a completely different experience from tempera paint — and kids respond to it differently. The translucency, the way colors blend on wet paper, the softer finish — it opens up a whole category of projects that washable paint cannot replicate.</p>
+    <p>This set comes with a mixing palette, a paper pad, and eight brushes, making it an exceptional value at $12.50. Great for nature journaling, watercolor resist art (paint over crayon drawings to reveal clean lines underneath), greeting card making, and quiet independent art sessions.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Ages 5 and up. Pairs beautifully with the cardstock listed above.</div>
+  </div>
+
+  <!-- PRODUCT 5 -->
+  <div class="product">
+    <div class="product-number">Supply 05</div>
+    <h2>Crayola Ultra Clean Washable Markers — 40 Count <span class="product-price">— $18.04</span></h2>
+    <a href="https://amzn.to/4dEAJGv" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>Forty colors is the right number. Enough variety to keep kids genuinely engaged, not so many that the marker cap situation becomes a household crisis. The broad line is versatile — detailed enough for coloring, bold enough for posters and signs.</p>
+    <p>The Ultra Clean formula holds up well: these wash off skin and most surfaces without much effort. For families doing activities regularly, that reliability matters more than it sounds. Use these for labeling, decorating envelopes, creating DIY sticker charts, and anything requiring sustained color work.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Ages 3 and up. One of the most-used supplies across the PlayPrep library.</div>
+  </div>
+
+  <!-- PRODUCT 6 -->
+  <div class="product">
+    <div class="product-number">Supply 06</div>
+    <h2>Elmer's Disappearing Purple Glue Sticks — 30 Count <span class="product-price">— $9.97</span></h2>
+    <a href="https://amzn.to/4nFkSMl" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>Thirty glue sticks sounds like overkill until you have watched a seven-year-old use an entire stick to attach one piece of tissue paper. The disappearing purple formula is genuinely useful: it applies purple so kids can see exactly where they have glued, then dries completely clear.</p>
+    <p>Glue sticks are the right tool for collage work, paper crafts, making books, and attaching tissue paper — any project where you want adhesion without the mess or dry time of liquid glue. These are the ones we reach for first.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Ages 3 and up. One of the highest-frequency supplies across the PlayPrep library.</div>
+  </div>
+
+  <!-- PRODUCT 7 -->
+  <div class="product">
+    <div class="product-number">Supply 07</div>
+    <h2>Elmer's Liquid School Glue — 4 oz, 12 Count <span class="product-price">— $17.99</span></h2>
+    <a href="https://amzn.to/4tRuWDB" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>Some projects need more than a glue stick. Liquid glue is what you want for slime making, paper mâché, fabric collage, building cardboard structures, and anything needing a strong lasting bond. Classic Elmer's is also the only slime glue that actually works — important if your household has hit the slime phase.</p>
+    <p>A 12-pack is the right quantity for regular use or group activities — individual bottles run out fast, and having extras means you are never stopping mid-project to hunt for more.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Ages 4 and up with supervision. Essential for slime, paper mâché, and construction projects.</div>
+  </div>
+
+  <!-- PRODUCT 8 -->
+  <div class="product">
+    <div class="product-number">Supply 08</div>
+    <h2>Painters Tape — 4 Rolls, 88 Total Yards <span class="product-price">— $5.99</span></h2>
+    <a href="https://amzn.to/4fvpKBK" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>Painters tape is the unsung hero of this entire kit. It creates tape resist art (press tape in patterns, paint over everything, peel to reveal clean geometric lines underneath), marks off roads and tracks for toy cars on the floor, holds paper in place while kids work, and creates targets for movement games.</p>
+    <p>At $5.99 for four rolls this is the most affordable item on the list — and consistently the one parents are most surprised by when they start using PlayPrep activities. No residue, easy removal, repositionable, and kids genuinely love the peel-reveal moment.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; All ages. One of the most frequently appearing supplies in PlayPrep.</div>
+  </div>
+
+  <!-- PRODUCT 9 -->
+  <div class="product">
+    <div class="product-number">Supply 09</div>
+    <h2>Fiskars Training Scissors — 3-Pack <span class="product-price">— $8.00</span></h2>
+    <a href="https://amzn.to/4tPjxUO" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>Cutting is a foundational fine motor skill, and having the right scissors matters more than most people realize. The Fiskars training scissors use a spring-action lever that guides the opening motion — kids squeeze to cut, and the scissors spring back open automatically. This dramatically reduces frustration for 3–5 year olds still building hand strength.</p>
+    <p>A 3-pack means siblings or a small group can work simultaneously. These are specifically designed to not cut skin, which parents of preschoolers will appreciate greatly.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Ages 3–6 for the training model. One of the most important early childhood craft supplies in the kit.</div>
+  </div>
+
+  <!-- PRODUCT 10 -->
+  <div class="product">
+    <div class="product-number">Supply 10</div>
+    <h2>Carl &amp; Kay Arts &amp; Crafts Supplies Kit <span class="product-price">— $16.97</span></h2>
+    <a href="https://amzn.to/43jKyF0" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>This is the bonus all-in-one pick that fills the gaps. The kit includes pipe cleaners, pom poms, googly eyes, foam stickers, and an assortment of mixed media supplies that unlock a whole category of activities: character crafts, puppet making, sensory exploration, and open-ended creative building.</p>
+    <p>Having these on hand means kids can build creatures, decorate projects, and add dimension to flat art without a separate shopping trip. Especially valuable if you are stocking a playroom, homeschool corner, or art station for the first time and want immediate variety.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Ages 4 and up. Great for imaginative and character-based play activities.</div>
+  </div>
+
+  <!-- SUMMARY TABLE -->
+  <div class="summary-section">
+    <h2>The Full Kit at a Glance</h2>
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Supply</th>
+          <th>Price</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Crayola Construction Paper (480 sheets)</td><td>$11.76</td><td><a href="https://amzn.to/42Oa9Ws" target="_blank" rel="nofollow sponsored">Shop →</a></td></tr>
+        <tr><td>Amazon Basics Cardstock (250 sheets)</td><td>$12.55</td><td><a href="https://amzn.to/4dFpxJR" target="_blank" rel="nofollow sponsored">Shop →</a></td></tr>
+        <tr><td>Crayola Washable Paint 12ct (16 oz)</td><td>$48.97</td><td><a href="https://amzn.to/4wDOYUB" target="_blank" rel="nofollow sponsored">Shop →</a></td></tr>
+        <tr><td>Watercolor Paint Set with supplies</td><td>$12.50</td><td><a href="https://amzn.to/4dTSx1D" target="_blank" rel="nofollow sponsored">Shop →</a></td></tr>
+        <tr><td>Crayola Washable Markers (40ct)</td><td>$18.04</td><td><a href="https://amzn.to/4dEAJGv" target="_blank" rel="nofollow sponsored">Shop →</a></td></tr>
+        <tr><td>Elmer's Glue Sticks (30ct)</td><td>$9.97</td><td><a href="https://amzn.to/4nFkSMl" target="_blank" rel="nofollow sponsored">Shop →</a></td></tr>
+        <tr><td>Elmer's Liquid Glue (12ct)</td><td>$17.99</td><td><a href="https://amzn.to/4tRuWDB" target="_blank" rel="nofollow sponsored">Shop →</a></td></tr>
+        <tr><td>Painters Tape (4 rolls)</td><td>$5.99</td><td><a href="https://amzn.to/4fvpKBK" target="_blank" rel="nofollow sponsored">Shop →</a></td></tr>
+        <tr><td>Fiskars Training Scissors (3-pack)</td><td>$8.00</td><td><a href="https://amzn.to/4tPjxUO" target="_blank" rel="nofollow sponsored">Shop →</a></td></tr>
+        <tr><td>Carl &amp; Kay Arts &amp; Crafts Kit</td><td>$16.97</td><td><a href="https://amzn.to/43jKyF0" target="_blank" rel="nofollow sponsored">Shop →</a></td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>~$163</strong></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CTA -->
+  <div class="post-cta">
+    <p class="label">What to do with it all</p>
+    <h3>Find your next activity in PlayPrep</h3>
+    <p>Every activity in the PlayPrep library lists exactly which supplies it needs. Filter by what you already have and see every activity you can do right now.</p>
+    <a href="https://web.playprep.app" target="_blank">Download PlayPrep free →</a>
+  </div>
+
+  <!-- FOOTER DISCLOSURE -->
+  <p class="post-disclosure-footer">
+    This post contains affiliate links. As an Amazon Associate, I earn from qualifying purchases at no extra cost to you. All products are ones I genuinely recommend based on their use across the PlayPrep activity library. Prices shown are approximate and may vary.
+  </p>
+
+</article>
+
+<!-- RELATED POSTS -->
+<section class="related-section">
+  <div class="related-inner">
+    <h3>More from the blog</h3>
+    <div class="related-grid">
+      <div class="related-card">
+        <div class="related-cat">Activities</div>
+        <h4>30 Rainy Day Activity Ideas for Every Age</h4>
+        <span class="coming-label">Coming soon</span>
+      </div>
+      <div class="related-card">
+        <div class="related-cat">Toddlers</div>
+        <h4>Best Art Activities for Toddlers (No-Mess Options Included)</h4>
+        <span class="coming-label">Coming soon</span>
+      </div>
+      <div class="related-card">
+        <div class="related-cat">Field Trips</div>
+        <h4>Best Children's Museums Worth the Drive</h4>
+        <span class="coming-label">Coming soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="nav-logo" href="/">
+        <img src="/star-icon.png" alt="PlayPrep logo" />
+        <span style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;">Play<em style="color:var(--amber);font-style:normal;">Prep</em></span>
+      </a>
+      <p>The activity planner for parents, teachers, and homeschoolers. Plan it. Prep it. Play.</p>
+    </div>
+    <div class="footer-links">
+      <h4>App</h4>
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/beta.html">Join Beta</a>
+    </div>
+    <div class="footer-links">
+      <h4>Blog</h4>
+      <a href="/blog/">All Posts</a>
+      <a href="/blog/starter-kit.html">Starter Kit</a>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 PlayPrep Labs LLC. All rights reserved.</p>
+    <div style="display:flex;gap:16px;">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
