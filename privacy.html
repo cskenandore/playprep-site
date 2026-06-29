@@ -153,7 +153,7 @@
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="meta">Effective Date: June 5, 2026 &nbsp;·&nbsp; Contact: <a href="mailto:support@playprep.app">support@playprep.app</a></p>
+  <p class="meta">Effective Date: June 28, 2026 &nbsp;·&nbsp; Contact: <a href="mailto:support@playprep.app">support@playprep.app</a></p>
 
   <p>Thank you for using PlayPrep. This Privacy Policy explains how PlayPrep Labs LLC collects, uses, shares, and protects your information when you use our mobile application and related services. We are committed to transparency and to keeping your information safe.</p>
 
@@ -177,9 +177,9 @@
   <ul>
     <li>Your email address and password (if you register with email)</li>
     <li>Your name (if provided during sign-up)</li>
-    <li>Authentication tokens when you sign in with Apple or Google</li>
+    <li>Authentication tokens when you sign in with Apple</li>
   </ul>
-  <p>Account authentication is powered by <strong>Supabase</strong> (see Section 6). We do not store your Apple or Google passwords.</p>
+  <p>Account authentication is powered by <strong>Supabase</strong> (see Section 6). We do not store your Apple password.</p>
 
   <h3>3.2 Content You Create</h3>
   <p>Data you enter into PlayPrep is stored on our servers (Supabase) and locally on your device. This includes:</p>
@@ -224,7 +224,19 @@
   <p>PlayPrep subscriptions (Pro and Pro Plus) are managed by <strong>RevenueCat</strong>. RevenueCat processes subscription status, entitlements, and renewal data. We do not handle or store your payment card details — all payment processing is handled by Apple's App Store or Google Play. RevenueCat's privacy policy is available at <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>.</p>
 
   <h3>3.7 Push Notifications</h3>
-  <p>If you enable push notifications, PlayPrep may store a device push token to deliver local and server-triggered notifications (such as plan reminders). You can disable notifications at any time in your device settings or in the app's Notifications settings screen.</p>
+  <p>If you enable push notifications, PlayPrep may store a device push token to deliver local and server-triggered notifications (such as plan reminders or collection collaboration updates). Each device you use stores its own token, so notifications are delivered correctly to all of your active devices, not just the most recently used one. You can disable notifications at any time in your device settings or in the app's Notifications settings screen.</p>
+
+  <h3>3.8 Device &amp; Account Security Data</h3>
+  <p>When you use PlayPrep&#x2019;s cloud sync (Pro and Pro Plus) on a phone, tablet, or through the web companion, we register that device to your account so sync and account security work reliably. For each device, we store:</p>
+  <ul>
+    <li>A unique device identifier generated automatically by the app — not a hardware serial number, and not tied to your identity on its own</li>
+    <li>Device platform (iOS, Android, or web) and app version</li>
+    <li>When the device was last active and when it last successfully synced</li>
+    <li>An <strong>approximate</strong> location (city/region level), resolved from the device&#x2019;s IP address at the moment it connects to our servers — this is separate from, and not derived from, the GPS-based location described in Section 3.3, which is used only for Places features and never for account security</li>
+    <li>A push notification token, if notifications are enabled (Section 3.7)</li>
+  </ul>
+  <p>This information is used only for sync reliability and account security — for example, enforcing the device limit described in Section 9, letting you view and manage your connected devices from the in-app Manage Devices screen, and flagging unusual account activity (such as an unusually high number of new devices in a short time) for manual review. It is never used for advertising and never shared with advertisers.</p>
+  <p>Approximate location is resolved using a third-party IP geolocation service (Section 6). If that lookup ever fails or is unavailable, your device still works normally — it simply won&#x2019;t show a location on the Manage Devices screen.</p>
 
   <h2>4. How We Use Your Information</h2>
   <table>
@@ -235,6 +247,7 @@
     <tr><td>Subscription management</td><td>Account ID, subscription status via RevenueCat</td></tr>
     <tr><td>Crash reporting and bug fixes</td><td>Anonymized diagnostics via Sentry</td></tr>
     <tr><td>Push notifications</td><td>Device push token, notification preferences</td></tr>
+    <tr><td>Device security, sync reliability, and the device limit (Section 9)</td><td>Device ID, platform, approximate IP-based location, last-active and last-sync timestamps</td></tr>
     <tr><td>Displaying advertising</td><td>Anonymous device ID via AdMob (see Section 5)</td></tr>
     <tr><td>Affiliate link tracking</td><td>Click data via Amazon Associates and partner programs (see Section 5)</td></tr>
   </table>
@@ -268,8 +281,9 @@
     <tr><td>Sentry</td><td>Crash reporting and error diagnostics</td><td><a href="https://sentry.io/privacy/" target="_blank" rel="noopener">sentry.io/privacy</a></td></tr>
     <tr><td>RevenueCat</td><td>Subscription management</td><td><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></td></tr>
     <tr><td>Google AdMob</td><td>Advertising</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
+    <tr><td>theipapi.com</td><td>Approximate IP-based location for device/account security (Section 3.8)</td><td><a href="https://theipapi.com/privacy" target="_blank" rel="noopener">theipapi.com/privacy</a></td></tr>
+    <tr><td>Resend</td><td>Transactional email — account deletion notices, device security alerts</td><td><a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">resend.com/legal/privacy-policy</a></td></tr>
     <tr><td>Apple Sign In</td><td>Authentication option</td><td><a href="https://www.apple.com/privacy/" target="_blank" rel="noopener">apple.com/privacy</a></td></tr>
-    <tr><td>Google OAuth</td><td>Authentication option</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
     <tr><td>Amazon Associates</td><td>Affiliate link program</td><td><a href="https://www.amazon.com/privacy" target="_blank" rel="noopener">amazon.com/privacy</a></td></tr>
     <tr><td>Expo / React Native</td><td>App framework and push notifications</td><td><a href="https://expo.dev/privacy" target="_blank" rel="noopener">expo.dev/privacy</a></td></tr>
   </table>
@@ -283,30 +297,45 @@
     <li><strong>Business transfer:</strong> If PlayPrep Labs LLC is acquired, merged, or transfers assets, your data may be transferred as part of that transaction. We will notify you of any such change.</li>
   </ul>
 
-  <h2>8. Data Retention & Deletion</h2>
-  <p>We retain your data for as long as your account is active or as needed to provide services. You can:</p>
+  <h2>8. Data Retention &amp; Deletion</h2>
+  <p>We retain your data for as long as your account is active or as needed to provide services. You can manage most of this yourself from <strong>Settings &rarr; Privacy &amp; Data</strong> in the app:</p>
   <ul>
-    <li>Delete all app data using the "Clear All Data" option in the app's settings</li>
-    <li>Delete your account by contacting <a href="mailto:support@playprep.app">support@playprep.app</a> — we will delete your account and associated data within 30 days</li>
-    <li>Export your data by contacting us at the email above</li>
+    <li><strong>Export your data:</strong> Use Export my data in Privacy &amp; Data to download a copy at any time.</li>
+    <li><strong>Delete your account:</strong> Use Delete account &amp; data in Privacy &amp; Data. You&#x2019;ll be asked to re-enter your password and type DELETE to confirm. Your account is then scheduled for deletion <strong>24 hours later</strong> — you remain signed in during this window, and we email you a cancellation link. Every device signed into your account will show a notice that deletion is pending until it&#x2019;s cancelled (from that notice, the email link, or by contacting us) or completed. If the 24-hour period passes without cancellation, your account and all associated data — including cloud-stored photos — are permanently deleted. This cannot be undone once it happens.</li>
+    <li>You can also reach us at <a href="mailto:support@playprep.app">support@playprep.app</a> for help with either of the above, or to request deletion if you&#x2019;re unable to access the app.</li>
   </ul>
-  <p>Some anonymized data (such as aggregated crash reports in Sentry) may be retained after account deletion.</p>
+  <p>Some anonymized data (such as aggregated crash reports in Sentry) may be retained after account deletion. See Section 9 for how long cloud-synced content itself is retained, separate from your account.</p>
 
-  <h2>9. Minors & Participant Privacy</h2>
+  <h2>9. Device Limits &amp; Cloud Data Lifecycle</h2>
+  <p>Pro and Pro Plus subscriptions include cloud sync across up to 5 devices (including the web companion). This section explains how that works day to day and what happens to your data over time — see our Terms of Service for what counts as misuse of the device limit.</p>
+
+  <h3>9.1 Up to 5 Connected Devices</h3>
+  <p>A phone, tablet, and the web companion each count as one device toward the 5-device limit on Pro and Pro Plus accounts. You can view your connected devices — platform, approximate location, and last-active time — and remove any of them at any time from Manage devices in Privacy &amp; Data. Removing a device frees its slot immediately, with no waiting period to reconnect.</p>
+
+  <h3>9.2 If a Device Is Offline a Long Time</h3>
+  <p>If a device hasn&#x2019;t successfully synced in 45 days or more, the next time it reconnects we ask you to choose between downloading the latest data from the cloud (replacing anything saved only on that device) or merging that device&#x2019;s data back in first. We ask rather than deciding for you because either choice can mean losing something, and you&#x2019;re in the best position to know which matters more for your situation.</p>
+
+  <h3>9.3 Deleted Items</h3>
+  <p>When you delete an activity, place, or other item, it isn&#x2019;t removed from our servers immediately — it&#x2019;s marked for deletion so your other devices have a chance to learn about the change the next time they sync. Once enough time has passed that every active device has had that chance (typically within 45&#x2013;90 days, depending on your devices&#x2019; own sync activity), the item is permanently removed.</p>
+
+  <h3>9.4 Cloud Data After Cancelling a Subscription</h3>
+  <p>If you cancel or downgrade from Pro or Pro Plus, you keep using PlayPrep as a free user with everything still saved on your own device. If your account stays on the free tier for 31 consecutive days, your cloud-synced backup (activities, places, and related content) is deleted from our servers — your account itself, your settings, and anything still saved on your device are not affected. If you resubscribe afterward on the same device, your data is restored automatically. Resubscribing on a different device after the original device has been lost, reset, or had the app removed will not recover that backup.</p>
+
+  <h2>10. Minors &amp; Participant Privacy</h2>
   <p>PlayPrep accounts must be held by users age 13 or older. We do not knowingly collect personal information directly from children under 13. Participant profile data (nicknames, birthdates, interests, accessibility preferences) is entered by the account holder — an adult or older teen — on behalf of themselves or others in their group, and is stored within the account holder's account.</p>
   <p>If you believe a child under 13 has independently created an account and provided personal information, please contact us at <a href="mailto:support@playprep.app">support@playprep.app</a> and we will delete that account and information promptly.</p>
 
-  <h2>10. Security</h2>
+  <h2>11. Security</h2>
   <p>We implement industry-standard security measures including:</p>
   <ul>
     <li>Encryption in transit (TLS/HTTPS) for all data sent between your device and our servers</li>
     <li>Encryption at rest for data stored in Supabase</li>
     <li>Row-level security policies to ensure users can only access their own data</li>
-    <li>Secure authentication via Supabase Auth with support for Apple Sign In and Google OAuth</li>
+    <li>Secure authentication via Supabase Auth with support for Apple Sign In</li>
   </ul>
   <p>No system is perfectly secure. We encourage you to use a strong password and to keep your device software up to date.</p>
 
-  <h2>11. Your Rights</h2>
+  <h2>12. Your Rights</h2>
 
   <h3>All Users</h3>
   <ul>
@@ -322,13 +351,13 @@
   <h3>EU/EEA Users (GDPR)</h3>
   <p>If you are located in the European Union or European Economic Area, you have additional rights under the GDPR including the right to restrict processing, to object to processing, and to lodge a complaint with a supervisory authority. Our legal basis for processing your data is the performance of the contract (providing the app services) and legitimate interests (improving the app, security). Contact us at <a href="mailto:support@playprep.app">support@playprep.app</a> to exercise your rights.</p>
 
-  <h2>12. International Users</h2>
+  <h2>13. International Users</h2>
   <p>PlayPrep Labs LLC is operated from the United States. If you access PlayPrep from outside the US, your information may be transferred to and processed in the United States. By using PlayPrep, you consent to this transfer.</p>
 
-  <h2>13. Changes to This Policy</h2>
+  <h2>14. Changes to This Policy</h2>
   <p>We may update this Privacy Policy from time to time. When we make material changes, we will notify you through an in-app notice and update the "Effective Date" at the top of this document. Continued use of PlayPrep after changes constitutes your acceptance of the updated policy.</p>
 
-  <h2>14. Contact Us</h2>
+  <h2>15. Contact Us</h2>
   <p>If you have questions about this Privacy Policy or your data, please contact us:</p>
   <ul>
     <li><strong>Company:</strong> PlayPrep Labs LLC</li>
