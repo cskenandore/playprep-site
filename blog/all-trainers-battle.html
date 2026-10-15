@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Trainers Battle: Easy TCG Rules for Every Age and Ability | PlayPrep</title>
+  <meta name="description" content="A free, easy card battle you can play with the trading cards you already have. Three levels for every age and ability, plus free printable rules." />
+  <meta property="og:title" content="All Trainers Battle: Easy TCG Rules for Every Age and Ability" />
+  <meta property="og:description" content="Free printable rules for an easy card battle anyone can play. From the PlayPrep blog." />
+  <link rel="canonical" href="https://playprep.app/blog/all-trainers-battle.html" />
+  <meta property="og:image" content="/logo.png" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1A2744;
+      --navy2:  #0F1A32;
+      --amber:  #D97706;
+      --amber2: #F59E0B;
+      --cream:  #FAF8F3;
+      --white:  #FFFFFF;
+      --muted:  #64748B;
+      --border: #E2E8F0;
+      --sage:   #2D8A5E;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(26,39,68,0.96);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 8px; }
+    .nav-logo span { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #fff; }
+    .nav-logo span em { color: var(--amber); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.nav-active { color: var(--amber); }
+    .nav-cta { background: var(--amber); color: var(--navy) !important; padding: 9px 20px; border-radius: 999px; font-weight: 600 !important; }
+    .nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.8); }
+    .nav-mobile-menu { display: none; }
+
+    /* ── POST HEADER ── */
+    .post-header {
+      background: var(--navy);
+      padding: 130px 24px 64px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .post-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(217,119,6,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .post-breadcrumb {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 12px; font-weight: 600; margin-bottom: 20px;
+      position: relative; z-index: 1;
+    }
+    .post-breadcrumb a { color: var(--amber); text-decoration: none; }
+    .post-breadcrumb span { color: rgba(255,255,255,0.3); }
+    .post-breadcrumb em { color: rgba(255,255,255,0.5); font-style: normal; }
+    .post-category-pill {
+      display: inline-block;
+      background: rgba(217,119,6,0.15); border: 1px solid rgba(217,119,6,0.3);
+      color: var(--amber2); font-size: 10px; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 999px; margin-bottom: 20px;
+      position: relative; z-index: 1;
+    }
+    .post-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 48px); font-weight: 900; line-height: 1.15;
+      color: var(--white); max-width: 720px; margin: 0 auto 20px;
+      position: relative; z-index: 1;
+    }
+    .post-header-meta {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      font-size: 13px; color: rgba(255,255,255,0.45);
+      position: relative; z-index: 1;
+    }
+    .post-header-meta span + span::before { content: '·'; margin-right: 6px; }
+
+    /* ── POST BODY ── */
+    .post-body {
+      max-width: 720px; margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── DISCLOSURE ── */
+    .disclosure {
+      background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--amber);
+      border-radius: 12px; padding: 16px 20px;
+      margin-bottom: 40px;
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+    }
+    .disclosure strong { color: var(--navy); }
+
+    /* ── INTRO ── */
+    .post-intro {
+      font-size: 17px; line-height: 1.8;
+      color: var(--navy); margin-bottom: 16px;
+    }
+    .post-intro + .post-intro { margin-bottom: 32px; }
+    .kit-total {
+      background: var(--navy); color: var(--white);
+      border-radius: 12px; padding: 16px 20px;
+      font-size: 15px; font-weight: 600; margin-bottom: 48px;
+    }
+    .kit-total em { color: var(--amber); font-style: normal; }
+
+    /* ── PRODUCT SECTIONS ── */
+    .product { margin-bottom: 52px; border-bottom: 1px solid var(--border); padding-bottom: 48px; }
+    .product:last-of-type { border-bottom: none; }
+    .product-number {
+      font-size: 10px; font-weight: 800; letter-spacing: 2px;
+      color: var(--amber); text-transform: uppercase; margin-bottom: 8px;
+    }
+    .product h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 2.5vw, 26px); font-weight: 900; line-height: 1.2;
+      color: var(--navy); margin-bottom: 14px;
+    }
+    .product-price {
+      font-size: 18px; font-weight: 700; color: var(--sage);
+    }
+    .product-shop {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--amber); color: var(--navy);
+      padding: 10px 20px; border-radius: 999px;
+      font-weight: 700; font-size: 13px; text-decoration: none;
+      margin-bottom: 20px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(217,119,6,0.25);
+    }
+    .product-shop:hover { background: var(--amber2); transform: translateY(-1px); }
+    .product p {
+      font-size: 15px; line-height: 1.8; color: #334155; margin-bottom: 14px;
+    }
+    .product-best {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(45,138,94,0.08); border: 1px solid rgba(45,138,94,0.2);
+      color: var(--sage); border-radius: 8px;
+      padding: 8px 14px; font-size: 13px; font-weight: 600;
+    }
+    .product-best strong { color: var(--sage); }
+
+    /* ── SUMMARY TABLE ── */
+    .summary-section { margin: 56px 0; }
+    .summary-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 900; margin-bottom: 24px; color: var(--navy);
+    }
+    .summary-table { width: 100%; border-collapse: collapse; }
+    .summary-table th {
+      text-align: left; padding: 12px 16px;
+      font-size: 11px; font-weight: 800; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--muted);
+      background: var(--cream); border-bottom: 2px solid var(--border);
+    }
+    .summary-table td {
+      padding: 14px 16px; font-size: 14px; color: var(--navy);
+      border-bottom: 1px solid var(--border); background: var(--white);
+    }
+    .summary-table tr:last-child td { border-bottom: none; font-weight: 700; background: rgba(217,119,6,0.05); }
+    .summary-table td a { color: var(--amber); text-decoration: none; font-size: 12px; font-weight: 600; }
+    .summary-table td a:hover { color: var(--navy); }
+    .summary-table td:last-child { font-weight: 600; color: var(--sage); }
+
+    /* ── CTA ── */
+    .post-cta {
+      background: var(--navy); border-radius: 20px;
+      padding: 48px 40px; text-align: center; margin: 56px 0;
+      position: relative; overflow: hidden;
+    }
+    .post-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(217,119,6,0.15), transparent 70%);
+      pointer-events: none;
+    }
+    .post-cta p.label {
+      font-size: 10px; font-weight: 800; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--amber); margin-bottom: 10px;
+      position: relative; z-index: 1;
+    }
+    .post-cta h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3vw, 30px); font-weight: 900;
+      color: var(--white); margin-bottom: 12px;
+      position: relative; z-index: 1;
+    }
+    .post-cta > p {
+      color: rgba(255,255,255,0.6); font-size: 15px;
+      max-width: 420px; margin: 0 auto 28px; line-height: 1.6;
+      position: relative; z-index: 1;
+    }
+    .post-cta a {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--amber); color: var(--navy);
+      padding: 15px 28px; border-radius: 999px;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 8px 24px rgba(217,119,6,0.35);
+      position: relative; z-index: 1;
+    }
+    .post-cta a:hover { background: var(--amber2); transform: translateY(-2px); }
+
+    /* ── BOTTOM DISCLOSURE ── */
+    .post-disclosure-footer {
+      font-size: 12px; color: var(--muted); line-height: 1.7;
+      border-top: 1px solid var(--border); padding-top: 24px; margin-top: 40px;
+    }
+
+   
+    /* ── FOOTER ── */
+    footer { background: var(--navy2); padding: 60px 24px 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
+    .footer-brand p { color: rgba(255,255,255,0.45); font-size: 13px; line-height: 1.6; max-width: 260px; margin-top: 12px; }
+    .footer-links h4 { color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+    .footer-links a { display: block; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--amber); }
+    .footer-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+    .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 12px; }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--amber); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .nav-mobile-btn { display: flex; }
+      .nav-mobile-menu {
+        position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+        background: rgba(15,26,50,0.98); backdrop-filter: blur(12px);
+        padding: 20px; display: none; flex-direction: column; gap: 4px;
+      }
+      .nav-mobile-menu.open { display: flex; }
+      .nav-mobile-menu a {
+        display: block; padding: 12px 16px; color: rgba(255,255,255,0.8);
+        text-decoration: none; font-size: 16px; font-weight: 500;
+        border-radius: 10px; transition: background 0.2s;
+      }
+      .nav-mobile-menu a:hover { background: rgba(255,255,255,0.06); color: var(--amber); }
+      .post-cta { padding: 36px 24px; }
+    }
+  
+    /* ── ALL TRAINERS BATTLE ── */
+    .post-header .tagline {
+      color: rgba(255,255,255,0.7); font-size: 17px; margin: -6px auto 22px;
+      max-width: 560px; position: relative; z-index: 1;
+    }
+    .download-box {
+      background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+      padding: 28px; margin: 8px 0 40px;
+      box-shadow: 0 10px 30px rgba(26,39,68,0.06);
+    }
+    .download-box .label {
+      font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .download-box h2 {
+      font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; margin-bottom: 8px;
+    }
+    .download-box p { font-size: 15px; line-height: 1.7; color: #334155; margin-bottom: 18px; }
+    .download-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-amber, .btn-outline {
+      display: inline-flex; align-items: center; gap: 6px; padding: 12px 22px; border-radius: 999px;
+      font-weight: 700; font-size: 14px; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-amber { background: var(--amber); color: var(--navy); box-shadow: 0 4px 12px rgba(217,119,6,0.25); }
+    .btn-amber:hover { background: var(--amber2); transform: translateY(-1px); }
+    .btn-outline { border: 1.5px solid var(--navy); color: var(--navy); }
+    .btn-outline:hover { background: var(--navy); color: var(--white); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+    .chips a {
+      font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none;
+      background: var(--white); border: 1px solid var(--border); border-radius: 999px; padding: 7px 14px;
+    }
+    .chips a:hover { border-color: var(--amber); color: var(--amber); }
+
+    .section { margin-bottom: 52px; scroll-margin-top: 90px; }
+    .section-kicker {
+      font-size: 10px; font-weight: 800; letter-spacing: 2px; color: var(--amber);
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .section h2 {
+      font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 30px);
+      font-weight: 900; line-height: 1.2; margin-bottom: 14px;
+    }
+    .section h3 { font-size: 17px; font-weight: 700; margin: 24px 0 10px; }
+    .section p { font-size: 15px; line-height: 1.8; color: #334155; margin-bottom: 14px; }
+    .section ul.plain { margin: 0 0 14px 20px; }
+    .section ul.plain li { font-size: 15px; line-height: 1.8; color: #334155; margin-bottom: 4px; }
+
+    .know-card { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: center; }
+    .know-card svg { width: 100%; height: auto; }
+    .know-card dl { display: grid; gap: 14px; }
+    .know-card dt { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+    .know-card dt b {
+      display: inline-flex; width: 22px; height: 22px; border-radius: 50%; align-items: center; justify-content: center;
+      background: var(--amber); color: var(--navy); font-size: 12px;
+    }
+    .know-card dd { font-size: 14px; line-height: 1.6; color: #475569; margin-left: 30px; }
+
+    .length-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0 20px; }
+    .length-tile {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+      padding: 18px 14px; text-align: center;
+    }
+    .length-tile .big { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 900; color: var(--amber); line-height: 1; }
+    .length-tile .name { font-weight: 700; margin-top: 6px; }
+    .length-tile .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    ol.steps { list-style: none; counter-reset: step; margin: 8px 0 20px; }
+    ol.steps li {
+      counter-increment: step; position: relative; padding: 14px 16px 14px 60px; margin-bottom: 10px;
+      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+      font-size: 15px; line-height: 1.7; color: #334155;
+    }
+    ol.steps li::before {
+      content: counter(step); position: absolute; left: 16px; top: 14px;
+      width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: var(--white);
+      font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center;
+    }
+    ol.steps li strong { color: var(--navy); }
+
+    .boost-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 8px 0 20px; }
+    .boost {
+      border-radius: 16px; padding: 18px 14px; text-align: center; background: var(--navy); color: var(--white);
+    }
+    .boost.match { background: var(--amber); color: var(--navy); }
+    .boost.trainer { background: var(--sage); }
+    .boost .amt { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; line-height: 1; }
+    .boost .what { font-size: 13px; font-weight: 600; margin-top: 6px; opacity: 0.9; }
+
+    .callout {
+      background: rgba(45,138,94,0.08); border: 1px solid rgba(45,138,94,0.2); border-radius: 14px;
+      padding: 16px 18px; font-size: 14px; line-height: 1.7; color: #1f5f42; margin: 8px 0 18px;
+    }
+    .callout strong { color: var(--sage); }
+    .callout.amber { background: rgba(217,119,6,0.07); border-color: rgba(217,119,6,0.25); color: #7a4504; }
+    .callout.amber strong { color: var(--amber); }
+
+    .variation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .variation {
+      background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 20px;
+    }
+    .variation .icon { font-size: 26px; margin-bottom: 8px; }
+    .variation h3 { margin: 0 0 6px; font-size: 16px; }
+    .variation p { font-size: 14px; line-height: 1.65; margin: 0; }
+
+    .library-plug {
+      display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start;
+      background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--sage);
+      border-radius: 16px; padding: 22px; margin-bottom: 52px;
+    }
+    .library-plug img { width: 64px; height: 64px; border-radius: 14px; }
+    .library-plug h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; margin-bottom: 6px; }
+    .library-plug p { font-size: 14px; line-height: 1.7; color: #334155; margin-bottom: 10px; }
+    .library-plug a { color: var(--amber); font-weight: 700; text-decoration: none; font-size: 14px; }
+
+    .gear-intro { font-size: 15px; line-height: 1.8; color: #334155; margin-bottom: 32px; }
+
+    .trademark-note { font-size: 12px; color: var(--muted); line-height: 1.7; margin-top: 12px; }
+
+    @media (max-width: 640px) {
+      .know-card { grid-template-columns: 1fr; }
+      .know-card svg { max-width: 200px; margin: 0 auto; }
+      .length-grid, .boost-grid { grid-template-columns: 1fr; }
+      .variation-grid { grid-template-columns: 1fr; }
+      .download-box { padding: 22px; }
+    }
+    @media print {
+      nav, footer, .chips, .post-cta, .download-box, .library-plug { display: none !important; }
+      .post-header { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="/star-icon.png" alt="PlayPrep logo" />
+    <span>Play<em>Prep</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="/#features">Features</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog/" class="nav-active">Blog</a>
+    <a href="/beta.html">Beta Guide</a>
+    <a href="/beta.html" class="nav-cta">Join Beta</a>
+  </div>
+  <button class="nav-mobile-btn" onclick="document.querySelector('.nav-mobile-menu').classList.toggle('open')" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <div class="nav-mobile-menu">
+    <a href="/#features">Features</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a href="/beta.html">Beta Guide</a>
+    <a href="/beta.html" style="margin-top:8px;text-align:center;padding:12px;border-radius:999px;background:var(--amber);color:var(--navy);font-weight:700;display:block;">Join Beta</a>
+  </div>
+</nav>
+
+<!-- POST HEADER -->
+<header class="post-header">
+  <div class="post-breadcrumb">
+    <a href="/blog/">Blog</a>
+    <span>›</span>
+    <em>Activities</em>
+  </div>
+  <div class="post-category-pill">✦ Activities · Free Printable</div>
+  <h1>All Trainers Battle: Easy TCG Rules for Every Age and Ability</h1>
+  <p class="tagline">A simple card battle you can play with the trading cards you already have — plus a free printable to take to the table.</p>
+  <div class="post-header-meta">
+    <span>October 15, 2026</span>
+    <span>7 min read</span>
+    <span>By PlayPrep</span>
+  </div>
+</header>
+
+<!-- POST BODY -->
+<article class="post-body">
+
+  <!-- AFFILIATE DISCLOSURE -->
+  <div class="disclosure">
+    <strong>Disclosure:</strong> As an Amazon Associate, I earn from qualifying purchases. This post contains affiliate links — if you shop through them, I receive a small commission at no extra cost to you. All Trainers Battle is a free, fan-made way to play and is not affiliated with or endorsed by Nintendo, Creatures, GAME FREAK, or The Pokémon Company.
+  </div>
+
+  <!-- INTRO -->
+  <p class="post-intro">If you have a pile of Pokémon cards at home and a player who isn't quite ready for the full trading card game, this one is for you.</p>
+
+  <p class="post-intro">I first made these rules for my son's birthday party. We wanted every guest to be able to jump in and battle — little siblings, grandparents, friends who had never held a card before. The official game is amazing, but it has a lot to learn. So we stripped it down to the parts that make it fun: picking your favorite Pokémon, powering it up, and cheering when the big number wins.</p>
+
+  <p class="post-intro">All Trainers Battle is built for <strong>every age and every ability</strong>. It works for young kids, for older players with learning or physical disabilities, and for grown-ups who just want an easy way in. There are three levels, so the same deck grows right along with the player — all the way to the real game.</p>
+
+  <!-- DOWNLOAD -->
+  <div class="download-box" id="download">
+    <div class="label">Free download</div>
+    <h2>Get the printable rules</h2>
+    <p>Full rules, a battle scorecard, and an All Trainers Champion certificate — ready to print at home. Plus pocket-size rules cards that slide right into a deck box.</p>
+    <div class="download-actions">
+      <a class="btn-amber" href="/downloads/all-trainers-battle-printable.pdf" target="_blank" download>Download the free printable →</a>
+      <a class="btn-outline" href="/downloads/all-trainers-battle-rules-cards.pdf" target="_blank" download>Pocket rules cards</a>
+    </div>
+  </div>
+
+  <div class="chips" role="navigation" aria-label="Jump to section">
+    <a href="#setup">Set up</a>
+    <a href="#level-1">Level 1</a>
+    <a href="#level-2">Level 2</a>
+    <a href="#level-3">Level 3</a>
+    <a href="#ways-to-play">Ways to play</a>
+    <a href="#tips">Tips for helpers</a>
+    <a href="#gear">Favorite gear</a>
+  </div>
+
+  <!-- WHAT YOU NEED -->
+  <section class="section">
+    <div class="section-kicker">What you need</div>
+    <h2>Players, cards &amp; a table</h2>
+    <ul class="plain">
+      <li><strong>2 or more players</strong>, any age. Little ones can play with a helper.</li>
+      <li><strong>Pokémon cards</strong> — any cards with an HP number work.</li>
+      <li><strong>Energy cards</strong> — the more, the merrier.</li>
+      <li><strong>Trainer cards</strong> (optional) — no reading required, we'll show you how.</li>
+      <li>For Level 2: a few dice, coins, or a pencil and paper to track damage.</li>
+    </ul>
+  </section>
+
+  <!-- KNOW YOUR CARD -->
+  <section class="section">
+    <div class="section-kicker">Before you play</div>
+    <h2>Get to know your card</h2>
+    <div class="know-card">
+      <svg viewBox="0 0 200 280" role="img" aria-label="Diagram of a trading card showing where HP, the type symbol, attacks, and weakness are">
+        <rect x="4" y="4" width="192" height="272" rx="12" fill="#FFFFFF" stroke="#1A2744" stroke-width="3"/>
+        <rect x="16" y="16" width="168" height="22" rx="4" fill="#FAF8F3"/>
+        <rect x="22" y="23" width="60" height="8" rx="4" fill="#CBD5E1"/>
+        <text x="122" y="33" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#1A2744">HP 90</text>
+        <circle cx="170" cy="27" r="8" fill="#D97706"/>
+        <rect x="16" y="44" width="168" height="92" rx="6" fill="#E2E8F0"/>
+        <path d="M100 66 l8 17 18 2 -13 12 4 18 -17 -9 -17 9 4 -18 -13 -12 18 -2z" fill="#F59E0B" opacity="0.8"/>
+        <rect x="22" y="152" width="70" height="8" rx="4" fill="#CBD5E1"/>
+        <text x="160" y="161" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#1A2744">30</text>
+        <rect x="22" y="178" width="84" height="8" rx="4" fill="#CBD5E1"/>
+        <text x="160" y="187" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#1A2744">60</text>
+        <rect x="16" y="214" width="168" height="1" fill="#E2E8F0"/>
+        <rect x="22" y="226" width="44" height="7" rx="3.5" fill="#CBD5E1"/>
+        <circle cx="76" cy="229.5" r="5" fill="#2D8A5E"/>
+        <text x="84" y="233" font-family="DM Sans, sans-serif" font-size="10" fill="#1A2744">×2</text>
+        <!-- labels -->
+        <circle cx="140" cy="10" r="9" fill="#1A2744"/><text x="140" y="14" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#fff">1</text>
+        <circle cx="188" cy="10" r="9" fill="#1A2744"/><text x="188" y="14" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#fff">2</text>
+        <circle cx="188" cy="170" r="9" fill="#1A2744"/><text x="188" y="174" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#fff">3</text>
+        <circle cx="12" cy="230" r="9" fill="#1A2744"/><text x="12" y="234" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#fff">4</text>
+      </svg>
+      <dl>
+        <div><dt><b>1</b> HP</dt><dd>The big number at the top right. It shows how strong your Pokémon is.</dd></div>
+        <div><dt><b>2</b> Type symbol</dt><dd>The small symbol by the HP — a flame, a water drop, a leaf, and more. Match it with Energy for a bigger boost!</dd></div>
+        <div><dt><b>3</b> Attacks</dt><dd>Listed in the middle. The number on the right is the damage. You'll use these in Level 2.</dd></div>
+        <div><dt><b>4</b> Weakness</dt><dd>Near the bottom. If an attacker's type shows here, its attacks hit twice as hard (Level 2).</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- SET UP -->
+  <section class="section" id="setup">
+    <div class="section-kicker">Set up</div>
+    <h2>Choose your game length</h2>
+    <p>Each player builds a <strong>Pokémon stack</strong>. Bigger stacks mean longer games — play with as many cards as you have.</p>
+    <div class="length-grid">
+      <div class="length-tile"><div class="big">5</div><div class="name">Quick</div><div class="sub">about 10 minutes</div></div>
+      <div class="length-tile"><div class="big">10</div><div class="name">Classic</div><div class="sub">the perfect game night</div></div>
+      <div class="length-tile"><div class="big">∞</div><div class="name">Marathon</div><div class="sub">bring the whole binder</div></div>
+    </div>
+    <ol class="steps">
+      <li><strong>Pokémon stack:</strong> each player picks 5, 10, or as many Pokémon as they like.</li>
+      <li><strong>Energy pile:</strong> each player sets aside about half as many Energy cards as Pokémon. More is totally fine!</li>
+      <li><strong>Trainer cards (optional):</strong> add 1 Trainer card for every 5 Pokémon.</li>
+      <li><strong>Choose or Surprise?</strong> In <em>Choose</em>, players look at their stack and pick each battle Pokémon. In <em>Surprise</em>, shuffle and flip the top card — faster, and no decisions needed.</li>
+    </ol>
+  </section>
+
+  <!-- LEVEL 1 -->
+  <section class="section" id="level-1">
+    <div class="section-kicker">Level 1 · Start here</div>
+    <h2>HP Showdown</h2>
+    <p>Perfect for first-time players, pre-readers, and anyone who loves a big number.</p>
+    <ol class="steps">
+      <li><strong>Battle!</strong> Everyone puts one Pokémon face up at the same time.</li>
+      <li><strong>Power up</strong> (optional): add 1 Energy card from your pile.</li>
+      <li><strong>Trainer boost</strong> (optional): play a Trainer card. Each Trainer card is used once.</li>
+      <li><strong>Add it up.</strong> The highest total HP wins the round! A tie? Everyone high-fives.</li>
+      <li><strong>Clear the table.</strong> Used cards go into your own "done" pile. Everyone keeps their own cards.</li>
+    </ol>
+    <div class="boost-grid">
+      <div class="boost"><div class="amt">+20</div><div class="what">Any Energy</div></div>
+      <div class="boost match"><div class="amt">+40</div><div class="what">Energy that matches your type symbol</div></div>
+      <div class="boost trainer"><div class="amt">+30</div><div class="what">Trainer card (no reading needed)</div></div>
+    </div>
+    <div class="callout"><strong>Winning:</strong> When the stacks run out, the player who won the most rounds is the <strong>All Trainers Champion!</strong></div>
+  </section>
+
+  <!-- LEVEL 2 -->
+  <section class="section" id="level-2">
+    <div class="section-kicker">Level 2 · Ready for more?</div>
+    <h2>Attack Battle</h2>
+    <p>This is how the real game works, made simpler. Pokémon trade attacks until one runs out of HP.</p>
+    <ol class="steps">
+      <li><strong>Battle spot:</strong> each player puts one Pokémon in front of them.</li>
+      <li><strong>Take turns.</strong> On your turn, attach 1 Energy to your Pokémon. Energy stays attached for the rest of the battle.</li>
+      <li><strong>Attack!</strong> Pick one of your Pokémon's attacks and do that much damage. Skip any extra words on the attack. No number? It does 10 damage.</li>
+      <li><strong>Track damage.</strong> Subtract the damage from the other Pokémon's HP. Dice, coins, or paper all work.</li>
+      <li><strong>Knocked out!</strong> When a Pokémon's HP hits 0, it's knocked out and its Trainer brings out the next Pokémon.</li>
+    </ol>
+    <div class="callout amber"><strong>Level 2 bonuses:</strong> Attacks do <strong>+10 damage</strong> if the Pokémon has matching Energy attached. And if the defending Pokémon shows the attacker's type next to <em>Weakness</em>, the attack does <strong>double damage</strong>.</div>
+    <div class="callout"><strong>Winning:</strong> Knock out 3 Pokémon (Quick) or all of the other player's Pokémon (Classic and Marathon).</div>
+  </section>
+
+  <!-- LEVEL 3 -->
+  <section class="section" id="level-3">
+    <div class="section-kicker">Level 3 · The real deal</div>
+    <h2>Ready for the real game</h2>
+    <p>When Level 2 feels easy, your Trainer is ready for the official trading card game. The big new ideas are:</p>
+    <ul class="plain">
+      <li><strong>Attack costs:</strong> each attack needs the right Energy attached before it can be used.</li>
+      <li><strong>The Bench:</strong> up to five Pokémon wait on the sidelines, ready to jump in.</li>
+      <li><strong>Prize cards:</strong> take a Prize card each time you knock out a Pokémon. Take them all to win.</li>
+      <li><strong>Evolution:</strong> grow your Pokémon into stronger forms during the game.</li>
+    </ul>
+    <p>A two-player starter box with ready-made decks and a guided first game is the easiest next step (see our picks below). You can also find the official rules on <a href="https://www.pokemon.com/us/pokemon-tcg/rules" target="_blank" rel="noopener" style="color:var(--amber);font-weight:600;">Pokemon.com</a>, and many local game stores run free beginner leagues.</p>
+  </section>
+
+  <!-- WAYS TO PLAY -->
+  <section class="section" id="ways-to-play">
+    <div class="section-kicker">Mix it up</div>
+    <h2>Ways to play</h2>
+    <div class="variation-grid">
+      <div class="variation">
+        <div class="icon">🤝</div>
+        <h3>Team Up</h3>
+        <p>Everyone works together against one big "Boss" Pokémon picked by a grown-up. Add up the team's damage each turn until the Boss is knocked out. Nobody loses!</p>
+      </div>
+      <div class="variation">
+        <div class="icon">🎨</div>
+        <h3>Favorite Color Bonus</h3>
+        <p>If your Pokémon is your favorite color, it gets <strong>+30 HP</strong>. Tell everyone your favorite color before you start.</p>
+      </div>
+      <div class="variation">
+        <div class="icon">👀</div>
+        <h3>No-Reading Mode</h3>
+        <p>Just match symbols and compare numbers. A helper can point to the HP and count along. Energy matching becomes a color-and-shape match game.</p>
+      </div>
+      <div class="variation">
+        <div class="icon">✋</div>
+        <h3>Helping Hands</h3>
+        <p>A card stand, a playmat, or sleeved cards make holding and flipping easier. Players can also point to their choice and let a helper place the card.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section class="section" id="tips">
+    <div class="section-kicker">For grown-ups &amp; helpers</div>
+    <h2>Tips to make it magic</h2>
+    <ul class="plain">
+      <li>Use big battle voices and silly sound effects.</li>
+      <li>Ask, "Why do you think your Pokémon is strong?" It builds storytelling and confidence.</li>
+      <li>Let players make up their own attack names.</li>
+      <li>Celebrate great Energy matches and smart choices, not just wins.</li>
+      <li>Keep favorite cards safe in sleeves so nobody worries about bent corners.</li>
+    </ul>
+  </section>
+
+  <!-- LIBRARY PLUG -->
+  <div class="library-plug">
+    <img src="/logo.png" alt="PlayPrep app icon" />
+    <div>
+      <h3>Find it in the PlayPrep Library</h3>
+      <p>All Trainers Battle is part of the PlayPrep activity library. Save it to your library, add it to a game-night collection, and keep the rules and what you need in one place — right alongside lots of other hands-on activities for every age.</p>
+      <a href="/beta.html">Learn about the PlayPrep app →</a>
+    </div>
+  </div>
+
+  <!-- GEAR -->
+  <section class="section" id="gear" style="margin-bottom:0;">
+    <div class="section-kicker">Our favorite gear</div>
+    <h2>Gear for new Trainers</h2>
+    <p class="gear-intro">None of this is required to play — just the things that make battles easier on little hands and keep favorite cards looking good.</p>
+  </section>
+
+  <div class="product">
+    <div class="product-number">Gear 01</div>
+    <h2>Standard Card Sleeves</h2>
+    <!-- TODO Cassie: replace href with your SiteStripe amzn.to link -->
+    <a href="https://www.amazon.com/s?k=ultra+pro+standard+card+sleeves&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>Sleeves are the first thing I'd buy for any new player. They protect cards from sticky fingers and bent corners, and they make cards easier to pick up and flip — a big help for small hands or anyone with fine-motor challenges.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Every player. Grab a 100-count pack.</div>
+  </div>
+
+  <div class="product">
+    <div class="product-number">Gear 02</div>
+    <h2>Penny Sleeves &amp; Top Loaders</h2>
+    <a href="https://www.amazon.com/s?k=penny+sleeves+and+top+loaders+trading+cards&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>For the special pulls. A thin penny sleeve plus a rigid top loader keeps a favorite card safe in a backpack or on a shelf. Kids love having their "best card" protected like treasure.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Favorite cards and trades.</div>
+  </div>
+
+  <div class="product">
+    <div class="product-number">Gear 03</div>
+    <h2>9-Pocket Zip Binder</h2>
+    <a href="https://www.amazon.com/s?k=9+pocket+zip+trading+card+binder&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>A zip-around binder keeps the whole collection together, and nothing spills out if it gets dropped. Flipping through pages to pick a battle team is half the fun.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Growing collections and Marathon games.</div>
+  </div>
+
+  <div class="product">
+    <div class="product-number">Gear 04</div>
+    <h2>Deck Boxes</h2>
+    <a href="https://www.amazon.com/s?k=trading+card+deck+box+kids&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>One box per player holds a battle stack, an Energy pile, and the rules card. Toss them in a bag and you're ready to battle anywhere — waiting rooms, road trips, grandma's house.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Keeping game-ready decks together.</div>
+  </div>
+
+  <div class="product">
+    <div class="product-number">Gear 05</div>
+    <h2>Playmat</h2>
+    <a href="https://www.amazon.com/s?k=trading+card+game+playmat&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>A soft rubber mat keeps cards from sliding and makes cards easier to pick up off the table. It also gives every player a clear "battle spot" — helpful for players who benefit from structure.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Level 2 battles and players with motor challenges.</div>
+  </div>
+
+  <div class="product">
+    <div class="product-number">Gear 06</div>
+    <h2>Hands-Free Card Holders</h2>
+    <a href="https://www.amazon.com/s?k=playing+card+holder+for+kids&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>A simple card stand holds a player's cards upright so they can see and choose without gripping them. It's a small thing that makes the game possible for a lot more people — young kids, older adults, and players with limited hand strength.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Accessible play at any age.</div>
+  </div>
+
+  <div class="product">
+    <div class="product-number">Gear 07</div>
+    <h2>Dice for Damage Tracking</h2>
+    <a href="https://www.amazon.com/s?k=6+sided+dice+set+bulk&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>In Level 2, put a die on a Pokémon to count damage (each pip = 10). It's a sneaky bit of counting-by-tens practice, too.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Level 2 and beyond.</div>
+  </div>
+
+  <div class="product">
+    <div class="product-number">Gear 08</div>
+    <h2>Official Starter Box: Battle Academy</h2>
+    <a href="https://www.amazon.com/s?k=pokemon+tcg+battle+academy&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
+    <p>When your Trainer is ready for Level 3, a Battle Academy box is the easiest way in. It comes with ready-to-play decks, a game board, and a guided first game that teaches the real rules step by step.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Graduating to the full trading card game.</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="post-cta">
+    <p class="label">Plan your next game night</p>
+    <h3>More family activities in PlayPrep</h3>
+    <p>All Trainers Battle lives in the PlayPrep library alongside lots of other hands-on activities. Save your favorites and see exactly what you need to play.</p>
+    <a href="https://playprep.app/beta.html" target="_blank">Get PlayPrep free →</a>
+  </div>
+
+  <!-- FOOTER DISCLOSURE -->
+  <p class="post-disclosure-footer">
+    This post contains affiliate links. As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.
+  </p>
+  <p class="trademark-note">
+    All Trainers Battle is free, fan-made content and is not affiliated with, sponsored by, or endorsed by Nintendo, Creatures Inc., GAME FREAK inc., or The Pokémon Company. Pokémon and Pokémon character names are trademarks of Nintendo. Use your own cards; please don't sell these rules.
+  </p>
+
+</article>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="nav-logo" href="/">
+        <img src="/star-icon.png" alt="PlayPrep logo" />
+        <span style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;">Play<em style="color:var(--amber);font-style:normal;">Prep</em></span>
+      </a>
+      <p>The activity planner for parents, teachers, and homeschoolers. Plan it. Prep it. Play.</p>
+    </div>
+    <div class="footer-links">
+      <h4>App</h4>
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/beta.html">Join Beta</a>
+    </div>
+    <div class="footer-links">
+      <h4>Blog</h4>
+      <a href="/blog/">All Posts</a>
+      <a href="/blog/starter-kit.html">Starter Kit</a>
+      <a href="/blog/all-trainers-battle.html">All Trainers Battle</a>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 PlayPrep Labs LLC. All rights reserved.</p>
+    <div style="display:flex;gap:16px;">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
