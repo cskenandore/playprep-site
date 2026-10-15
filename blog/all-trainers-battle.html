@@ -322,6 +322,15 @@
     .length-tile .big { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 900; color: var(--amber); line-height: 1; }
     .length-tile .name { font-weight: 700; margin-top: 6px; }
     .length-tile .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0 28px; }
+    .diff { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 18px 16px; text-decoration: none; color: var(--navy); display: block; transition: border-color .2s; }
+    .diff:hover { border-color: var(--amber); }
+    .diff .lv { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); }
+    .diff .lv span { color: var(--amber2); letter-spacing: 0; }
+    .diff h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 900; margin: 4px 0 6px; }
+    .diff p { font-size: 13px; line-height: 1.55; color: #475569; margin: 0 0 8px; }
+    .diff .time { font-size: 12px; font-weight: 700; }
+    .step-label { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin: 8px 0 0; }
 
     ol.steps { list-style: none; counter-reset: step; margin: 8px 0 20px; }
     ol.steps li {
@@ -341,7 +350,7 @@
       border-radius: 16px; padding: 18px 14px; text-align: center; background: var(--navy); color: var(--white);
     }
     .boost.match { background: var(--amber); color: var(--navy); }
-    .boost.trainer { background: var(--sage); }
+    .boost.trainer { background: var(--white); color: var(--navy); box-shadow: inset 0 0 0 2px var(--navy); }
     .boost .amt { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; line-height: 1; }
     .boost .what { font-size: 13px; font-weight: 600; margin-top: 6px; opacity: 0.9; }
 
@@ -376,6 +385,7 @@
     .trademark-note { font-size: 12px; color: var(--muted); line-height: 1.7; margin-top: 12px; }
 
     @media (max-width: 640px) {
+      .diff-grid { grid-template-columns: 1fr; }
       .know-card { grid-template-columns: 1fr; }
       .know-card svg { max-width: 200px; margin: 0 auto; }
       .length-grid, .boost-grid { grid-template-columns: 1fr; }
@@ -445,13 +455,13 @@
 
   <p class="post-intro">I first made these rules for my son's birthday party. We wanted every guest to be able to jump in and battle — little siblings, grandparents, friends who had never held a card before. The official game is amazing, but it has a lot to learn. So we stripped it down to the parts that make it fun: picking your favorite Pokémon, powering it up, and cheering when the big number wins.</p>
 
-  <p class="post-intro">All Trainers Battle is built for <strong>every age and every ability</strong>. It works for young kids, for older players with learning or physical disabilities, and for grown-ups who just want an easy way in. There are three levels, so the same deck grows right along with the player — all the way to the real game.</p>
+  <p class="post-intro">All Trainers Battle is built for <strong>every age and every ability</strong>. It works for young kids, for older players with learning or physical disabilities, and for grown-ups who just want an easy way in. Pick from three difficulties — Easy, Medium, or Challenge — and three game lengths, so the same cards grow right along with the player, all the way to the real game.</p>
 
   <!-- DOWNLOAD -->
   <div class="download-box" id="download">
     <div class="label">Free download</div>
     <h2>Get the printable rules</h2>
-    <p>Full rules, a battle scorecard, and an All Trainers Champion certificate — ready to print at home. Plus pocket-size rules cards that slide right into a deck box.</p>
+    <p>All three versions, scorecards, and an All Trainers Champion certificate — ready to print at home. Plus pocket-size rules cards that slide right into a deck box.</p>
     <div class="download-actions">
       <a class="btn-amber" href="/downloads/all-trainers-battle-printable.pdf" target="_blank" download>Download the free printable →</a>
       <a class="btn-outline" href="/downloads/all-trainers-battle-rules-cards.pdf" target="_blank" download>Pocket rules cards</a>
@@ -459,10 +469,10 @@
   </div>
 
   <div class="chips" role="navigation" aria-label="Jump to section">
-    <a href="#setup">Set up</a>
-    <a href="#level-1">Level 1</a>
-    <a href="#level-2">Level 2</a>
-    <a href="#level-3">Level 3</a>
+    <a href="#choose">Choose your game</a>
+    <a href="#easy">Easy</a>
+    <a href="#medium">Medium</a>
+    <a href="#challenge">Challenge</a>
     <a href="#ways-to-play">Ways to play</a>
     <a href="#tips">Tips for helpers</a>
     <a href="#gear">Favorite gear</a>
@@ -477,7 +487,7 @@
       <li><strong>Pokémon cards</strong> — any cards with an HP number work.</li>
       <li><strong>Energy cards</strong> — the more, the merrier.</li>
       <li><strong>Trainer cards</strong> (optional) — no reading required, we'll show you how.</li>
-      <li>For Level 2: a few dice, coins, or a pencil and paper to track damage.</li>
+      <li>For Medium and Challenge: a few dice, coins, or a pencil and paper to track damage.</li>
     </ul>
   </section>
 
@@ -511,37 +521,44 @@
       <dl>
         <div><dt><b>1</b> HP</dt><dd>The big number at the top right. It shows how strong your Pokémon is.</dd></div>
         <div><dt><b>2</b> Type symbol</dt><dd>The small symbol by the HP — a flame, a water drop, a leaf, and more. Match it with Energy for a bigger boost!</dd></div>
-        <div><dt><b>3</b> Attacks</dt><dd>Listed in the middle. The number on the right is the damage. You'll use these in Level 2.</dd></div>
-        <div><dt><b>4</b> Weakness</dt><dd>Near the bottom. If an attacker's type shows here, its attacks hit twice as hard (Level 2).</dd></div>
+        <div><dt><b>3</b> Attacks</dt><dd>Listed in the middle. The number on the right is the damage. You'll use these in Medium and Challenge.</dd></div>
+        <div><dt><b>4</b> Weakness</dt><dd>Near the bottom. If an attacker's type shows here, its attacks hit twice as hard (Medium and Challenge).</dd></div>
       </dl>
     </div>
   </section>
 
-  <!-- SET UP -->
-  <section class="section" id="setup">
-    <div class="section-kicker">Set up</div>
-    <h2>Choose your game length</h2>
-    <p>Each player builds a <strong>Pokémon stack</strong>. Bigger stacks mean longer games — play with as many cards as you have.</p>
+  <!-- CHOOSE YOUR GAME -->
+  <section class="section" id="choose">
+    <div class="section-kicker">Choose your game</div>
+    <h2>Three versions, three lengths</h2>
+    <p>All Trainers Battle isn't one set of rules — it's three. Pick the version that fits your players, then pick how long you want to play. Mix and match any way you like.</p>
+    <p class="step-label">Step 1 · Pick a difficulty</p>
+    <div class="diff-grid">
+      <a class="diff" href="#easy"><div class="lv">Easy <span>★</span></div><h3>HP Showdown</h3><p>Flip a card, power up, biggest HP wins. Great for first-timers and pre-readers.</p><div class="time">About 10–20 min</div></a>
+      <a class="diff" href="#medium"><div class="lv">Medium <span>★★</span></div><h3>Attack Battle</h3><p>Take turns attacking until a Pokémon's HP hits zero. Some counting.</p><div class="time">About 15–30 min</div></a>
+      <a class="diff" href="#challenge"><div class="lv">Challenge <span>★★★</span></div><h3>Bench Battle</h3><p>Energy costs, a Bench, and Weakness. The best practice for the official game.</p><div class="time">About 20–45 min</div></a>
+    </div>
+    <p class="step-label">Step 2 · Pick a game length</p>
     <div class="length-grid">
-      <div class="length-tile"><div class="big">5</div><div class="name">Quick</div><div class="sub">about 10 minutes</div></div>
-      <div class="length-tile"><div class="big">10</div><div class="name">Classic</div><div class="sub">the perfect game night</div></div>
+      <div class="length-tile"><div class="big">5</div><div class="name">Quick</div><div class="sub">5 Pokémon each</div></div>
+      <div class="length-tile"><div class="big">10</div><div class="name">Classic</div><div class="sub">10 Pokémon each</div></div>
       <div class="length-tile"><div class="big">∞</div><div class="name">Marathon</div><div class="sub">bring the whole binder</div></div>
     </div>
+    <h3>Every version starts the same way</h3>
     <ol class="steps">
       <li><strong>Pokémon stack:</strong> each player picks 5, 10, or as many Pokémon as they like.</li>
       <li><strong>Energy pile:</strong> each player sets aside about half as many Energy cards as Pokémon. More is totally fine!</li>
-      <li><strong>Trainer cards (optional):</strong> add 1 Trainer card for every 5 Pokémon.</li>
-      <li><strong>Choose or Surprise?</strong> In <em>Choose</em>, players look at their stack and pick each battle Pokémon. In <em>Surprise</em>, shuffle and flip the top card — faster, and no decisions needed.</li>
+      <li><strong>Trainer cards (optional, Easy only):</strong> add 1 Trainer card for every 5 Pokémon.</li>
     </ol>
   </section>
 
   <!-- LEVEL 1 -->
-  <section class="section" id="level-1">
-    <div class="section-kicker">Level 1 · Start here</div>
+  <section class="section" id="easy">
+    <div class="section-kicker">Easy ★ · Start here</div>
     <h2>HP Showdown</h2>
     <p>Perfect for first-time players, pre-readers, and anyone who loves a big number.</p>
     <ol class="steps">
-      <li><strong>Battle!</strong> Everyone puts one Pokémon face up at the same time.</li>
+      <li><strong>Battle!</strong> Everyone puts one Pokémon face up at the same time. Choose your card, or shuffle and flip the top one for a surprise.</li>
       <li><strong>Power up</strong> (optional): add 1 Energy card from your pile.</li>
       <li><strong>Trainer boost</strong> (optional): play a Trainer card. Each Trainer card is used once.</li>
       <li><strong>Add it up.</strong> The highest total HP wins the round! A tie? Everyone high-fives.</li>
@@ -556,8 +573,8 @@
   </section>
 
   <!-- LEVEL 2 -->
-  <section class="section" id="level-2">
-    <div class="section-kicker">Level 2 · Ready for more?</div>
+  <section class="section" id="medium">
+    <div class="section-kicker">Medium ★★ · Ready for more?</div>
     <h2>Attack Battle</h2>
     <p>This is how the real game works, made simpler. Pokémon trade attacks until one runs out of HP.</p>
     <ol class="steps">
@@ -567,22 +584,25 @@
       <li><strong>Track damage.</strong> Subtract the damage from the other Pokémon's HP. Dice, coins, or paper all work.</li>
       <li><strong>Knocked out!</strong> When a Pokémon's HP hits 0, it's knocked out and its Trainer brings out the next Pokémon.</li>
     </ol>
-    <div class="callout amber"><strong>Level 2 bonuses:</strong> Attacks do <strong>+10 damage</strong> if the Pokémon has matching Energy attached. And if the defending Pokémon shows the attacker's type next to <em>Weakness</em>, the attack does <strong>double damage</strong>.</div>
+    <div class="callout amber"><strong>Medium bonuses:</strong> Attacks do <strong>+10 damage</strong> if the Pokémon has matching Energy attached. And if the defending Pokémon shows the attacker's type next to <em>Weakness</em>, the attack does <strong>double damage</strong>.</div>
     <div class="callout"><strong>Winning:</strong> Knock out 3 Pokémon (Quick) or all of the other player's Pokémon (Classic and Marathon).</div>
   </section>
 
-  <!-- LEVEL 3 -->
-  <section class="section" id="level-3">
-    <div class="section-kicker">Level 3 · The real deal</div>
-    <h2>Ready for the real game</h2>
-    <p>When Level 2 feels easy, your Trainer is ready for the official trading card game. The big new ideas are:</p>
-    <ul class="plain">
-      <li><strong>Attack costs:</strong> each attack needs the right Energy attached before it can be used.</li>
-      <li><strong>The Bench:</strong> up to five Pokémon wait on the sidelines, ready to jump in.</li>
-      <li><strong>Prize cards:</strong> take a Prize card each time you knock out a Pokémon. Take them all to win.</li>
-      <li><strong>Evolution:</strong> grow your Pokémon into stronger forms during the game.</li>
-    </ul>
-    <p>A two-player starter box with ready-made decks and a guided first game is the easiest next step (see our picks below). You can also find the official rules on <a href="https://www.pokemon.com/us/pokemon-tcg/rules" target="_blank" rel="noopener" style="color:var(--amber);font-weight:600;">Pokemon.com</a>, and many local game stores run free beginner leagues.</p>
+  <!-- CHALLENGE -->
+  <section class="section" id="challenge">
+    <div class="section-kicker">Challenge ★★★ · Almost the real game</div>
+    <h2>Bench Battle</h2>
+    <p>Plays like Medium, with three real-game skills added: a Bench, Energy costs, and switching. Matching Energy is how you power attacks here, so there's no +10 bonus.</p>
+    <ol class="steps">
+      <li><strong>Battle spot &amp; Bench:</strong> put one Pokémon in your battle spot and up to 3 more on your Bench, face up beside it.</li>
+      <li><strong>Energy:</strong> on your turn, attach 1 Energy to <em>any</em> of your Pokémon — in battle or on the Bench.</li>
+      <li><strong>Switch (optional):</strong> once per turn, swap your battle Pokémon with one on your Bench. Energy stays with each Pokémon.</li>
+      <li><strong>Pay the Energy cost:</strong> each attack shows symbols on its left. Your Pokémon needs that many Energy attached, and colored symbols need matching Energy. The plain star symbol can be any Energy.</li>
+      <li><strong>Attack!</strong> Subtract damage and use Weakness (double damage). Knocked out? Move a Bench Pokémon into battle, then refill your Bench from your stack.</li>
+    </ol>
+    <div class="callout"><strong>Winning:</strong> Knock out 3 Pokémon (Quick) or all of the other player's Pokémon (Classic and Marathon).</div>
+    <h3>Ready for the official game?</h3>
+    <p>If Challenge feels easy, you're nearly there. The official game adds Prize cards and Evolution. A two-player starter box with ready-made decks and a guided first game is the easiest next step (see our picks below). You can also find the official rules on <a href="https://www.pokemon.com/us/pokemon-tcg/rules" target="_blank" rel="noopener" style="color:var(--amber);font-weight:600;">Pokemon.com</a>, and many local game stores run free beginner leagues.</p>
   </section>
 
   <!-- WAYS TO PLAY -->
@@ -681,7 +701,7 @@
     <h2>Playmat</h2>
     <a href="https://www.amazon.com/s?k=trading+card+game+playmat&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
     <p>A soft rubber mat keeps cards from sliding and makes cards easier to pick up off the table. It also gives every player a clear "battle spot" — helpful for players who benefit from structure.</p>
-    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Level 2 battles and players with motor challenges.</div>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Attack battles and players with motor challenges.</div>
   </div>
 
   <div class="product">
@@ -696,15 +716,15 @@
     <div class="product-number">Gear 07</div>
     <h2>Dice for Damage Tracking</h2>
     <a href="https://www.amazon.com/s?k=6+sided+dice+set+bulk&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
-    <p>In Level 2, put a die on a Pokémon to count damage (each pip = 10). It's a sneaky bit of counting-by-tens practice, too.</p>
-    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Level 2 and beyond.</div>
+    <p>In Medium and Challenge, put a die on a Pokémon to count damage (each pip = 10). It's a sneaky bit of counting-by-tens practice, too.</p>
+    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Medium and Challenge games.</div>
   </div>
 
   <div class="product">
     <div class="product-number">Gear 08</div>
     <h2>Official Starter Box: Battle Academy</h2>
     <a href="https://www.amazon.com/s?k=pokemon+tcg+battle+academy&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
-    <p>When your Trainer is ready for Level 3, a Battle Academy box is the easiest way in. It comes with ready-to-play decks, a game board, and a guided first game that teaches the real rules step by step.</p>
+    <p>When your Trainer has mastered the Challenge version, a Battle Academy box is the easiest way in. It comes with ready-to-play decks, a game board, and a guided first game that teaches the real rules step by step.</p>
     <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Graduating to the full trading card game.</div>
   </div>
 
