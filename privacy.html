@@ -141,15 +141,72 @@
     footer a:hover { text-decoration: underline; }
     footer .footer-links { margin-top: 8px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style id="pp-chrome">
+    /* ── SHARED SITE HEADER / FOOTER / BACK-TO-TOP ── */
+    .ppn { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,39,68,0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); font-family: 'DM Sans', sans-serif; }
+    .ppn-in { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; }
+    .ppn-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .ppn-logo img { width: 36px; height: 36px; border-radius: 8px; }
+    .ppn-logo span { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #fff; }
+    .ppn-logo em { color: #D97706; font-style: normal; }
+    .ppn-links { display: flex; align-items: center; gap: 28px; }
+    .ppn-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+    .ppn-links a:hover, .ppn-links a.on { color: #D97706; }
+    .ppn-links a.ppn-cta, .ppn-menu a.ppn-cta { background: #D97706; color: #1A2744; padding: 9px 20px; border-radius: 999px; font-weight: 600; }
+    .ppn-links a.ppn-cta:hover { background: #F59E0B; color: #1A2744; }
+    .ppn-btn { display: none; background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.85); padding: 4px; }
+    .ppn-menu { display: none; }
+    .ppn-spacer { height: 68px; }
+    @media (max-width: 860px) {
+      .ppn-in { padding: 14px 20px; }
+      .ppn-links { display: none; }
+      .ppn-btn { display: flex; }
+      .ppn-menu { position: absolute; top: 100%; left: 0; right: 0; background: rgba(15,26,50,0.98); padding: 16px 20px 20px; flex-direction: column; gap: 4px; }
+      .ppn-menu.open { display: flex; }
+      .ppn-menu a { display: block; padding: 12px 16px; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 16px; font-weight: 500; border-radius: 10px; }
+      .ppn-menu a:hover, .ppn-menu a.on { background: rgba(255,255,255,0.06); color: #D97706; }
+      .ppn-menu a.ppn-cta { margin-top: 8px; text-align: center; font-weight: 700; }
+      .ppn-spacer { height: 64px; }
+    }
+    .ppf { background: #0F1A32; padding: 60px 24px 40px; font-family: 'DM Sans', sans-serif; text-align: left; }
+    .ppf-in { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px; }
+    .ppf-brand { max-width: 260px; }
+    .ppf-brand p { color: rgba(255,255,255,0.45); font-size: 13px; line-height: 1.6; margin: 12px 0 0; }
+    .ppf-col h4 { color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin: 0 0 14px; }
+    .ppf-col a { display: block; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: color .2s; }
+    .ppf-col a:hover { color: #D97706; }
+    .ppf-social { display: flex; flex-wrap: wrap; gap: 8px; max-width: 140px; }
+    .ppf-social a { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); margin: 0; }
+    .ppf-social a:hover { background: #D97706; color: #1A2744; }
+    .ppf-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+    .ppf-bottom p { color: rgba(255,255,255,0.3); font-size: 12px; margin: 0; }
+    .ppf-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; margin-left: 16px; }
+    .ppf-bottom a:hover { color: #D97706; }
+    .pp-top { position: fixed; right: 24px; bottom: 24px; z-index: 90; width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer; background: #D97706; color: #1A2744; box-shadow: 0 8px 24px rgba(26,39,68,0.25); display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .25s, transform .25s, background .2s; }
+    .pp-top.show { opacity: 1; transform: none; pointer-events: auto; }
+    .pp-top:hover { background: #F59E0B; }
+    .pp-top:focus-visible { outline: 3px solid #1A2744; outline-offset: 3px; }
+    @media (max-width: 640px) { .pp-top { right: 16px; bottom: 16px; width: 44px; height: 44px; } .ppf-bottom a { margin: 0 16px 0 0; } }
+    @media print { .ppn, .ppn-spacer, .pp-top { display: none !important; } }
+  </style>
+  <style>@media (max-width: 640px) { main table { display: block; max-width: 100%; overflow-x: auto; } main td, main th { word-break: break-word; } }</style>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="https://playprep.app/">
-    Play<span>Prep</span>
-  </a>
-  <a class="nav-back" href="https://playprep.app/">← Home</a>
-</nav>
+<!-- SITE HEADER (shared) -->
+<header class="ppn">
+  <div class="ppn-in">
+    <a class="ppn-logo" href="/"><img src="/star-icon.png" alt="PlayPrep logo" /><span>Play<em>Prep</em></span></a>
+    <div class="ppn-links" role="navigation" aria-label="Main"><a href="/">Home</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a><a href="/support.html">Support</a><a href="/beta.html" class="ppn-cta">Join Beta</a></div>
+    <button class="ppn-btn" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.querySelector('.ppn-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="ppn-menu" role="navigation" aria-label="Mobile"><a href="/">Home</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a><a href="/support.html">Support</a><a href="/beta.html" class="ppn-cta">Join Beta</a></div>
+</header>
+<div class="ppn-spacer"></div>
 
 <main>
   <h1>Privacy Policy</h1>
@@ -356,14 +413,36 @@
 
 </main>
 
-<footer>
-  <p>© 2026 PlayPrep Labs LLC</p>
-  <div class="footer-links">
-    <a href="https://playprep.app/">Home</a>
-    <a href="https://playprep.app/privacy.html">Privacy Policy</a>
-    <a href="https://playprep.app/terms.html">Terms of Service</a>
+<!-- SITE FOOTER (shared) -->
+<div class="ppf" role="contentinfo">
+  <div class="ppf-in">
+    <div class="ppf-brand">
+      <a class="ppn-logo" href="/"><img src="/star-icon.png" alt="PlayPrep logo" /><span style="font-size:20px">Play<em>Prep</em></span></a>
+      <p>The activity planner for parents, teachers, and homeschoolers. Plan it. Prep it. Play.</p>
+    </div>
+    <div class="ppf-col"><h4>App</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/beta.html">Join Beta</a></div>
+    <div class="ppf-col"><h4>Blog</h4><a href="/blog/">All Posts</a><a href="/blog/starter-kit.html">Starter Kit</a><a href="/blog/all-trainers-battle.html">All Trainers Battle</a></div>
+    <div class="ppf-col"><h4>Support</h4><a href="/support.html">Help &amp; Contact</a><a href="mailto:support@playprep.app">support@playprep.app</a></div>
+    <div class="ppf-col"><h4>Legal</h4><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a></div>
+    <div class="ppf-col"><h4>Contact</h4><a href="mailto:hello@playprep.app">hello@playprep.app</a></div>
+    <div class="ppf-col"><h4>Follow Us</h4><div class="ppf-social"><a href="https://www.facebook.com/profile.php?id=61575360177939" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://www.instagram.com/playprepapp/" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://www.linkedin.com/company/playprep" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.tiktok.com/@playprepapp" title="TikTok" aria-label="TikTok" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12a3 3 0 1 0 3 3V2h3a5 5 0 0 0 5 5v3a8 8 0 0 1-5-1.7V15a6 6 0 1 1-6-6v3z"/></svg></a><a href="https://www.pinterest.com/playprepapp/" title="Pinterest" aria-label="Pinterest" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a><a href="https://youtube.com/@playprep" title="YouTube" aria-label="YouTube" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0F1A32"/></svg></a></div></div>
   </div>
-</footer>
+  <div class="ppf-bottom">
+    <p>© 2026 PlayPrep Labs LLC. All rights reserved.</p>
+    <div><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </div>
+</div>
+
+<button class="pp-top" type="button" aria-label="Back to top" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+  (function () {
+    var b = document.querySelector('.pp-top');
+    function t() { b.classList.toggle('show', window.scrollY > 600); }
+    window.addEventListener('scroll', t, { passive: true }); t();
+  })();
+</script>
 
 </body>
 </html>
