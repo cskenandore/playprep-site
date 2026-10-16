@@ -422,6 +422,14 @@
       .gear .art { width: 72px; height: 72px; } .gear .art svg { width: 60px; height: 60px; }
       .store-banner { grid-template-columns: 1fr; padding: 22px; }
     }
+    .to-top { position: fixed; right: 24px; bottom: 24px; z-index: 90; width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer;
+      background: var(--amber); color: var(--navy); box-shadow: 0 8px 24px rgba(26,39,68,0.25); display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .25s, transform .25s, background .2s; }
+    .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+    .to-top:hover { background: var(--amber2); }
+    .to-top:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+    @media (max-width: 640px) { .to-top { right: 16px; bottom: 16px; width: 44px; height: 44px; } }
+    @media print { .to-top { display: none !important; } }
     .trademark-note { font-size: 12px; color: var(--muted); line-height: 1.7; margin-top: 12px; }
 
     @media (max-width: 640px) {
@@ -501,7 +509,7 @@
   <div class="download-box" id="download">
     <div class="label">Free download</div>
     <h2>Get the printable rules</h2>
-    <p>All three versions, scorecards for every level — including a <strong>Star Tracker</strong> for little ones (color a star for every win!) — and an All Trainers Champion certificate, ready to print at home. Plus pocket-size rules cards that slide right into a deck box — all in one PDF.</p>
+    <p>All three versions, scorecards for every level — including a <strong>Star Tracker</strong> for little ones (color a star for every win!) — and an All Trainers Champion certificate, ready to print at home. Plus pocket-size rules cards for every level that slide right into a deck box — all in one PDF.</p>
     <div class="download-actions">
       <a class="btn-amber" href="/downloads/all-trainers-battle-printable.pdf" target="_blank" download>Download free printables →</a>
     </div>
@@ -890,6 +898,17 @@
     </div>
   </div>
 </footer>
+
+<button class="to-top" type="button" aria-label="Back to top" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+  (function () {
+    var btn = document.querySelector('.to-top');
+    function toggle() { btn.classList.toggle('show', window.scrollY > 600); }
+    window.addEventListener('scroll', toggle, { passive: true }); toggle();
+  })();
+</script>
 
 </body>
 </html>
