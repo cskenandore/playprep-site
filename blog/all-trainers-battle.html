@@ -283,22 +283,27 @@
     .btn-outline { border: 1.5px solid var(--navy); color: var(--navy); }
     .btn-outline:hover { background: var(--navy); color: var(--white); }
 
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+    .chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 48px; }
+    .chips .jump-label { font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
     .chips a {
       font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none;
       background: var(--white); border: 1px solid var(--border); border-radius: 999px; padding: 7px 14px;
     }
-    .chips a:hover { border-color: var(--amber); color: var(--amber); }
+    .chips a::after { content: ' ↓'; color: var(--amber); }
+    .chips a:hover { border-color: var(--amber); color: var(--amber); text-decoration: underline; }
 
     .section { margin-bottom: 52px; scroll-margin-top: 90px; }
     .section-kicker {
-      font-size: 10px; font-weight: 800; letter-spacing: 2px; color: var(--amber);
-      text-transform: uppercase; margin-bottom: 8px;
+      font-size: clamp(22px, 3vw, 28px); font-weight: 800; letter-spacing: 1.5px; color: var(--amber);
+      text-transform: uppercase; line-height: 1.15; margin-bottom: 4px;
     }
     .section h2 {
-      font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 30px);
-      font-weight: 900; line-height: 1.2; margin-bottom: 14px;
+      font-family: 'Playfair Display', serif; font-size: 19px;
+      font-weight: 900; line-height: 1.25; margin-bottom: 12px;
     }
+    /* gear section keeps the original small-kicker style */
+    #gear .section-kicker { font-size: 10px; letter-spacing: 2px; line-height: 1.4; margin-bottom: 8px; }
+    #gear h2 { font-size: clamp(22px, 3vw, 30px); line-height: 1.2; margin-bottom: 14px; }
     .section h3 { font-size: 17px; font-weight: 700; margin: 24px 0 10px; }
     .section p { font-size: 15px; line-height: 1.8; color: #334155; margin-bottom: 14px; }
     .section ul.plain { margin: 0 0 14px 20px; }
@@ -383,7 +388,7 @@
     .gear-intro { font-size: 15px; line-height: 1.8; color: #334155; margin-bottom: 32px; }
 
     .official-box { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--amber); border-radius: 16px; padding: 24px; margin-top: 24px; }
-    .official-box h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; margin: 0 0 8px; }
+    .official-box h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 900; margin: 0 0 8px; }
     .official-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 16px; }
     .official-note { font-size: 14px !important; }
     .gear-group { margin: 40px 0 8px; }
@@ -490,20 +495,20 @@
 
   <p class="post-intro">I first made these rules for my son's birthday party. We wanted every guest to be able to jump in and battle — little siblings, grandparents, friends who had never held a card before. The official game is amazing, but it has a lot to learn. So we stripped it down to the parts that make it fun: picking your favorite Pokémon, powering it up, and cheering when the big number wins.</p>
 
-  <p class="post-intro">All Trainers Battle is built for <strong>every age and every ability</strong> — ages 3 and up. It works for young kids, for older players with learning or physical disabilities, and for grown-ups who just want an easy way in. Pick from three difficulties — Easy, Medium, or Challenge — and three game lengths, so the same cards grow right along with the player, all the way to the real game.</p>
+  <p class="post-intro">All Trainers Battle is built for <strong>every age (3 and up) and every ability</strong>. It works for young kids, for older players with learning or physical disabilities, and for grown-ups who just want an easy way in. Pick from three difficulties — Easy, Medium, or Challenge — and three game lengths, so the same cards grow right along with the player, all the way to the real game.</p>
 
   <!-- DOWNLOAD -->
   <div class="download-box" id="download">
     <div class="label">Free download</div>
     <h2>Get the printable rules</h2>
-    <p>All three versions, scorecards for every level — including a <strong>Star Tracker</strong> for little ones (color a star for every win!) — and an All Trainers Champion certificate, ready to print at home. Plus pocket-size rules cards that slide right into a deck box.</p>
+    <p>All three versions, scorecards for every level — including a <strong>Star Tracker</strong> for little ones (color a star for every win!) — and an All Trainers Champion certificate, ready to print at home. Plus pocket-size rules cards that slide right into a deck box — all in one PDF.</p>
     <div class="download-actions">
-      <a class="btn-amber" href="/downloads/all-trainers-battle-printable.pdf" target="_blank" download>Download the free printable →</a>
-      <a class="btn-outline" href="/downloads/all-trainers-battle-rules-cards.pdf" target="_blank" download>Pocket rules cards</a>
+      <a class="btn-amber" href="/downloads/all-trainers-battle-printable.pdf" target="_blank" download>Download free printables →</a>
     </div>
   </div>
 
   <div class="chips" role="navigation" aria-label="Jump to section">
+    <span class="jump-label">Jump to:</span>
     <a href="#choose">Choose your game</a>
     <a href="#easy">Easy</a>
     <a href="#medium">Medium</a>
@@ -522,7 +527,7 @@
       <li><strong>Pokémon cards</strong> — any cards with an HP number work.</li>
       <li><strong>Energy cards</strong> — the more, the merrier.</li>
       <li><strong>Trainer cards</strong> (optional) — no reading required, we'll show you how.</li>
-      <li>For Medium and Challenge: a few dice, coins, or a pencil and paper to track damage. (Dice come in many Pokémon collection boxes!)</li>
+      <li>For Medium and Challenge: a few dice, coins, or a pencil to track damage. The free printables include scorecards for every level. (Dice also come in many Pokémon collection boxes!)</li>
     </ul>
   </section>
 
@@ -623,7 +628,7 @@
     <ol class="steps">
       <li><strong>Battle spot:</strong> each player puts one Pokémon in front of them.</li>
       <li><strong>Take turns.</strong> On your turn, attach 1 Energy to your Pokémon. Energy stays attached for the rest of the battle.</li>
-      <li><strong>Attack!</strong> Pick one of your Pokémon's attacks and do that much damage. Skip any extra words on the attack. No number? It does 10 damage.</li>
+      <li><strong>Attack!</strong> Pick one attack and do that much damage. Does your Pokémon have more than one attack? Choose any one each turn. In Medium, ignore the Energy symbols next to an attack — every attack is ready to use. Skip any extra words on the attack. No number? It does 10 damage.</li>
       <li><strong>Track damage.</strong> Subtract the damage from the other Pokémon's HP. Dice, coins, or paper all work.</li>
       <li><strong>Knocked out!</strong> When a Pokémon's HP hits 0, it's knocked out. Bring out your next Pokémon.</li>
     </ol>
@@ -640,7 +645,7 @@
       <li><strong>Battle spot &amp; Bench:</strong> put one Pokémon in your battle spot and up to 3 more on your Bench, face up beside it.</li>
       <li><strong>Energy:</strong> on your turn, attach 1 Energy to <em>any</em> of your Pokémon — in battle or on the Bench.</li>
       <li><strong>Switch (optional):</strong> once per turn, swap your battle Pokémon with one on your Bench. Energy stays with each Pokémon.</li>
-      <li><strong>Pay the Energy cost:</strong> each attack shows symbols on its left. Your Pokémon needs that many Energy attached, and colored symbols need matching Energy. The plain star symbol can be any Energy.</li>
+      <li><strong>Pay the Energy cost:</strong> each attack shows symbols on its left. Your Pokémon needs that many Energy attached before it can use that attack, and colored symbols need matching Energy. The plain star symbol can be any Energy. Bigger attacks often need 2 or 3 Energy, so they can take a few turns to power up — that's what the Bench is for! Not enough Energy yet? Use a smaller attack, switch, or end your turn. One attack per turn.</li>
       <li><strong>Attack!</strong> Subtract damage and use Weakness (double damage). Knocked out? Move a Bench Pokémon into battle, then refill your Bench from your stack.</li>
     </ol>
     <div class="callout"><strong>Winning:</strong> Knock out 3 Pokémon (Quick) or all of the other player's Pokémon (Classic and Marathon).</div>
