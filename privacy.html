@@ -143,6 +143,8 @@
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
+  <style>@media (max-width: 640px) { main table { display: block; max-width: 100%; overflow-x: auto; } main td, main th { word-break: break-word; } }</style>
+
   <style id="pp-chrome">
     /* ── SHARED SITE HEADER / FOOTER / BACK-TO-TOP ── */
     .ppn { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,39,68,0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); font-family: 'DM Sans', sans-serif; }
@@ -191,7 +193,6 @@
     @media (max-width: 640px) { .pp-top { right: 16px; bottom: 16px; width: 44px; height: 44px; } .ppf-bottom a { margin: 0 16px 0 0; } }
     @media print { .ppn, .ppn-spacer, .pp-top { display: none !important; } }
   </style>
-  <style>@media (max-width: 640px) { main table { display: block; max-width: 100%; overflow-x: auto; } main td, main th { word-break: break-word; } }</style>
 </head>
 <body>
 
@@ -199,12 +200,12 @@
 <header class="ppn">
   <div class="ppn-in">
     <a class="ppn-logo" href="/"><img src="/star-icon.png" alt="PlayPrep logo" /><span>Play<em>Prep</em></span></a>
-    <div class="ppn-links" role="navigation" aria-label="Main"><a href="/">Home</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a><a href="/support.html">Support</a><a href="/beta.html" class="ppn-cta">Join Beta</a></div>
+    <div class="ppn-links" role="navigation" aria-label="Main"><a href="/">Home</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a><a href="/support.html">Support</a><a href="/beta.html" class="ppn-cta">Get PlayPrep</a></div>
     <button class="ppn-btn" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.querySelector('.ppn-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
-  <div class="ppn-menu" role="navigation" aria-label="Mobile"><a href="/">Home</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a><a href="/support.html">Support</a><a href="/beta.html" class="ppn-cta">Join Beta</a></div>
+  <div class="ppn-menu" role="navigation" aria-label="Mobile"><a href="/">Home</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a><a href="/support.html">Support</a><a href="/beta.html" class="ppn-cta">Get PlayPrep</a></div>
 </header>
 <div class="ppn-spacer"></div>
 
@@ -293,6 +294,9 @@
   </ul>
   <p>This information is used only for sync reliability and account security — for example, enforcing the device limit described in Section 9, letting you view and manage your connected devices from the in-app Manage Devices screen, and flagging unusual account activity (such as an unusually high number of new devices in a short time) for manual review. It is never used for advertising and never shared with advertisers.</p>
   <p>Approximate location is resolved using a third-party IP geolocation service (Section 6). If that lookup ever fails or is unavailable, your device still works normally — it simply won&#x2019;t show a location on the Manage Devices screen.</p>
+
+  <h3>3.9 Website Update Sign-Ups</h3>
+  <p>If you sign up for PlayPrep updates on our website (for example, to hear about the next round of testing or our launch), we collect the email address you enter and the update types you choose. We use this information only to send you the updates you asked for. It is stored securely with our database provider (Supabase), is never sold or shared with advertisers, and you can unsubscribe or ask us to delete it at any time by emailing <a href="mailto:hello@playprep.app">hello@playprep.app</a>.</p>
 
   <h2>4. How We Use Your Information</h2>
   <table>
@@ -413,6 +417,7 @@
 
 </main>
 
+
 <!-- SITE FOOTER (shared) -->
 <div class="ppf" role="contentinfo">
   <div class="ppf-in">
@@ -420,7 +425,7 @@
       <a class="ppn-logo" href="/"><img src="/star-icon.png" alt="PlayPrep logo" /><span style="font-size:20px">Play<em>Prep</em></span></a>
       <p>The activity planner for parents, teachers, and homeschoolers. Plan it. Prep it. Play.</p>
     </div>
-    <div class="ppf-col"><h4>App</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/beta.html">Join Beta</a></div>
+    <div class="ppf-col"><h4>App</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/beta.html">Get PlayPrep</a></div>
     <div class="ppf-col"><h4>Blog</h4><a href="/blog/">All Posts</a><a href="/blog/starter-kit.html">Starter Kit</a><a href="/blog/all-trainers-battle.html">All Trainers Battle</a></div>
     <div class="ppf-col"><h4>Support</h4><a href="/support.html">Help &amp; Contact</a><a href="mailto:support@playprep.app">support@playprep.app</a></div>
     <div class="ppf-col"><h4>Legal</h4><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a></div>

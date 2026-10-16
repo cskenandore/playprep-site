@@ -166,6 +166,7 @@
     }
   </style>
 
+
   <style id="pp-chrome">
     /* ── SHARED SITE HEADER / FOOTER / BACK-TO-TOP ── */
     .ppn { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,39,68,0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); font-family: 'DM Sans', sans-serif; }
@@ -221,12 +222,12 @@
 <header class="ppn">
   <div class="ppn-in">
     <a class="ppn-logo" href="/"><img src="/star-icon.png" alt="PlayPrep logo" /><span>Play<em>Prep</em></span></a>
-    <div class="ppn-links" role="navigation" aria-label="Main"><a href="/">Home</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a><a href="/support.html">Support</a><a href="/beta.html" class="ppn-cta">Join Beta</a></div>
+    <div class="ppn-links" role="navigation" aria-label="Main"><a href="/">Home</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a><a href="/support.html">Support</a><a href="/beta.html" class="ppn-cta">Get PlayPrep</a></div>
     <button class="ppn-btn" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.querySelector('.ppn-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
-  <div class="ppn-menu" role="navigation" aria-label="Mobile"><a href="/">Home</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a><a href="/support.html">Support</a><a href="/beta.html" class="ppn-cta">Join Beta</a></div>
+  <div class="ppn-menu" role="navigation" aria-label="Mobile"><a href="/">Home</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/blog/">Blog</a><a href="/support.html">Support</a><a href="/beta.html" class="ppn-cta">Get PlayPrep</a></div>
 </header>
 <div class="ppn-spacer"></div>
 
@@ -264,6 +265,7 @@
         <label class="check"><input type="checkbox" name="interest" value="testing" /> <span><strong>Next round of testing</strong> — invite me if there's another chance to try PlayPrep early</span></label>
         <label class="check"><input type="checkbox" name="interest" value="launch" checked /> <span><strong>Launch day only</strong> — just tell me when PlayPrep is available</span></label>
       </fieldset>
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
       <button type="submit" class="testflight-btn">Sign me up →</button>
       <p class="form-msg" id="signup-msg" role="status" aria-live="polite"></p>
       <p class="form-fine">We'll only email you about the updates you choose, and you can unsubscribe anytime. See our <a href="/privacy.html">Privacy Policy</a>.</p>
@@ -303,32 +305,49 @@
   .tester-note h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
   .tester-note p { font-size: 14px; color: #475569; line-height: 1.7; }
   .tester-note a { color: var(--amber); font-weight: 600; }
+  .form-done { text-align: center; padding: 8px 0; }
+  .form-done-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--amber); color: var(--navy); font-size: 28px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+  .form-done h3 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+  .form-done p { color: rgba(255,255,255,0.75); font-size: 15px; line-height: 1.6; }
+  .signup-form button:disabled { opacity: .7; cursor: wait; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
   @media (max-width: 760px) { .steps-grid { grid-template-columns: 1fr; } .signup-card { padding: 32px 22px; } }
 </style>
 <script>
-  /* Sign-up form. SIGNUP_ENDPOINT is empty until a storage backend is chosen;
-     until then the form opens a pre-filled email to hello@playprep.app. */
+  /* "Get PlayPrep updates" form. Sends the email + choices to a Supabase function
+     (website_signup_for_updates) that can only add sign-ups — it cannot read them.
+     The key below is Supabase's public "publishable" key, which is safe to include in a web page. */
   (function () {
-    var SIGNUP_ENDPOINT = '';
+    var ENDPOINT = 'https://dsxxgadyuhbrflspuckh.supabase.co/rest/v1/rpc/website_signup_for_updates';
+    var KEY = 'sb_publishable_bSAThvux_PaahFk1q3ET6Q_zumA3M-9';
     var form = document.getElementById('signup-form');
     var msg = document.getElementById('signup-msg');
+    var btn = form.querySelector('button[type=submit]');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (form.website && form.website.value) { return; } // spam bots fill hidden fields
       var email = form.email.value.trim();
-      var picks = Array.prototype.filter.call(form.querySelectorAll('input[name=interest]'), function (c) { return c.checked; }).map(function (c) { return c.value; });
+      var testing = form.querySelector('input[value=testing]').checked;
+      var launch = form.querySelector('input[value=launch]').checked;
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = 'Please enter a valid email address.'; form.email.focus(); return; }
-      if (!picks.length) { msg.textContent = 'Please choose at least one option.'; return; }
-      if (!SIGNUP_ENDPOINT) {
-        var labels = { testing: 'Next round of testing', launch: 'Launch day' };
-        var body = 'Please add me to the PlayPrep updates list.%0D%0A%0D%0AEmail: ' + encodeURIComponent(email) + '%0D%0AUpdates: ' + encodeURIComponent(picks.map(function (p) { return labels[p]; }).join(', '));
-        window.location.href = 'mailto:hello@playprep.app?subject=' + encodeURIComponent('PlayPrep updates sign-up') + '&body=' + body;
-        msg.textContent = 'Opening your email app — just hit send!';
-        return;
-      }
+      if (!testing && !launch) { msg.textContent = 'Please choose at least one option.'; return; }
+      btn.disabled = true; btn.textContent = 'Signing you up…'; msg.textContent = '';
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'apikey': KEY },
+        body: JSON.stringify({ p_email: email, p_wants_testing: testing, p_wants_launch: launch, p_source: 'website-beta-page' })
+      }).then(function (r) {
+        if (!r.ok) throw new Error('status ' + r.status);
+        form.innerHTML = '<div class="form-done"><div class="form-done-icon">✓</div><h3>You\'re on the list!</h3><p>We\'ll email <strong></strong> with the updates you picked. Thanks for following along!</p></div>';
+        form.querySelector('.form-done strong').textContent = email;
+      }).catch(function () {
+        btn.disabled = false; btn.textContent = 'Sign me up →';
+        msg.innerHTML = 'Something went wrong — please try again, or email <a href="mailto:hello@playprep.app" style="color:#F59E0B">hello@playprep.app</a>.';
+      });
     });
   })();
 </script>
+
 
 <!-- SITE FOOTER (shared) -->
 <div class="ppf" role="contentinfo">
@@ -337,7 +356,7 @@
       <a class="ppn-logo" href="/"><img src="/star-icon.png" alt="PlayPrep logo" /><span style="font-size:20px">Play<em>Prep</em></span></a>
       <p>The activity planner for parents, teachers, and homeschoolers. Plan it. Prep it. Play.</p>
     </div>
-    <div class="ppf-col"><h4>App</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/beta.html">Join Beta</a></div>
+    <div class="ppf-col"><h4>App</h4><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/beta.html">Get PlayPrep</a></div>
     <div class="ppf-col"><h4>Blog</h4><a href="/blog/">All Posts</a><a href="/blog/starter-kit.html">Starter Kit</a><a href="/blog/all-trainers-battle.html">All Trainers Battle</a></div>
     <div class="ppf-col"><h4>Support</h4><a href="/support.html">Help &amp; Contact</a><a href="mailto:support@playprep.app">support@playprep.app</a></div>
     <div class="ppf-col"><h4>Legal</h4><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a></div>
