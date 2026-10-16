@@ -304,7 +304,7 @@
     .section ul.plain { margin: 0 0 14px 20px; }
     .section ul.plain li { font-size: 15px; line-height: 1.8; color: #334155; margin-bottom: 4px; }
 
-    .know-card { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: center; }
+    .know-card { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; }
     .know-card svg { width: 100%; height: auto; }
     .know-card dl { display: grid; gap: 14px; }
     .know-card dt { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; }
@@ -386,6 +386,37 @@
     .official-box h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; margin: 0 0 8px; }
     .official-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 16px; }
     .official-note { font-size: 14px !important; }
+    .gear-group { margin: 40px 0 8px; }
+    .gear-group h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 28px); font-weight: 900; margin-bottom: 6px; }
+    .gear-group p.lead { font-size: 15px; line-height: 1.7; color: #334155; margin-bottom: 18px; }
+    .gear-kicker { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; margin-bottom: 10px; }
+    .gear-kicker.now { background: var(--amber); color: var(--navy); }
+    .gear-kicker.extra { background: var(--navy); color: var(--white); }
+    .gear { display: grid; grid-template-columns: 96px 1fr; gap: 20px; background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 22px; margin-bottom: 16px; }
+    .gear .art { width: 96px; height: 96px; background: var(--cream); border-radius: 16px; display: flex; align-items: center; justify-content: center; }
+    .gear .art svg { width: 80px; height: 80px; }
+    .gear h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 900; margin: 0 0 6px; line-height: 1.2; }
+    .gear .price { display: inline-block; font-size: 12px; font-weight: 700; color: var(--sage); background: rgba(45,138,94,0.08); border: 1px solid rgba(45,138,94,0.2); border-radius: 999px; padding: 3px 10px; margin-bottom: 10px; }
+    .gear p { font-size: 15px; line-height: 1.75; color: #334155; margin-bottom: 12px; }
+    .gear .buys { display: flex; flex-wrap: wrap; gap: 8px; }
+    .gear .buys a { display: inline-flex; align-items: center; gap: 6px; background: var(--amber); color: var(--navy); padding: 9px 16px; border-radius: 999px; font-weight: 700; font-size: 13px; text-decoration: none; box-shadow: 0 4px 12px rgba(217,119,6,0.2); transition: all .2s; }
+    .gear .buys a:hover { background: var(--amber2); transform: translateY(-1px); }
+    .gear .buys a.alt { background: var(--white); color: var(--navy); border: 1.5px solid var(--navy); box-shadow: none; }
+    .gear .buys a.alt:hover { background: var(--navy); color: var(--white); }
+    .gear .warn { background: rgba(217,119,6,0.07); border: 1px solid rgba(217,119,6,0.25); border-radius: 10px; padding: 10px 14px; font-size: 14px; line-height: 1.6; color: #7a4504; margin-bottom: 12px; }
+    .store-banner { background: var(--navy); color: var(--white); border-radius: 20px; padding: 28px; margin: 8px 0 8px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; position: relative; overflow: hidden; }
+    .store-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 100% at 100% 0%, rgba(217,119,6,0.25), transparent 70%); pointer-events: none; }
+    .store-banner > * { position: relative; }
+    .store-banner .k { font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--amber2); margin-bottom: 6px; }
+    .store-banner h3 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; margin-bottom: 6px; }
+    .store-banner p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.75); }
+    .store-banner a { display: inline-flex; background: var(--amber); color: var(--navy); padding: 14px 24px; border-radius: 999px; font-weight: 700; font-size: 15px; text-decoration: none; white-space: nowrap; box-shadow: 0 8px 24px rgba(217,119,6,0.35); }
+    .store-banner a:hover { background: var(--amber2); }
+    @media (max-width: 640px) {
+      .gear { grid-template-columns: 1fr; gap: 12px; padding: 18px; }
+      .gear .art { width: 72px; height: 72px; } .gear .art svg { width: 60px; height: 60px; }
+      .store-banner { grid-template-columns: 1fr; padding: 22px; }
+    }
     .trademark-note { font-size: 12px; color: var(--muted); line-height: 1.7; margin-top: 12px; }
 
     @media (max-width: 640px) {
@@ -459,13 +490,13 @@
 
   <p class="post-intro">I first made these rules for my son's birthday party. We wanted every guest to be able to jump in and battle — little siblings, grandparents, friends who had never held a card before. The official game is amazing, but it has a lot to learn. So we stripped it down to the parts that make it fun: picking your favorite Pokémon, powering it up, and cheering when the big number wins.</p>
 
-  <p class="post-intro">All Trainers Battle is built for <strong>every age and every ability</strong>. It works for young kids, for older players with learning or physical disabilities, and for grown-ups who just want an easy way in. Pick from three difficulties — Easy, Medium, or Challenge — and three game lengths, so the same cards grow right along with the player, all the way to the real game.</p>
+  <p class="post-intro">All Trainers Battle is built for <strong>every age and every ability</strong> — ages 3 and up. It works for young kids, for older players with learning or physical disabilities, and for grown-ups who just want an easy way in. Pick from three difficulties — Easy, Medium, or Challenge — and three game lengths, so the same cards grow right along with the player, all the way to the real game.</p>
 
   <!-- DOWNLOAD -->
   <div class="download-box" id="download">
     <div class="label">Free download</div>
     <h2>Get the printable rules</h2>
-    <p>All three versions, scorecards, and an All Trainers Champion certificate — ready to print at home. Plus pocket-size rules cards that slide right into a deck box.</p>
+    <p>All three versions, scorecards for every level — including a <strong>Star Tracker</strong> for little ones (color a star for every win!) — and an All Trainers Champion certificate, ready to print at home. Plus pocket-size rules cards that slide right into a deck box.</p>
     <div class="download-actions">
       <a class="btn-amber" href="/downloads/all-trainers-battle-printable.pdf" target="_blank" download>Download the free printable →</a>
       <a class="btn-outline" href="/downloads/all-trainers-battle-rules-cards.pdf" target="_blank" download>Pocket rules cards</a>
@@ -487,11 +518,11 @@
     <div class="section-kicker">What you need</div>
     <h2>Players, cards &amp; a table</h2>
     <ul class="plain">
-      <li><strong>2 or more players</strong>, any age. Little ones can play with a helper.</li>
+      <li><strong>2 or more players</strong>, ages 3 and up. Little ones can play with a helper.</li>
       <li><strong>Pokémon cards</strong> — any cards with an HP number work.</li>
       <li><strong>Energy cards</strong> — the more, the merrier.</li>
       <li><strong>Trainer cards</strong> (optional) — no reading required, we'll show you how.</li>
-      <li>For Medium and Challenge: a few dice, coins, or a pencil and paper to track damage.</li>
+      <li>For Medium and Challenge: a few dice, coins, or a pencil and paper to track damage. (Dice come in many Pokémon collection boxes!)</li>
     </ul>
   </section>
 
@@ -500,32 +531,39 @@
     <div class="section-kicker">Before you play</div>
     <h2>Get to know your card</h2>
     <div class="know-card">
-      <svg viewBox="0 0 200 280" role="img" aria-label="Diagram of a trading card showing where HP, the type symbol, attacks, and weakness are">
-        <rect x="4" y="4" width="192" height="272" rx="12" fill="#FFFFFF" stroke="#1A2744" stroke-width="3"/>
-        <rect x="16" y="16" width="168" height="22" rx="4" fill="#FAF8F3"/>
-        <rect x="22" y="23" width="60" height="8" rx="4" fill="#CBD5E1"/>
-        <text x="122" y="33" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#1A2744">HP 90</text>
-        <circle cx="170" cy="27" r="8" fill="#D97706"/>
-        <rect x="16" y="44" width="168" height="92" rx="6" fill="#E2E8F0"/>
-        <path d="M100 66 l8 17 18 2 -13 12 4 18 -17 -9 -17 9 4 -18 -13 -12 18 -2z" fill="#F59E0B" opacity="0.8"/>
-        <rect x="22" y="152" width="70" height="8" rx="4" fill="#CBD5E1"/>
-        <text x="160" y="161" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#1A2744">30</text>
-        <rect x="22" y="178" width="84" height="8" rx="4" fill="#CBD5E1"/>
-        <text x="160" y="187" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#1A2744">60</text>
-        <rect x="16" y="214" width="168" height="1" fill="#E2E8F0"/>
-        <rect x="22" y="226" width="44" height="7" rx="3.5" fill="#CBD5E1"/>
-        <circle cx="76" cy="229.5" r="5" fill="#2D8A5E"/>
-        <text x="84" y="233" font-family="DM Sans, sans-serif" font-size="10" fill="#1A2744">×2</text>
-        <!-- labels -->
-        <circle cx="140" cy="10" r="9" fill="#1A2744"/><text x="140" y="14" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#fff">1</text>
-        <circle cx="188" cy="10" r="9" fill="#1A2744"/><text x="188" y="14" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#fff">2</text>
-        <circle cx="188" cy="170" r="9" fill="#1A2744"/><text x="188" y="174" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#fff">3</text>
-        <circle cx="12" cy="230" r="9" fill="#1A2744"/><text x="12" y="234" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#fff">4</text>
+      <svg viewBox="0 0 220 300" role="img" aria-label="Diagram of a trading card showing the HP, type symbol, attacks with Energy cost and damage, and Weakness">
+        <rect x="6" y="6" width="208" height="288" rx="12" fill="#F59E0B"/>
+        <rect x="14" y="14" width="192" height="272" rx="8" fill="#FFFBEB"/>
+        <text x="22" y="34" font-family="DM Sans, sans-serif" font-size="8" font-weight="700" fill="#64748B">BASIC</text>
+        <text x="22" y="48" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#1A2744">Sparkpup</text>
+        <text x="148" y="47" font-family="DM Sans, sans-serif" font-size="8" font-weight="700" fill="#1A2744">HP</text>
+        <text x="160" y="48" font-family="DM Sans, sans-serif" font-size="15" font-weight="700" fill="#1A2744">70</text>
+        <circle cx="194" cy="43" r="8" fill="#FACC15" stroke="#1A2744" stroke-width="1.5"/><path d="M195 37l-5 7h4l-2 6 5-8h-4z" fill="#1A2744"/>
+        <rect x="22" y="56" width="176" height="96" rx="4" fill="#E2E8F0" stroke="#CBD5E1"/>
+        <path d="M110 76 l9 19 21 3 -15 14 4 20 -19 -10 -19 10 4 -20 -15 -14 21 -3z" fill="#F59E0B" opacity=".7"/>
+        <circle cx="30" cy="172" r="6" fill="#FACC15" stroke="#1A2744" stroke-width="1.2"/>
+        <text x="42" y="176" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1A2744">Zap</text>
+        <text x="196" y="177" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#1A2744">20</text>
+        <circle cx="30" cy="200" r="6" fill="#FACC15" stroke="#1A2744" stroke-width="1.2"/><circle cx="44" cy="200" r="6" fill="#fff" stroke="#1A2744" stroke-width="1.2"/><path d="M44 196l1.2 2.6 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#1A2744"/>
+        <text x="56" y="204" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1A2744">Thunder Dash</text>
+        <text x="196" y="205" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#1A2744">50</text>
+        <rect x="22" y="212" width="150" height="5" rx="2.5" fill="#E2E8F0"/>
+        <rect x="22" y="236" width="176" height="1" fill="#E2E8F0"/>
+        <text x="24" y="252" font-family="DM Sans, sans-serif" font-size="7" font-weight="700" fill="#64748B">WEAKNESS</text>
+        <circle cx="34" cy="264" r="6" fill="#A16207" stroke="#1A2744" stroke-width="1.2"/><text x="44" y="268" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#1A2744">×2</text>
+        <text x="94" y="252" font-family="DM Sans, sans-serif" font-size="7" font-weight="700" fill="#64748B">RESISTANCE</text>
+        <text x="156" y="252" font-family="DM Sans, sans-serif" font-size="7" font-weight="700" fill="#64748B">RETREAT</text>
+        <g font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">
+          <circle cx="170" cy="22" r="10" fill="#1A2744"/><text x="170" y="26">1</text>
+          <circle cx="206" cy="58" r="10" fill="#1A2744"/><text x="206" y="62">2</text>
+          <circle cx="12" cy="186" r="10" fill="#1A2744"/><text x="12" y="190">3</text>
+          <circle cx="12" cy="264" r="10" fill="#1A2744"/><text x="12" y="268">4</text>
+        </g>
       </svg>
       <dl>
         <div><dt><b>1</b> HP</dt><dd>The big number at the top right. It shows how strong your Pokémon is.</dd></div>
         <div><dt><b>2</b> Type symbol</dt><dd>The small symbol by the HP — a flame, a water drop, a leaf, and more. Match it with Energy for a bigger boost!</dd></div>
-        <div><dt><b>3</b> Attacks</dt><dd>Listed in the middle. The number on the right is the damage. You'll use these in Medium and Challenge.</dd></div>
+        <div><dt><b>3</b> Attacks</dt><dd>Listed in the middle. The symbols on the left are the Energy cost (used in Challenge), and the number on the right is the damage. You'll use attacks in Medium and Challenge.</dd></div>
         <div><dt><b>4</b> Weakness</dt><dd>Near the bottom. If an attacker's type shows here, its attacks hit twice as hard (Medium and Challenge).</dd></div>
       </dl>
     </div>
@@ -538,15 +576,15 @@
     <p>All Trainers Battle isn't one set of rules — it's three. Pick the version that fits your players, then pick how long you want to play. Mix and match any way you like.</p>
     <p class="step-label">Step 1 · Pick a difficulty</p>
     <div class="diff-grid">
-      <a class="diff" href="#easy"><div class="lv">Easy <span>★</span></div><h3>HP Showdown</h3><p>Flip a card, power up, biggest HP wins. Great for first-timers and pre-readers.</p><div class="time">About 10–20 min</div></a>
-      <a class="diff" href="#medium"><div class="lv">Medium <span>★★</span></div><h3>Attack Battle</h3><p>Take turns attacking until a Pokémon's HP hits zero. Some counting.</p><div class="time">About 15–30 min</div></a>
-      <a class="diff" href="#challenge"><div class="lv">Challenge <span>★★★</span></div><h3>Bench Battle</h3><p>Energy costs, a Bench, and Weakness. The best practice for the official game.</p><div class="time">About 20–45 min</div></a>
+      <a class="diff" href="#easy"><div class="lv">Easy <span>★</span></div><h3>HP Showdown</h3><p>Flip a card, power up, biggest HP wins. Great for first-timers and pre-readers.</p><div class="time">10–20 min for Quick or Classic play</div></a>
+      <a class="diff" href="#medium"><div class="lv">Medium <span>★★</span></div><h3>Attack Battle</h3><p>Take turns attacking until a Pokémon's HP hits zero. Some counting.</p><div class="time">15–30 min for Quick or Classic play</div></a>
+      <a class="diff" href="#challenge"><div class="lv">Challenge <span>★★★</span></div><h3>Bench Battle</h3><p>Energy costs, a Bench, and Weakness. The best practice for the official game.</p><div class="time">20–45 min for Quick or Classic play</div></a>
     </div>
     <p class="step-label">Step 2 · Pick a game length</p>
     <div class="length-grid">
       <div class="length-tile"><div class="big">5</div><div class="name">Quick</div><div class="sub">5 Pokémon each</div></div>
       <div class="length-tile"><div class="big">10</div><div class="name">Classic</div><div class="sub">10 Pokémon each</div></div>
-      <div class="length-tile"><div class="big">∞</div><div class="name">Marathon</div><div class="sub">bring the whole binder</div></div>
+      <div class="length-tile"><div class="big">∞</div><div class="name">Marathon</div><div class="sub">as long as you like — bring the whole binder</div></div>
     </div>
     <h3>Every version starts the same way</h3>
     <ol class="steps">
@@ -606,17 +644,6 @@
       <li><strong>Attack!</strong> Subtract damage and use Weakness (double damage). Knocked out? Move a Bench Pokémon into battle, then refill your Bench from your stack.</li>
     </ol>
     <div class="callout"><strong>Winning:</strong> Knock out 3 Pokémon (Quick) or all of the other player's Pokémon (Classic and Marathon).</div>
-    <div class="official-box">
-      <div class="section-kicker">Graduation day</div>
-      <h3>Ready for the official game?</h3>
-      <p>If Challenge feels easy, your Trainer is ready for full games. The official rules add Prize cards and Evolution, and you'll find everything you need straight from The Pokémon Company:</p>
-      <div class="official-links">
-        <a class="btn-amber" href="https://www.pokemon.com/us/pokemon-tcg/rules" target="_blank" rel="noopener">Official TCG rules →</a>
-        <a class="btn-outline" href="https://www.pokemon.com/static-assets/content-assets/cms2/pdf/trading-card-game/tcg-alternative-play-handbook-en.pdf" target="_blank" rel="noopener">Alternative Play Handbook →</a>
-      </div>
-      <p class="official-note"><strong>Shout-out:</strong> Pokémon's free <em>Alternative Play Handbook</em> is packed with fun, unofficial ways to play — from beginner games to a cooperative raid battle for up to four players. It's a great next stop after All Trainers Battle.</p>
-      <p class="official-note">A two-player starter box with ready-made decks and a guided first game is also an easy next step (see our picks below), and many local game stores run free beginner leagues.</p>
-    </div>
   </section>
 
   <!-- WAYS TO PLAY -->
@@ -653,6 +680,7 @@
     <h2>Tips to make it magic</h2>
     <ul class="plain">
       <li>Use big battle voices and silly sound effects.</li>
+      <li>Grab stuffed animals or action figures and act out the battles.</li>
       <li>Ask, "Why do you think your Pokémon is strong?" It builds storytelling and confidence.</li>
       <li>Let players make up their own attack names.</li>
       <li>Celebrate great Energy matches and smart choices, not just wins.</li>
@@ -666,88 +694,148 @@
     <div>
       <h3>Find it in the PlayPrep Library</h3>
       <p>All Trainers Battle is part of the PlayPrep activity library. Save it to your library, add it to a game-night collection, and keep the rules and what you need in one place — right alongside lots of other hands-on activities for every age.</p>
-      <a href="/beta.html">Learn about the PlayPrep app →</a>
+      <a href="/">Learn about the PlayPrep app →</a>
     </div>
   </div>
+
+
+  <!-- GRADUATION DAY -->
+  <section class="section" id="official">
+    <div class="official-box">
+      <div class="section-kicker">Graduation day</div>
+      <h3>Ready for the official game?</h3>
+      <p>If Challenge feels easy, your Trainer is ready for full games. The official rules add Prize cards and Evolution, and you'll find everything you need straight from The Pokémon Company:</p>
+      <div class="official-links">
+        <a class="btn-amber" href="https://www.pokemon.com/us/pokemon-tcg/rules" target="_blank" rel="noopener">Official TCG rules →</a>
+        <a class="btn-outline" href="https://www.pokemon.com/static-assets/content-assets/cms2/pdf/trading-card-game/tcg-alternative-play-handbook-en.pdf" target="_blank" rel="noopener">Alternative Play Handbook →</a>
+      </div>
+      <p class="official-note"><strong>Shout-out:</strong> Pokémon's free <em>Alternative Play Handbook</em> is packed with fun, unofficial ways to play — from beginner games to a cooperative raid battle for up to four players. It's a great next stop after All Trainers Battle.</p>
+      <p class="official-note">A two-player starter box with ready-made decks and a guided first game is also an easy next step (see the Battle Academy pick below), and many local game stores run free beginner leagues.</p>
+    </div>
+  </section>
 
   <!-- GEAR -->
   <section class="section" id="gear" style="margin-bottom:0;">
     <div class="section-kicker">Our favorite gear</div>
     <h2>Gear for new Trainers</h2>
-    <p class="gear-intro">None of this is required to play — just the things that make battles easier on little hands and keep favorite cards looking good.</p>
+    <p class="gear-intro">None of this is required to play — just the things that make battles easier on little hands and keep favorite cards looking good. Prices change often, so we've shared a typical range instead of an exact price.</p>
   </section>
 
-  <div class="product">
-    <div class="product-number">Gear 01</div>
-    <h2>Standard Card Sleeves</h2>
-    <!-- TODO Cassie: replace href with your SiteStripe amzn.to link -->
-    <a href="https://www.amazon.com/s?k=ultra+pro+standard+card+sleeves&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
-    <p>Sleeves are the first thing I'd buy for any new player. They protect cards from sticky fingers and bent corners, and they make cards easier to pick up and flip — a big help for small hands or anyone with fine-motor challenges.</p>
-    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Every player. Grab a 100-count pack.</div>
+  <div class="store-banner">
+    <div>
+      <div class="k">Start your collection</div>
+      <h3>Shop the official Pokémon store</h3>
+      <p>Booster packs, collection boxes, and starter decks. Many collection boxes come with dice, sleeves, or even a playmat.</p>
+    </div>
+    <a href="https://www.amazon.com/stores/Pok%C3%A9mon/page/DC6D208A-8D81-4AFA-90C5-616473E94ECA?lp_asin=B0GC7KFMF8&amp;store_ref=bl_ast_dp_brandlogo_sto&amp;linkCode=ll2&amp;tag=playpreptrainerbattle-20&amp;linkId=07bd805aed432e66e40a1a9ff3725ca8&amp;language=en_US&amp;ref_=as_li_ss_tl" target="_blank" rel="nofollow sponsored noopener">Visit the Pokémon store →</a>
   </div>
 
-  <div class="product">
-    <div class="product-number">Gear 02</div>
-    <h2>Penny Sleeves &amp; Top Loaders</h2>
-    <a href="https://www.amazon.com/s?k=penny+sleeves+and+top+loaders+trading+cards&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
-    <p>For the special pulls. A thin penny sleeve plus a rigid top loader keeps a favorite card safe in a backpack or on a shelf. Kids love having their "best card" protected like treasure.</p>
-    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Favorite cards and trades.</div>
+  <div class="gear-group">
+    <span class="gear-kicker now">Start here</span>
+    <h2>What you need to play now</h2>
+    <p class="lead">Three simple things that protect cards and make game time easier for every player.</p>
+  </div>
+  <div class="gear">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 96 96"><rect x="22" y="14" width="44" height="62" rx="6" fill="#fff" stroke="#1A2744" stroke-width="3" transform="rotate(-8 44 45)"/><rect x="30" y="18" width="44" height="62" rx="6" fill="#FAF8F3" stroke="#1A2744" stroke-width="3"/><rect x="36" y="26" width="32" height="22" rx="3" fill="#E2E8F0"/><path d="M52 31l2.5 5 5.5.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8z" fill="#D97706"/><rect x="36" y="54" width="24" height="4" rx="2" fill="#CBD5E1"/><rect x="36" y="62" width="18" height="4" rx="2" fill="#CBD5E1"/><path d="M30 24h44" stroke="#D97706" stroke-width="3"/></svg></div>
+    <div>
+      <div class="product-number">Gear 01</div>
+      <h3>Card Sleeves</h3>
+      <span class="price">Usually around $10 a pack</span>
+      <p>Sleeves are the first thing I'd buy for any new player. They protect cards from sticky fingers and bent corners, and they make cards easier to pick up and flip — a big help for small hands or anyone with fine-motor challenges. Kids love picking a design with their favorite Pokémon.</p>
+      <div class="buys"><a href="https://www.amazon.com/dp/B0GC7KFMF8?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=cd914feb5f42a14cd429811e70b0ca25&amp;language=en_US&amp;ref_=as_li_ss_tl" class="" target="_blank" rel="nofollow sponsored noopener">Official Pokémon sleeves →</a><a href="https://www.amazon.com/dp/B0BGYT8XSC?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=c5d045e7331e2d4c2c8cfc8dcdb9e385&amp;language=en_US&amp;ref_=as_li_ss_tl" class="alt" target="_blank" rel="nofollow sponsored noopener">More Pokémon designs →</a></div>
+    </div>
   </div>
 
-  <div class="product">
-    <div class="product-number">Gear 03</div>
-    <h2>9-Pocket Zip Binder</h2>
-    <a href="https://www.amazon.com/s?k=9+pocket+zip+trading+card+binder&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
-    <p>A zip-around binder keeps the whole collection together, and nothing spills out if it gets dropped. Flipping through pages to pick a battle team is half the fun.</p>
-    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Growing collections and Marathon games.</div>
+  <div class="gear">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 96 96"><path d="M22 34l26-12 26 12v36l-26 12-26-12z" fill="#1A2744"/><path d="M22 34l26 12 26-12" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/><path d="M48 46v36" stroke="#fff" stroke-opacity=".25" stroke-width="2"/><path d="M28 30l20-9 20 9-20 9z" fill="#D97706"/><circle cx="36" cy="58" r="5" fill="#fff" opacity=".8"/></svg></div>
+    <div>
+      <div class="product-number">Gear 02</div>
+      <h3>A Deck Box (or a Bundle That Comes With One)</h3>
+      <span class="price">Usually under $10 · bundles and deluxe boxes cost more</span>
+      <p>One box per player holds a battle stack, an Energy pile, and the rules card. Toss them in a bag and you're ready to battle anywhere — waiting rooms, road trips, grandma's house.</p><p>Want everything in one place? The deluxe box has room for dice and extras. Just getting started? An official Pokémon card bundle comes with cards <em>and</em> a deck box.</p>
+      <div class="buys"><a href="https://www.amazon.com/dp/B01MY017NE?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=92818962ad4ff08d99b2a0606c8dded3&amp;language=en_US&amp;ref_=as_li_ss_tl" class="" target="_blank" rel="nofollow sponsored noopener">Simple deck box →</a><a href="https://www.amazon.com/dp/B0G7YSTVG8?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=324871c7a937552a5c60a5ca2e1d6bc5&amp;language=en_US&amp;ref_=as_li_ss_tl" class="alt" target="_blank" rel="nofollow sponsored noopener">Deck box with dice storage →</a><a href="https://www.amazon.com/dp/B01CYZHGC8?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=643eb4d1d9bc1429b89e41157feb6ba0&amp;language=en_US&amp;ref_=as_li_ss_tl" class="alt" target="_blank" rel="nofollow sponsored noopener">Official card bundle + deck box →</a></div>
+    </div>
   </div>
 
-  <div class="product">
-    <div class="product-number">Gear 04</div>
-    <h2>Deck Boxes</h2>
-    <a href="https://www.amazon.com/s?k=trading+card+deck+box+kids&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
-    <p>One box per player holds a battle stack, an Energy pile, and the rules card. Toss them in a bag and you're ready to battle anywhere — waiting rooms, road trips, grandma's house.</p>
-    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Keeping game-ready decks together.</div>
+  <div class="gear">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 96 96"><rect x="26" y="16" width="20" height="30" rx="3" fill="#fff" stroke="#1A2744" stroke-width="2.5" transform="rotate(-14 36 31)"/><rect x="38" y="13" width="20" height="30" rx="3" fill="#fff" stroke="#1A2744" stroke-width="2.5"/><rect x="50" y="16" width="20" height="30" rx="3" fill="#fff" stroke="#1A2744" stroke-width="2.5" transform="rotate(14 60 31)"/><path d="M14 52h68l-6 20H20z" fill="#1A2744"/><path d="M18 52h60" stroke="#D97706" stroke-width="4"/><rect x="18" y="72" width="60" height="6" rx="3" fill="#D97706"/></svg></div>
+    <div>
+      <div class="product-number">Gear 03</div>
+      <h3>Hands-Free Card Holders</h3>
+      <span class="price">Usually $10–15</span>
+      <p>A card stand holds a player's cards upright so they can see and choose without gripping them. It's a small thing that makes the game possible for a lot more people — young kids, older adults, and players with limited hand strength.</p>
+      <div class="buys"><a href="https://www.amazon.com/dp/B0DJSQ3SLT?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=02154423ff243d3e8bae973b314e7fa9&amp;language=en_US&amp;ref_=as_li_ss_tl" class="" target="_blank" rel="nofollow sponsored noopener">Shop card holders →</a></div>
+    </div>
   </div>
 
-  <div class="product">
-    <div class="product-number">Gear 05</div>
-    <h2>Playmat</h2>
-    <a href="https://www.amazon.com/s?k=trading+card+game+playmat&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
-    <p>A soft rubber mat keeps cards from sliding and makes cards easier to pick up off the table. It also gives every player a clear "battle spot" — helpful for players who benefit from structure.</p>
-    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Attack battles and players with motor challenges.</div>
+
+  <div class="gear-group">
+    <span class="gear-kicker extra">Level up</span>
+    <h2>Extras for collecting &amp; growing your collection</h2>
+    <p class="lead">Once the cards start piling up, these keep them safe, organized, and ready for bigger battles.</p>
+  </div>
+  <div class="gear">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 96 96"><rect x="26" y="12" width="44" height="64" rx="5" fill="#E0F2FE" stroke="#1A2744" stroke-width="3"/><rect x="33" y="22" width="30" height="44" rx="3" fill="#fff" stroke="#D97706" stroke-width="2.5"/><path d="M48 32l2.5 5 5.5.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8z" fill="#D97706"/><path d="M30 16h36" stroke="#fff" stroke-width="3" opacity=".9"/></svg></div>
+    <div>
+      <div class="product-number">Gear 04</div>
+      <h3>Penny Sleeves &amp; Top Loaders</h3>
+      <span class="price">Usually under $10 each</span>
+      <p>For the special pulls. Slide a favorite card into a thin penny sleeve, then into a rigid top loader to keep it safe in a backpack or on a shelf. Kids love having their &quot;best card&quot; protected like treasure.</p>
+      <div class="buys"><a href="https://www.amazon.com/dp/B0DZBDWZSQ?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=e917d1a49e4d28ab5edeaf200b7aba04&amp;language=en_US&amp;ref_=as_li_ss_tl" class="" target="_blank" rel="nofollow sponsored noopener">Penny sleeves →</a><a href="https://www.amazon.com/dp/B004KHV24W?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=f3f2c4233cd7b82232677f539c87aeb2&amp;language=en_US&amp;ref_=as_li_ss_tl" class="alt" target="_blank" rel="nofollow sponsored noopener">Top loaders →</a></div>
+    </div>
   </div>
 
-  <div class="product">
-    <div class="product-number">Gear 06</div>
-    <h2>Hands-Free Card Holders</h2>
-    <a href="https://www.amazon.com/s?k=playing+card+holder+for+kids&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
-    <p>A simple card stand holds a player's cards upright so they can see and choose without gripping them. It's a small thing that makes the game possible for a lot more people — young kids, older adults, and players with limited hand strength.</p>
-    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Accessible play at any age.</div>
+  <div class="gear">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 96 96"><rect x="16" y="16" width="64" height="66" rx="8" fill="#1A2744"/><rect x="24" y="24" width="48" height="50" rx="4" fill="#FAF8F3"/><g fill="#fff" stroke="#CBD5E1" stroke-width="1.5"><rect x="28" y="28" width="12" height="13" rx="2"/><rect x="42" y="28" width="12" height="13" rx="2"/><rect x="56" y="28" width="12" height="13" rx="2"/><rect x="28" y="43" width="12" height="13" rx="2"/><rect x="42" y="43" width="12" height="13" rx="2"/><rect x="56" y="43" width="12" height="13" rx="2"/><rect x="28" y="58" width="12" height="13" rx="2"/><rect x="42" y="58" width="12" height="13" rx="2"/><rect x="56" y="58" width="12" height="13" rx="2"/></g><path d="M16 22v54" stroke="#D97706" stroke-width="4" stroke-dasharray="4 3"/></svg></div>
+    <div>
+      <div class="product-number">Gear 05</div>
+      <h3>Zip-Around Card Binder</h3>
+      <span class="price">Usually $15–25</span>
+      <p>A zip binder with side-loading pockets keeps the whole collection together, and nothing spills out if it gets dropped. Flipping through pages to pick a battle team is half the fun.</p><div class="warn"><strong>Skip the 3-ring binder.</strong> For collectible cards, the metal rings can press into and dent the cards closest to them. A zip binder with fixed pages keeps every card flat and safe.</div>
+      <div class="buys"><a href="https://www.amazon.com/dp/B09WMBGR5G?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=dc49527f545b774d228ddca53e0bc8b9&amp;language=en_US&amp;ref_=as_li_ss_tl" class="" target="_blank" rel="nofollow sponsored noopener">Shop the zip binder →</a></div>
+    </div>
   </div>
 
-  <div class="product">
-    <div class="product-number">Gear 07</div>
-    <h2>Dice for Damage Tracking</h2>
-    <a href="https://www.amazon.com/s?k=6+sided+dice+set+bulk&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
-    <p>In Medium and Challenge, put a die on a Pokémon to count damage (each pip = 10). It's a sneaky bit of counting-by-tens practice, too.</p>
-    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Medium and Challenge games.</div>
+  <div class="gear">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 96 96"><rect x="12" y="34" width="72" height="44" rx="6" fill="#1A2744"/><g fill="#fff"><rect x="20" y="22" width="6" height="20" rx="1.5"/><rect x="28" y="24" width="6" height="18" rx="1.5"/><rect x="36" y="21" width="6" height="21" rx="1.5"/><rect x="50" y="23" width="6" height="19" rx="1.5"/><rect x="58" y="21" width="6" height="21" rx="1.5"/><rect x="66" y="24" width="6" height="18" rx="1.5"/></g><rect x="44" y="18" width="4" height="24" rx="1" fill="#D97706"/><rect x="12" y="34" width="72" height="8" fill="#D97706"/><rect x="38" y="54" width="20" height="6" rx="3" fill="#fff" opacity=".7"/></svg></div>
+    <div>
+      <div class="product-number">Gear 06</div>
+      <h3>Bulk Card Storage Box</h3>
+      <span class="price">Usually $15–25</span>
+      <p>My favorite way to store the extras. A sturdy box with dividers keeps hundreds of cards sorted — by type, by set, or by &quot;battle stack&quot; — so building a Marathon game takes seconds instead of a search party.</p>
+      <div class="buys"><a href="https://www.amazon.com/dp/B0CS34YHD4?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=0a4692c235ae806979fb59401119335d&amp;language=en_US&amp;ref_=as_li_ss_tl" class="" target="_blank" rel="nofollow sponsored noopener">Shop my favorite storage box →</a></div>
+    </div>
   </div>
 
-  <div class="product">
-    <div class="product-number">Gear 08</div>
-    <h2>Official Starter Box: Battle Academy</h2>
-    <a href="https://www.amazon.com/s?k=pokemon+tcg+battle+academy&amp;tag=playprep07-20" class="product-shop" target="_blank" rel="nofollow sponsored">Shop on Amazon →</a>
-    <p>When your Trainer has mastered the Challenge version, a Battle Academy box is the easiest way in. It comes with ready-to-play decks, a game board, and a guided first game that teaches the real rules step by step.</p>
-    <div class="product-best">✓ <strong>Best for:</strong>&nbsp; Graduating to the full trading card game.</div>
+  <div class="gear">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 96 96"><rect x="8" y="26" width="80" height="48" rx="8" fill="#1A2744"/><g fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2" stroke-dasharray="4 3"><rect x="40" y="34" width="16" height="22" rx="2"/><rect x="16" y="60" width="12" height="9" rx="2"/><rect x="32" y="60" width="12" height="9" rx="2"/><rect x="52" y="60" width="12" height="9" rx="2"/><rect x="68" y="60" width="12" height="9" rx="2"/></g><rect x="66" y="32" width="14" height="20" rx="2" fill="#D97706"/></svg></div>
+    <div>
+      <div class="product-number">Gear 07</div>
+      <h3>Playmat</h3>
+      <span class="price">Usually $15–20</span>
+      <p>A soft rubber mat keeps cards from sliding and makes them easier to pick up. This one has printed guides that show where each card goes — perfect for learning Bench Battle and the official game.</p><p>Tip: special collection boxes from the <a href='https://www.amazon.com/stores/Pok%C3%A9mon/page/DC6D208A-8D81-4AFA-90C5-616473E94ECA?lp_asin=B0GC7KFMF8&amp;store_ref=bl_ast_dp_brandlogo_sto&amp;linkCode=ll2&amp;tag=playpreptrainerbattle-20&amp;linkId=07bd805aed432e66e40a1a9ff3725ca8&amp;language=en_US&amp;ref_=as_li_ss_tl' target='_blank' rel='nofollow sponsored noopener' style='color:var(--amber);font-weight:700;'>Pokémon store</a> sometimes include a playmat, and so does the Battle Academy box below.</p>
+      <div class="buys"><a href="https://www.amazon.com/dp/B0CRBKCS4J?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=15b7763b8bb7d547587f39966e7c67d1&amp;language=en_US&amp;ref_=as_li_ss_tl" class="" target="_blank" rel="nofollow sponsored noopener">Shop the playmat →</a></div>
+    </div>
   </div>
+
+  <div class="gear">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 96 96"><rect x="12" y="26" width="72" height="52" rx="6" fill="#1A2744"/><rect x="12" y="26" width="72" height="14" rx="6" fill="#D97706"/><rect x="22" y="48" width="18" height="24" rx="3" fill="#fff"/><rect x="44" y="48" width="18" height="24" rx="3" fill="#fff"/><rect x="66" y="52" width="10" height="10" rx="2" fill="#fff" opacity=".8"/><circle cx="71" cy="57" r="1.6" fill="#1A2744"/></svg></div>
+    <div>
+      <div class="product-number">Gear 08</div>
+      <h3>Official Starter Box: Battle Academy</h3>
+      <span class="price">Usually $20–30</span>
+      <p>When your Trainer has mastered the Challenge version, a Battle Academy box is the easiest way into the official game. It comes with ready-to-play decks, a game board, and a guided first game that teaches the real rules step by step.</p>
+      <div class="buys"><a href="https://www.amazon.com/dp/B09S3ZC9QH?tag=playpreptrainerbattle-20&amp;linkCode=ll2&amp;linkId=137ae3a3e2898cd4b2c20f22100eced9&amp;language=en_US&amp;ref_=as_li_ss_tl" class="" target="_blank" rel="nofollow sponsored noopener">Shop Battle Academy →</a></div>
+    </div>
+  </div>
+
 
   <!-- CTA -->
   <div class="post-cta">
     <p class="label">Plan your next game night</p>
     <h3>More family activities in PlayPrep</h3>
     <p>All Trainers Battle lives in the PlayPrep library alongside lots of other hands-on activities. Save your favorites and see exactly what you need to play.</p>
-    <a href="https://playprep.app/beta.html" target="_blank">Get PlayPrep free →</a>
+    <a href="/">Explore PlayPrep →</a>
   </div>
 
   <!-- FOOTER DISCLOSURE -->
